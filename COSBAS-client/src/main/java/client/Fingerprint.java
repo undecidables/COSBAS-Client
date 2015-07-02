@@ -16,4 +16,14 @@ public class Fingerprint implements Biometric {
     {
 
     }
+
+    /**
+     * This method will capture data from IO device and store somewhere on the client
+     */
+    private void capture()
+    {
+
+    }
+
+
 }

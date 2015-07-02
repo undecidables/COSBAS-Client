@@ -19,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -33,6 +34,7 @@ public class Client {
 
     public static void main(String[] args) throws IOException, ConfigurationException
     {
+
 
         System.out.println("Starting up client");
 
@@ -93,8 +95,6 @@ public class Client {
             httpClient.close();
 
         }
-
-
 
         //PropertiesConfiguration prop;
         //have to spin, wait for something to activate me
