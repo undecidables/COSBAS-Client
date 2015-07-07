@@ -7,6 +7,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.HttpHostConnectException;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.opencv.core.Core;
 
 
 import javax.security.auth.login.AppConfigurationEntry;
@@ -31,7 +32,7 @@ public class Client {
 
     private static final String CONFIG_FILE_NAME = "config.properties";
 
-
+    static{ System.loadLibrary(Core.NATIVE_LIBRARY_NAME); }
     public static void main(String[] args) throws IOException, ConfigurationException
     {
 
@@ -47,24 +48,15 @@ public class Client {
 
         String input = "";
 
+
         while(scan.hasNextLine()){
             input = scan.nextLine();
             //this means that no keycode was entered so take some pictures and scan finger print
-            ArrayList<BiometricData> data = new ArrayList<BiometricData>();
+            ArrayList<BiometricData> data;
             if(input.toString().equals(""))
             {
-                System.out.println("got nothing this time boys");
-                Path p = Paths.get("images/faces/face1.png");
-                BiometricData g = new BiometricData("face", Files.readAllBytes(p));
-
-                Path q = Paths.get("images/faces/face2.jpg");
-                BiometricData f = new BiometricData("face", Files.readAllBytes(q));
-
-                Path r = Paths.get("images/finger/finger.jpg");
-                BiometricData h = new BiometricData("finger", Files.readAllBytes(r));
-                data.add(g);
-                data.add(f);
-                data.add(h);
+                Factory factory = new Factory();
+                data = factory.produce();
             }
             else //keycode was entered, lets authenticate it. should we maybe take pictures of people that entered via keycode??
             {
@@ -72,6 +64,7 @@ public class Client {
                 {
                     return;
                 }
+                data = new ArrayList<BiometricData>();
                 BiometricData d = new BiometricData("keycode", input.getBytes());
                 data.add(d);
             }
@@ -96,7 +89,7 @@ public class Client {
 
         }
 
-        //PropertiesConfiguration prop;
+       /* //PropertiesConfiguration prop;
         //have to spin, wait for something to activate me
         //for now activate on keypress??? can only do that if enter is pressed or something along those lines
         //need to set up a config file for server address + port and as well as where the images will be stored
@@ -114,7 +107,7 @@ public class Client {
         // print result
        // System.out.println(response.toString());
 
-
+*/
 
 
         System.out.println("Closing client");
