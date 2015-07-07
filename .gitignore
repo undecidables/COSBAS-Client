@@ -6,7 +6,6 @@ COSBAS-client/images/
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 
