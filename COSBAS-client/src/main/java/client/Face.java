@@ -5,6 +5,8 @@ import org.opencv.highgui.Highgui;
 import org.opencv.highgui.VideoCapture;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by POLSKA on 30/06/2015.
@@ -35,7 +37,7 @@ public class Face implements Biometric
      */
     public ArrayList<BiometricData> prepare()
     {
-        ArrayList<Mat> frames = new ArrayList<Mat>();
+        List<Mat> frames = Collections.synchronizedList(new ArrayList<Mat>());
         ArrayList<BiometricData> datas = new ArrayList<BiometricData>();
         capture(frames);
         if(frames.size() > 0)
@@ -58,10 +60,10 @@ public class Face implements Biometric
      * This method will capture data from IO device and store somewhere on the client.
      * This will be done by running a script of some sorts or use library.
      */
-    private void capture(ArrayList<Mat> frames)
+    private void capture(List<Mat> frames)
     {
         VideoCapture camera = new VideoCapture(0); //param passed is the device number, dont know if it will always be zero. might have to find the right device num in the client main.
-        FaceDetection fd = new FaceDetection();
+
         try //Need to put thread to sleep so that camera has some time to initialize
         {
             Thread.sleep(1000);
@@ -79,6 +81,7 @@ public class Face implements Biometric
         {
             //need to take a few images incase one of them are blurry
             int count = 0;
+            ArrayList<FaceDetection> threads = new ArrayList<FaceDetection>();
             while(count < 7)
             {
 
@@ -92,15 +95,32 @@ public class Face implements Biometric
                 }
                 Mat frame = new Mat();
                 camera.read(frame);
+                System.out.println("took a photo.");
                 //System.out.println("Taking a frame now....");
-                //Highgui.imwrite("capture" + count + ".jpg", frame);
+                Highgui.imwrite("capture" + count + ".jpg", frame);
+                FaceDetection fd = new FaceDetection(frame, frames);
+                threads.add(fd);
+                System.out.println("Running a thread");
+                fd.run();
+
                 count++;
-                if(fd.detect(frame))
-                {
-                    frames.add(frame);
-                }
 
             }
+
+            for(FaceDetection thread : threads)
+            {
+                try
+                {
+                    System.out.println("Joining thread");
+                    thread.join();
+                }
+                catch (InterruptedException e)
+                {
+                    System.out.println("An error occured waiting for thread to join.");
+                    //e.printStackTrace();
+                }
+            }
+            camera.release();
 
 
         }

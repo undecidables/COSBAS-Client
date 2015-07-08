@@ -18,13 +18,24 @@ import org.opencv.objdetect.CascadeClassifier;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by POLSKA on 01/07/2015.
  */
-public class FaceDetection {
+public class FaceDetection extends Thread
+{
+    private Mat frame;
+    private List<Mat> frames;
 
-    public boolean detect(Mat frame)
+    FaceDetection(Mat _frame, List<Mat> _frames)
+    {
+        this.frame = _frame;
+        this.frames = _frames;
+    }
+
+
+    public void run()
     {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         System.out.println("\nRunning FaceDetector");
@@ -48,17 +59,15 @@ public class FaceDetection {
             for(Rect rectCrop : rectToCrop)
             {
                 Mat newFace = new Mat(frame, rectCrop);
-                frame = newFace;
+                frames.add(newFace);
             }
-            return true;
         }
         else
         {
             frame = null;
-            return false;
         }
-
-
     }
+
+
 
 }
