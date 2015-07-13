@@ -70,15 +70,17 @@ public class Client {
             }
 
 
+
+
             CloseableHttpClient httpClient = HttpClients.createDefault();
             HttpRequestBuilder request = new HttpRequestBuilder();
-            HttpPost httpPost = request.buildRequest(config.getProperty("url").toString(),
+            HttpPost httpPost = request.buildRequest(config.getProperty("url").toString(),config.getProperty("map").toString(),
                     config.getProperty("id").toString(), config.getProperty("action").toString(), data);
             try
             {
                 CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
                 HttpResponseHandler response = new HttpResponseHandler();
-                response.handleResponse(httpResponse);
+                System.out.println(response.handleResponse(httpResponse));
             }
             catch(HttpHostConnectException e)
             {
