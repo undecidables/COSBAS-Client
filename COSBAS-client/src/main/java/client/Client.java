@@ -69,7 +69,7 @@ public class Client {
                 data.add(d);
             }
 
-
+            System.out.println("I am here");
 
 
             CloseableHttpClient httpClient = HttpClients.createDefault();

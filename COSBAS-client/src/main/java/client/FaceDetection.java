@@ -7,18 +7,18 @@ import static org.bytedeco.javacpp.opencv_core.*;
 import static org.bytedeco.javacpp.opencv_highgui.*;
 import static org.bytedeco.javacpp.opencv_objdetect.*;*/
 
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfRect;
-import org.opencv.core.Point;
-import org.opencv.core.Rect;
-import org.opencv.core.Scalar;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import org.opencv.core.*;
 import org.opencv.highgui.Highgui;
 import org.opencv.objdetect.CascadeClassifier;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by POLSKA on 01/07/2015.
@@ -59,6 +59,11 @@ public class FaceDetection extends Thread
             for(Rect rectCrop : rectToCrop)
             {
                 Mat newFace = new Mat(frame, rectCrop);
+                if(!newFace.isContinuous())
+                {
+                    Mat temp = newFace.clone();
+                    newFace = temp;
+                }
                 frames.add(newFace);
             }
         }
