@@ -27,3 +27,9 @@ lib/
 Thumbs.db
 *jb_bak___
 gradle/
+
+
+COSBAS-client/gradle/
+COSBAS-client/build/
+COSBAS-client/.gradle/
+COSBAS-client/.idea/
