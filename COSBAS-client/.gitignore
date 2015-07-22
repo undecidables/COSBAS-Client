@@ -1,10 +1,11 @@
+COSBAS-client/images/
+
 *.class
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 
@@ -25,4 +26,3 @@ lib/
 #Windows
 Thumbs.db
 *jb_bak___
-
