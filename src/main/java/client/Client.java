@@ -1,5 +1,6 @@
 package client;
 
+import com.google.gson.Gson;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -69,8 +70,6 @@ public class Client {
                 data.add(d);
             }
 
-            System.out.println("I am here");
-
 
             CloseableHttpClient httpClient = HttpClients.createDefault();
             HttpRequestBuilder request = new HttpRequestBuilder();
@@ -80,7 +79,15 @@ public class Client {
             {
                 CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
                 HttpResponseHandler response = new HttpResponseHandler();
-                System.out.println(response.handleResponse(httpResponse));
+
+                String json = response.handleResponse(httpResponse);
+                System.out.println("The reply: ");
+                System.out.println(json);
+                Gson gson = new Gson();
+                AccessResponse aResponse = gson.fromJson(json, AccessResponse.class);
+
+                System.out.println("This is our result: " + aResponse.getResult());
+                System.out.println("");
             }
             catch(HttpHostConnectException e)
             {
