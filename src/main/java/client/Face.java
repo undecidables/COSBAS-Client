@@ -24,65 +24,43 @@ public class Face implements Biometric
      *
      * @param _data takes in an arraylist of BiometricData and will add face data to it
      */
-    @Override
-    public void fillData(ArrayList<BiometricData> _data)
+
+    public void fillData(ArrayList<BiometricData> datas)
     {
-        ArrayList<BiometricData> datas = prepare();
-        if(datas != null)
+
+        Camera c = new Camera();
+        ArrayList<Mat> frames = c.captureFrames();
+        frames = detectFaces(frames);
+        ArrayList<byte[]> images = prepare(frames);
+
+
+        if(images != null)
         {
-            for (BiometricData data : datas)
+            for(byte[] image : images)
             {
-                _data.add(data);
+                BiometricData data = new BiometricData("face", image);
+                datas.add(data);
+
             }
         }
-
     }
 
     /**
      *
      */
-    public ArrayList<BiometricData> prepare()
+    private ArrayList<byte[]> prepare(ArrayList<Mat> frames)
     {
-        List<Mat> frames = Collections.synchronizedList(new ArrayList<Mat>());
-        ArrayList<BiometricData> datas = new ArrayList<BiometricData>();
-        capture(frames);
+        ArrayList<byte[]> datas = new ArrayList<byte[]>();
         if(frames.size() > 0)
         {
-            int name = (int) (Math.random() * 100);
-            File dir = new File(name + "");
-            dir.mkdir();
-            String filePath = name + "";
-            Path dirPath = Paths.get(filePath);
-            String fileName = "/face.png";
+
+            ImageByteArrayConverterInterface convertor = new ConvertMatToImageByteArray();
+
+
             for (Mat frame : frames)
             {
-                //byte[] image = new byte[(int) (frame.total() * frame.channels())];
-                //frame.get(0, 0, image);
-
-                //this could be done better? only way i could get it to work for now.
-
-                Highgui.imwrite(filePath + fileName, frame);
-                Path imagePath = Paths.get(filePath + fileName);
-
-                try {
-                    byte[] image = new byte[0];
-                    image = Files.readAllBytes(imagePath);
-                    BiometricData data = new BiometricData("face", image);
-                    datas.add(data);
-                    Files.delete(imagePath);
-                } catch (IOException e) {
-                    //e.printStackTrace();
-                    System.out.println("borked");
-                }
-
-
-
-            }
-
-            try {
-                Files.delete(dirPath);
-            } catch (IOException e) {
-                System.out.println("Problem deleting dir");
+                byte[] convertedImage = convertor.convertToImageByteArray(frame);
+                datas.add(convertedImage);
             }
 
             return datas;
@@ -95,77 +73,46 @@ public class Face implements Biometric
      * This method will capture data from IO device and store somewhere on the client.
      * This will be done by running a script of some sorts or use library.
      */
-    private void capture(List<Mat> _frames)
+    private ArrayList<Mat> detectFaces(ArrayList<Mat> _frames)
     {
-        VideoCapture camera = new VideoCapture(0); //param passed is the device number, dont know if it will always be zero. might have to find the right device num in the client main.
-        //camera.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 1280); //camera resolution set here we could maybe have this in the config file???
-        //camera.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 720);
-        List<Mat> tempFrames = new ArrayList<Mat>();
+        ArrayList<FaceDetection> threads = new ArrayList<FaceDetection>();
 
-        try //Need to put thread to sleep so that camera has some time to initialize
+        List<Mat> tempFrames = Collections.synchronizedList(new ArrayList<Mat>());
+
+        for(Mat frame : _frames)
         {
-            Thread.sleep(1000);
+            FaceDetection fd = new FaceDetection(frame, tempFrames);
+            threads.add(fd);
+            System.out.println("Running a thread");
+            fd.run();
         }
-        catch(Exception e)
+
+
+        for(FaceDetection thread : threads)
         {
-            //print to file??? do some error handling
-        }
-        if(!camera.isOpened())
-        {
-            //something went wrong, log to file. handle this
-            System.out.println("Error");
-        }
-        else
-        {
-            //need to take a few images incase one of them are blurry
-            int count = 0;
-            ArrayList<FaceDetection> threads = new ArrayList<FaceDetection>();
-            while(count < 4)
+            try
             {
-                try
-                {
-                    Thread.sleep(100);
-                }
-                catch (Exception e)
-                {
-
-                }
-                Mat tempFrame = new Mat();
-                Mat frame = new Mat();
-                camera.read(tempFrame);
-                Imgproc.cvtColor(tempFrame, frame,Imgproc.COLOR_RGB2GRAY);
-                tempFrame = null;
-                tempFrames.add(frame);
-                System.out.println("Captured a photo.");
-                count++;
+                System.out.println("Joining thread");
+                thread.join();
             }
-
-            for(Mat frame : tempFrames)
+            catch (InterruptedException e)
             {
-                FaceDetection fd = new FaceDetection(frame, _frames);
-                threads.add(fd);
-                System.out.println("Running a thread");
-                fd.run();
+                System.out.println("An error occured waiting for thread to join.");
+                //e.printStackTrace();
             }
-
-
-            for(FaceDetection thread : threads)
-            {
-                try
-                {
-                    System.out.println("Joining thread");
-                    thread.join();
-                }
-                catch (InterruptedException e)
-                {
-                    System.out.println("An error occured waiting for thread to join.");
-                    //e.printStackTrace();
-                }
-            }
-            camera.release();
-
-
         }
+
+        ArrayList<Mat> frames = new ArrayList<Mat>();
+
+        for (Mat frame : tempFrames)
+        {
+            frames.add(frame);
+        }
+
+        tempFrames = null;
+
+        return frames;
+
     }
 
 }

@@ -20,5 +20,10 @@ import static org.mockito.Mockito.mock;
 public class Tester extends TestCase{
 
 
+    @Test
+    public void testSomething()
+    {
+        Face test = mock(Face.class);
 
+    }
 }*/
