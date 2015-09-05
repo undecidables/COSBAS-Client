@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Created by POLSKA on 26/06/2015.
+ * {@author Szymon}
  */
 public class HttpResponseHandler
 {

@@ -1,13 +1,14 @@
 package client;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Created by POLSKA on 07/07/2015.
+ * {@author Szymon}
  */
 public class Factory {
-    public ArrayList<BiometricData> produce()
-    {
+    public ArrayList<BiometricData> produce() throws IOException {
         Biometric face = new Face();
         Biometric finger = new Fingerprint();
         ArrayList<BiometricData> data = new ArrayList<BiometricData>();

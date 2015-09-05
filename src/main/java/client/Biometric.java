@@ -3,7 +3,7 @@ package client;
 import java.util.ArrayList;
 
 /**
- * Created by POLSKA on 30/06/2015.
+ * {@author Szymon}
  */
 public interface Biometric
 {

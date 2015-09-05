@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Created by POLSKA on 24/06/2015.
+ * {@author Szymon}
  */
 
 

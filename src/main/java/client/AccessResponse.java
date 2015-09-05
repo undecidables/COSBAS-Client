@@ -3,8 +3,7 @@ package client;
 import java.time.LocalDateTime;
 
 /**
- * Created by Renette on 2015-06-27.
- * Response to AccessRequest.
+ * {@author Renette}
  */
 public class AccessResponse {
     public Boolean getResult() {

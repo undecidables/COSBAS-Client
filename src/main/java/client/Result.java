@@ -1,7 +1,7 @@
 package client;
 
 /**
- * Created by POLSKA on 28/06/2015.
+ * {@author Szymon}
  */
 public class Result {
     private String result;
