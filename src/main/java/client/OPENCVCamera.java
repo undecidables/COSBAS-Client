@@ -5,12 +5,25 @@ import org.opencv.highgui.VideoCapture;
 import org.opencv.imgproc.Imgproc;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Created by simon on 2015-07-23.
+ * {@author Szymon}
  */
-public class Camera {
+public class OPENCVCamera implements CameraInterface {
+
+    public ArrayList<byte[]> getImages()
+    {
+        ArrayList<Mat> matImages = captureFrames();
+        ArrayList<byte[]> images = new ArrayList<byte[]>();
+
+        ImageByteArrayConverterInterface convertor = new ConvertMatToImageByteArray();
+        for(Mat image : matImages)
+        {
+            images.add(convertor.convertToImageByteArray(image));
+        }
+
+        return images;
+    }
 
     public ArrayList<Mat> captureFrames()
     {
@@ -36,7 +49,7 @@ public class Camera {
         {
             //need to take a few images incase one of them are blurry
             int count = 0;
-            ArrayList<FaceDetection> threads = new ArrayList<FaceDetection>();
+            ArrayList<OPENCVFaceDetectors> threads = new ArrayList<OPENCVFaceDetectors>();
             while (count < 4) {
                 try {
                     Thread.sleep(250);

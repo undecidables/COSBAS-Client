@@ -1,8 +1,5 @@
 package client;
 
-/**
- * Created by POLSKA on 24/06/2015.
- */
 
 import java.io.File;
 
@@ -27,6 +24,9 @@ import org.apache.http.impl.client.HttpClients;
 import org.omg.CORBA.NameValuePair;
 import sun.net.www.http.HttpClient;
 
+/**
+ * {@author Szymon}
+ */
 public class HttpRequestBuilder
 {
 
