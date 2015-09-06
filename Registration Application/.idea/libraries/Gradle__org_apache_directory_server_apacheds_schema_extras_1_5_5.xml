@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.directory.server:apacheds-schema-extras:1.5.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-schema-extras/1.5.5/816d89b19b61251ad0983e4eb68c01c7f87dd281/apacheds-schema-extras-1.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-schema-extras/1.5.5/bf115969c9c8c7ec66cffc5c784fee18eaca5eda/apacheds-schema-extras-1.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.directory.server:apacheds-schema-registries:1.5.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-schema-registries/1.5.5/a175780bc8a76ad2c2516f2dec7cd90a6f240bcb/apacheds-schema-registries-1.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-schema-registries/1.5.5/75310144f62ee50477728fdea9188a831560d009/apacheds-schema-registries-1.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

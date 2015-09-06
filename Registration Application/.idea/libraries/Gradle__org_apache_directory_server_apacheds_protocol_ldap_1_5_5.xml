@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.directory.server:apacheds-protocol-ldap:1.5.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-protocol-ldap/1.5.5/f6f8cb2e97a64d34fbf393c746b0a4a3136ff801/apacheds-protocol-ldap-1.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-protocol-ldap/1.5.5/7121a96c09527dc97f1bcf3fd5af4259587de6a7/apacheds-protocol-ldap-1.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.directory.server:apacheds-xdbm-search:1.5.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-xdbm-search/1.5.5/e2202ccb15d5af49fd982daac289b8b12019e157/apacheds-xdbm-search-1.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-xdbm-search/1.5.5/1789ce4b367bbebd35d39391da4deb4e8b72d5f/apacheds-xdbm-search-1.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

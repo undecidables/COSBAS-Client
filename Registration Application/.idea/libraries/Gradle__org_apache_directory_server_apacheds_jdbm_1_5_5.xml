@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.directory.server:apacheds-jdbm:1.5.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-jdbm/1.5.5/b2e563d45c7a4cdf840fd5d49428692e0b5b6955/apacheds-jdbm-1.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-jdbm/1.5.5/f995d1c9d4c1412a46fd4adc10c09fa5535adc43/apacheds-jdbm-1.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

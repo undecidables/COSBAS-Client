@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.directory.server:apacheds-xdbm-tools:1.5.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-xdbm-tools/1.5.5/fc1bf57bf99956c1552359dc9aac6cf25994c3fe/apacheds-xdbm-tools-1.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-xdbm-tools/1.5.5/217500a977efe1adac082f66c1a8d442267edf3a/apacheds-xdbm-tools-1.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

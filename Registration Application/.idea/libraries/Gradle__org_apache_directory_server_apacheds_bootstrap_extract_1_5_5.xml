@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.directory.server:apacheds-bootstrap-extract:1.5.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-bootstrap-extract/1.5.5/39726f002259550f6f08534b0f4226d3a84582b6/apacheds-bootstrap-extract-1.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-bootstrap-extract/1.5.5/14d284e3f6a0aa5d1be14324ae186ddfc60974da/apacheds-bootstrap-extract-1.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
