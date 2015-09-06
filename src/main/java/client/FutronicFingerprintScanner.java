@@ -40,7 +40,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                 }
                 else {
                     count++;
-                    Process process = new ProcessBuilder("sudo programs/Fingerprint Scanner/ftrScanAPI_Ex-0").start();
+                    Process process = new ProcessBuilder("programs/FingerprintScanner/ftrScanAPI_Ex-0").start();
                     InputStream processStream = process.getInputStream();
                     InputStreamReader processStreamReader = new InputStreamReader(processStream);
                     BufferedReader reader = new BufferedReader(processStreamReader);
