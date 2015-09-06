@@ -47,6 +47,12 @@ public class Client {
         Scanner scan= new Scanner(System.in);
 
 
+       /* File f = new File("programs/Fingerprint Scanner/ftrScanAPI_Ex-0");
+        System.out.println(f.getAbsolutePath());
+        if(f.exists())
+        {
+            System.out.println("I exist");
+        }*/
         String input = "";
 
 
