@@ -2,7 +2,7 @@
 Source code for the client part of the COSBAS, well anything related to the client
 
 
-*To setup and run OpenCV with Jetbrains IntelliJ IDEA:  
+* To setup and run OpenCV with Jetbrains IntelliJ IDEA:  
 1) Click on File -> Project Structure (CTRL + ALT + SHIFT + S)  
 2) In the middle window, click on the green + (New Project Library) and select Java  
 3) Navigate to the directory where OpenCV was extracted. (i.e. F:\opencv\build\java\opencv-300.jar) and select opencv-300.jar  
