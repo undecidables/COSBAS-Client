@@ -1,9 +1,9 @@
 package client;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
@@ -26,6 +26,12 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
 
     public ArrayList<byte[]> captureFrames() throws IOException {
         //do a check for system so
+
+        String dirName = "fingerprints";
+        ArrayList<byte[]> images = new ArrayList<byte[]>();
+        File dir = new File(dirName);
+        dir.mkdir();
+
         if(!System.getProperty("os.arch").equals("arm"))
         {
             //not runnong on arm/pi, just grab an image from folder
@@ -39,16 +45,35 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                     break;
                 }
                 else {
-                    count++;
+
                     Process process = new ProcessBuilder("programs/FingerprintScanner/ftrScanAPI_Ex-0").start();
                     InputStream processStream = process.getInputStream();
                     InputStreamReader processStreamReader = new InputStreamReader(processStream);
                     BufferedReader reader = new BufferedReader(processStreamReader);
                     String output;
 
+
+
                     while ((output = reader.readLine()) != null)
                     {
                         System.out.println("This is the ouput: " + output);
+                        if(output.contains("Fingerprint image is written to file:"))
+                        {
+                            Path path = Paths.get(dirName+"/frame_Ex.bmp");
+                            File image = path.toFile();
+                            if(image.exists())
+                            {
+                                images.add(Files.readAllBytes(path));
+                                image.delete();
+                                count++;
+                                break;
+                            }
+                            else
+                            {
+
+                            }
+
+                        }
                     }
 
                 }
@@ -56,7 +81,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
 
         }
 
-
+        dir.delete();
 
         return null;
     }
