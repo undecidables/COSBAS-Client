@@ -59,7 +59,8 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
         else
         {
             int count = 0;
-            while(true)
+            boolean scannerError = false;
+            while(!scannerError)
             {
                 if(count > 2)
                 {
@@ -98,6 +99,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                         }
                         else if (output.contains("Failed to open device!") || output.contains("Failed to get image size"))
                         {
+                            scannerError = true;
                             break;
                         }
                     }
