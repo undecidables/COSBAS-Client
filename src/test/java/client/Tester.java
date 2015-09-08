@@ -1,4 +1,4 @@
-/*package client;
+package client;
 
 import junit.framework.TestCase;
 import org.apache.http.client.methods.HttpPost;
@@ -22,12 +22,28 @@ import static org.mockito.Mockito.mock;
 
 /**
  * Created by POLSKA on 26/06/2015.
- */ /*
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class Tester extends TestCase{
 
 
     @Test
+    public void testFingerPrintScanning()
+    {
+        FutronicFingerprintScanner scanner = new FutronicFingerprintScanner();
+        ArrayList<byte[]> results = scanner.getImages();
+        if(!System.getProperty("os.arch").equals("arm"))
+        {
+            //not runnong on arm/pi, just grab an image from folder
+            assertTrue(results.isEmpty());
+        }
+        else
+        {
+            assertTrue(!results.isEmpty());
+        }
+    }
+
+    /*@Test
     public void testFaceDetection() throws IOException {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         Path imagePath = Paths.get("testingimages/oneface.png");
@@ -38,6 +54,5 @@ public class Tester extends TestCase{
         ArrayList<byte[]> faces = fd.detectFaces(images);
         System.out.println(faces.size());
         assertTrue(!(faces.isEmpty()));
-    }
+    }*/
 }
-*/

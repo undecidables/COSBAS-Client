@@ -1,5 +1,8 @@
 package client;
 
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,15 +14,31 @@ import java.util.ArrayList;
  */
 public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
 
+    private static final String CONFIG_FILE_NAME = "config.properties";
+    private PropertiesConfiguration config = new PropertiesConfiguration();
+
+    public FutronicFingerprintScanner()
+    {
+        try {
+            config.load(CONFIG_FILE_NAME);
+        } catch (ConfigurationException e) {
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<byte[]> getImages()
     {
         //this can only be tested with futronic device when run on pi. wait can look into windows java as well will do.
         System.out.println("Call to getimages");
-	ArrayList<byte[]> images = null;
-        try {
+        ArrayList<byte[]> images = new ArrayList<byte[]>();
+        try
+        {
             images = captureFrames();
-        } catch (IOException e) {
-            e.printStackTrace();
+        }
+        catch (IOException e)
+        {
+            //e.printStackTrace();
+            System.out.println("An error occured: IOException");
         }
 
         return images;
@@ -28,9 +47,9 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
     public ArrayList<byte[]> captureFrames() throws IOException {
         //do a check for system so
 
-        String dirName = "fingerprints";
         ArrayList<byte[]> images = new ArrayList<byte[]>();
-        File dir = new File(dirName);
+        int dirName = (int) (Math.random() * 100);
+        File dir = new File(dirName + "");
         dir.mkdir();
 
         if(!System.getProperty("os.arch").equals("arm"))
@@ -42,12 +61,14 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
             int count = 0;
             while(true)
             {
-                if(count > 2) {
+                if(count > 2)
+                {
                     break;
                 }
-                else {
+                else
+                {
 
-                    Process process = new ProcessBuilder("programs/FingerprintScanner/ftrScanAPI_Ex-0").start();
+                    Process process = new ProcessBuilder(config.getProperty("fingerprintScannerProgam").toString()).start();
                     InputStream processStream = process.getInputStream();
                     InputStreamReader processStreamReader = new InputStreamReader(processStream);
                     BufferedReader reader = new BufferedReader(processStreamReader);
@@ -60,7 +81,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                         System.out.println("This is the ouput: " + output);
                         if(output.contains("Fingerprint image is written to file:"))
                         {
-                            Path path = Paths.get(dirName+"/frame_Ex.bmp");
+                            Path path = Paths.get(dirName+"/"+config.getProperty("fingerPrintOutput"));
                             File image = path.toFile();
                             if(image.exists())
                             {
@@ -75,6 +96,10 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                             }
 
                         }
+                        else if (output.contains("Failed to open device!") || output.contains("Failed to get image size"))
+                        {
+                            break;
+                        }
                     }
 
                 }
@@ -82,7 +107,11 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
 
         }
 
-        dir.delete();
+        if(dir.exists())
+        {
+
+            dir.delete();
+        }
         return images;
     }
 
