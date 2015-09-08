@@ -15,13 +15,14 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
     {
         //this can only be tested with futronic device when run on pi. wait can look into windows java as well will do.
         System.out.println("Call to getimages");
+	ArrayList<byte[]> images = null;
         try {
-            ArrayList<byte[]> images = captureFrames();
+            images = captureFrames();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return null;
+        return images;
     }
 
     public ArrayList<byte[]> captureFrames() throws IOException {
@@ -82,8 +83,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
         }
 
         dir.delete();
-
-        return null;
+        return images;
     }
 
 
