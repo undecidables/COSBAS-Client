@@ -48,7 +48,8 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
         //do a check for system so
 
         ArrayList<byte[]> images = new ArrayList<byte[]>();
-        int dirName = (int) (Math.random() * 100);
+        //int dirName = (int) (Math.random() * 100);
+	String dirName = "fingerprints";
         File dir = new File(dirName + "");
         dir.mkdir();
 
@@ -69,7 +70,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                 else
                 {
 
-                    Process process = new ProcessBuilder(config.getProperty("fingerprintScannerProgam").toString()).start();
+                    Process process = new ProcessBuilder("programs/FingerprintScanner/ftrScanAPI_Ex-0").start();
                     InputStream processStream = process.getInputStream();
                     InputStreamReader processStreamReader = new InputStreamReader(processStream);
                     BufferedReader reader = new BufferedReader(processStreamReader);
@@ -82,7 +83,8 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                         System.out.println("This is the ouput: " + output);
                         if(output.contains("Fingerprint image is written to file:"))
                         {
-                            Path path = Paths.get(dirName+"/"+config.getProperty("fingerPrintOutput"));
+                            Path path = Paths.get(dirName+"/frame_Ex.bmp");
+			    System.out.println("This is the path: " + path.toString());
                             File image = path.toFile();
                             if(image.exists())
                             {
@@ -99,6 +101,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                         }
                         else if (output.contains("Failed to open device!") || output.contains("Failed to get image size"))
                         {
+			    System.out.println("its failing here");
                             scannerError = true;
                             break;
                         }
