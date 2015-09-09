@@ -1,5 +1,6 @@
 package application;
 
+import HTTPPostBuilder.HTTPPostSender;
 import authentication.Authenticator;
 import authentication.LDAPTester;
 import javafx.application.Application;
@@ -8,12 +9,10 @@ import javafx.embed.swing.SwingNode;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
-
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -24,7 +23,6 @@ import org.opencv.core.Mat;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
 
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -32,6 +30,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+
 
 
 public class RegistrationApplication extends Application {
@@ -191,7 +190,7 @@ public class RegistrationApplication extends Application {
             actiontarget2.setText("Sign in button pressed");
             try {
                 LDAPTester ldapTest = new LDAPTester();
-                if (ldapTest.getDnForUser(EMPLID, null) != null) {
+                if (LDAPTester.getDnForUser(EMPLID, null) != null) {
                     System.out.println("Found User!");
                     thestage.setScene(scene3);
 
@@ -339,6 +338,9 @@ public class RegistrationApplication extends Application {
                 ImageIO.write(originalImage, "jpg", baos);
                 baos.flush();
                 byte[] imageInByte = baos.toByteArray();
+                sendHTTPPostAsJSON(imageInByte);
+
+
                 baos.close();
 
             } catch (IOException exc) {
@@ -357,6 +359,11 @@ public class RegistrationApplication extends Application {
         pane4.add(swingContent, 1, 5);
         thestage.sizeToScene();
 
+    }
+
+    public void sendHTTPPostAsJSON(byte[] image) {
+        HTTPPostSender sender = new HTTPPostSender();
+        sender.sendPostRequest(image);
     }
 
 }

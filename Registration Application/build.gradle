@@ -84,6 +84,33 @@ dependencies {
     compile "org.springframework.security:spring-security-ldap"
     compile "org.apache.directory.server:apacheds-server-jndi:1.5.5"
 
+    compile 'com.googlecode.json-simple:json-simple:1.1'
+    compile 'org.apache.httpcomponents:httpclient:4.3.4'
+
+    compile('org.apache.httpcomponents:httpmime:4.+') {
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
+    compile('org.apache.httpcomponents:httpcore:4.+') {
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+
+    }
+    compile('org.apache.httpcomponents:httpclient:4.+') {
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
+    compile 'com.squareup.dagger:dagger:1.2.2'
+    compile 'commons-configuration:commons-configuration:1.10'
+
+    //compile group: 'org.bytedeco', name: 'javacv', version: '0.11'
+    //compile group: 'org.bytedeco', name: 'javacpp', version: '0.11'
+    //compile 'org.bytedeco.javacpp-presets:opencv:2.4.11-0.11'
+    compile 'com.google.code.gson:gson:2.3.1'
+    //compile 'org.bytedeco.javacpp-presets:ffmpeg:2.6.1-0.11'
+    //compile files("libs/opencv-2411.jar")
+    compile 'commons-configuration:commons-configuration:1.10'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+
+
+
     testCompile "junit:junit"
     testCompile "org.mockito:mockito-core:1.+"
 }
