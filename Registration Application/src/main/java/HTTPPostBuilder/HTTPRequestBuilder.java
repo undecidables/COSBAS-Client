@@ -20,23 +20,23 @@ public class HTTPRequestBuilder {
      */
     public HttpPost buildRequest(String _url, String _map, String _id, String _action, byte[] _biometricData) {
         HttpPost httpPost = new HttpPost(_url + _map);
-        httpPost.addHeader("User-Agent", "piClientRegistration");
+        httpPost.addHeader("User-Agent", "BiometricRegistration");
         httpPost.setEntity(buildHttpEntity(_id, _action, _biometricData));
         return httpPost;
     }
 
 
-    public HttpEntity buildHttpEntity(String _id, String _action, byte[] _biometricData) {
+    public HttpEntity buildHttpEntity(String emplid, String _email, byte[] _biometricData) {
         MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create();
         entityBuilder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
 
-        StringBody action = new StringBody(_action, ContentType.MULTIPART_FORM_DATA);
-        StringBody entExtId = new StringBody(_id, ContentType.MULTIPART_FORM_DATA);
-        entityBuilder.addPart("ID", entExtId);
-        entityBuilder.addPart("Action", action);
+        StringBody email = new StringBody(_email, ContentType.MULTIPART_FORM_DATA);
+        StringBody personID = new StringBody(emplid, ContentType.MULTIPART_FORM_DATA);
+        entityBuilder.addPart("personID", personID);
+        entityBuilder.addPart("email", email);
 
         if (_biometricData != null) {
-            entityBuilder.addBinaryBody("ImagePayload", _biometricData);
+            entityBuilder.addBinaryBody("FACE", _biometricData);
         }
 
         HttpEntity entity = entityBuilder.build();

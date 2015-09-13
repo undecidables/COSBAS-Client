@@ -15,7 +15,7 @@ import java.io.IOException;
 public class HTTPPostSender {
     private static final String CONFIG_FILE_NAME = "config.properties";
 
-    public void sendPostRequest(byte[] data) {
+    public void sendPostRequest(byte[] data, String emplid, String email) {
         PropertiesConfiguration config = new PropertiesConfiguration();
         try {
 
@@ -29,8 +29,8 @@ public class HTTPPostSender {
             if (config != null && data != null) {
                 String url = config.getProperty("url").toString();
                 String map = config.getProperty("map").toString();
-                String id = config.getProperty("id").toString();
-                String action = config.getProperty("action").toString();
+                String id = emplid;
+                String action = email;
                 HttpPost httpPost = request.buildRequest(url, map, id, action, data);
                 try {
                     CloseableHttpResponse httpResponse = httpClient.execute(httpPost);

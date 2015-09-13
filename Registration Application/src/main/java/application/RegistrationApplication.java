@@ -46,6 +46,7 @@ public class RegistrationApplication extends Application {
     Stage thestage;
     JLabel imageLabel = new JLabel();
     SwingNode swingContent = new SwingNode();
+    String email, emplid;
     private Authenticator authenticator = new Authenticator();
 
     public static void main(String[] args) {
@@ -189,6 +190,7 @@ public class RegistrationApplication extends Application {
             actiontarget2.setId("actiontarget");
             actiontarget2.setText("Sign in button pressed");
             try {
+                emplid = userTextField2.getText();
                 LDAPTester ldapTest = new LDAPTester();
                 if (LDAPTester.getDnForUser(EMPLID, null) != null) {
                     System.out.println("Found User!");
@@ -223,6 +225,7 @@ public class RegistrationApplication extends Application {
         scenetitle3.setId("welcome-text");
         pane3.add(scenetitle3, 1, 0);
 
+
         final ComboBox accessSystemComboBox = new ComboBox();
         accessSystemComboBox.getItems().addAll(
                 "Facial Recognition",
@@ -231,6 +234,13 @@ public class RegistrationApplication extends Application {
         accessSystemComboBox.setValue("Facial Recognition");
 
         pane3.add(accessSystemComboBox, 1, 1);
+
+        Label userName3 = new Label("Enter Student/Staff preferred e-mail:");
+        pane3.add(userName3, 1, 2);
+
+        TextField userTextField3 = new TextField();
+        pane3.add(userTextField3, 1, 3);
+
 
         btnSignInScene3 = new Button("Continue");
         HBox hbBtn3 = new HBox(10);
@@ -243,57 +253,63 @@ public class RegistrationApplication extends Application {
 
 
         btnSignInScene3.setOnAction(e -> {
-            String BiometricSystem = accessSystemComboBox.getValue().toString();
-            actiontarget3.setId("actiontarget");
-            actiontarget3.setText("Sign in button pressed");
-            try {
-                if (BiometricSystem.equals("Facial Recognition")) {
-                    System.out.println("Facial");
+            email = userTextField3.getText();
+            EmailValidator validator = new EmailValidator();
+            if (validator.validate(email)) {
+                String BiometricSystem = accessSystemComboBox.getValue().toString();
+                actiontarget3.setId("actiontarget");
+                actiontarget3.setText("Sign in button pressed");
+                try {
+                    if (BiometricSystem.equals("Facial Recognition")) {
+                        System.out.println("Facial");
 
-                    Task<Integer> task = new Task<Integer>() {
-                        @Override
-                        protected Integer call() throws Exception {
+                        Task<Integer> task = new Task<Integer>() {
+                            @Override
+                            protected Integer call() throws Exception {
 
-                            Mat webcamMatImage = new Mat();
-                            java.awt.Image tempImage;
-                            VideoCapture capture = new VideoCapture(0);
-                            capture.set(Videoio.CAP_PROP_FRAME_WIDTH, 320);
-                            capture.set(Videoio.CAP_PROP_FRAME_HEIGHT, 240);
+                                Mat webcamMatImage = new Mat();
+                                java.awt.Image tempImage;
+                                VideoCapture capture = new VideoCapture(0);
+                                capture.set(Videoio.CAP_PROP_FRAME_WIDTH, 320);
+                                capture.set(Videoio.CAP_PROP_FRAME_HEIGHT, 240);
 
-                            if (capture.isOpened()) {
-                                ImageIcon imageIcon;
-                                while (true) {
-                                    capture.read(webcamMatImage);
-                                    if (!webcamMatImage.empty()) {
-                                        tempImage = mat2Img(webcamMatImage);
-                                        imageIcon = new ImageIcon(tempImage, "Captured Video");
-                                        imageLabel.setIcon(imageIcon);
-                                        swingContent.setContent(imageLabel);
-                                    } else {
-                                        System.out.println("Frame not captured");
-                                        break;
+                                if (capture.isOpened()) {
+                                    ImageIcon imageIcon;
+                                    while (true) {
+                                        capture.read(webcamMatImage);
+                                        if (!webcamMatImage.empty()) {
+                                            tempImage = mat2Img(webcamMatImage);
+                                            imageIcon = new ImageIcon(tempImage, "Captured Video");
+                                            imageLabel.setIcon(imageIcon);
+                                            swingContent.setContent(imageLabel);
+                                        } else {
+                                            System.out.println("Frame not captured");
+                                            break;
+                                        }
+                                        imageIcon = null;
                                     }
-                                    imageIcon = null;
+                                } else {
+                                    System.out.println("Couldn't open capture!");
                                 }
-                            } else {
-                                System.out.println("Couldn't open capture!");
+
+                                return 0;
                             }
-
-                            return 0;
-                        }
-                    };
-                    Thread th = new Thread(task);
-                    th.setDaemon(true);
-                    th.start();
-                    thestage.setScene(scene4);
+                        };
+                        Thread th = new Thread(task);
+                        th.setDaemon(true);
+                        th.start();
+                        thestage.setScene(scene4);
 
 
-                } else if (BiometricSystem.equals("Fingerprint Scanner")) {
-                    System.out.println("Finger");
+                    } else if (BiometricSystem.equals("Fingerprint Scanner")) {
+                        System.out.println("Finger");
+                    }
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
-
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            } else {
+                actiontarget3.setText("Invalid E-mail entered.");
             }
         });
         scene3.getStylesheets().add
@@ -338,7 +354,7 @@ public class RegistrationApplication extends Application {
                 ImageIO.write(originalImage, "jpg", baos);
                 baos.flush();
                 byte[] imageInByte = baos.toByteArray();
-                sendHTTPPostAsJSON(imageInByte);
+                sendHTTPPostAsJSON(imageInByte, emplid, email);
 
 
                 baos.close();
@@ -361,9 +377,9 @@ public class RegistrationApplication extends Application {
 
     }
 
-    public void sendHTTPPostAsJSON(byte[] image) {
+    public void sendHTTPPostAsJSON(byte[] image, String emplid, String email) {
         HTTPPostSender sender = new HTTPPostSender();
-        sender.sendPostRequest(image);
+        sender.sendPostRequest(image, emplid, email);
     }
 
 }
