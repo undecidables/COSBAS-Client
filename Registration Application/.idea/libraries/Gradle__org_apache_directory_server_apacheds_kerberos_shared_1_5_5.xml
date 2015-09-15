@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.directory.server:apacheds-kerberos-shared:1.5.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-kerberos-shared/1.5.5/c170e0e38d02eeb3b2b395b50d2d10707dfbc93c/apacheds-kerberos-shared-1.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-kerberos-shared/1.5.5/4889427dd3870680116474cf70f624262cccd068/apacheds-kerberos-shared-1.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

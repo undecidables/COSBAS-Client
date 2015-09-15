@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.directory.server:apacheds-protocol-shared:1.5.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-protocol-shared/1.5.5/94cbc00d5cae1ad1607c146952354359d056565d/apacheds-protocol-shared-1.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-protocol-shared/1.5.5/33804e63c0f4300c291aa999d3886a93364086d7/apacheds-protocol-shared-1.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

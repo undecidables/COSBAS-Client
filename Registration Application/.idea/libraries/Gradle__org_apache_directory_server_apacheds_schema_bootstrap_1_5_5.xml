@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.directory.server:apacheds-schema-bootstrap:1.5.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-schema-bootstrap/1.5.5/a76586c4895dd8ff21b305485207023f491229a7/apacheds-schema-bootstrap-1.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-schema-bootstrap/1.5.5/4167c833cd0aafc64f4a6c4d2946f2d5f97a9dd4/apacheds-schema-bootstrap-1.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

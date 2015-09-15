@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.directory.shared:shared-asn1-codec:0.9.15">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.shared/shared-asn1-codec/0.9.15/b44ac305aec48cfa36fab90f5fb95ea2b3975d8f/shared-asn1-codec-0.9.15.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.shared/shared-asn1-codec/0.9.15/30ede5bd5b327f02651f6c36bd86c5411100c7d6/shared-asn1-codec-0.9.15-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
