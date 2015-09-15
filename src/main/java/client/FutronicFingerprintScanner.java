@@ -95,16 +95,27 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                             }
                             else
                             {
-
+				//log this as file was supposed to be written but wasnt
                             }
 
                         }
-                        else if (output.contains("Failed to open device!") || output.contains("Failed to get image size"))
+                        else if (output.contains("Failed to open device!"))
                         {
 			    System.out.println("its failing here");
                             scannerError = true;
                             break;
                         }
+			else if(output.contains("Failed to get image size"))
+			{
+			    System.out.println("its failing here");
+                            scannerError = true;
+                            break;
+			}
+			else if(output.contains("Failed to write to file"))
+			{
+			    scannerError = true;
+                            break;
+			}
                     }
 
                 }
