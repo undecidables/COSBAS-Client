@@ -39,15 +39,15 @@ public class FacialRecognitionRegisterScene {
 
     private static final int SCENE_W = 320;
     private static final int SCENE_H = 240;
-    Scene scene4;
-    Stage thestage;
+    Scene thisScene;
+    Stage mainStage;
     CascadeClassifier faceDetector;
     VideoCapture videoCapture;
 
     Canvas canvas;
     GraphicsContext g2d;
     AnimationTimer timer;
-    GridPane pane4;
+    GridPane guiGridPane;
     String emplid, email;
 
     public FacialRecognitionRegisterScene(Stage stage, String emp, String mail) {
@@ -64,46 +64,37 @@ public class FacialRecognitionRegisterScene {
 
     public void setupStage(Stage stage) {
 
-        thestage = stage;
-
-
-        System.out.println("Here");
-
-
-        //scene4 = new Scene(group, SCENE_W, SCENE_H);
+        mainStage = stage;
         canvas = new javafx.scene.canvas.Canvas(SCENE_W, SCENE_H);
         g2d = canvas.getGraphicsContext2D();
         g2d.setStroke(javafx.scene.paint.Color.GREEN);
-
         Group group = new Group(canvas);
-
-        pane4 = new GridPane();
-        pane4.setAlignment(Pos.CENTER);
-        pane4.setVgap(10);
-        pane4.setHgap(10);
-        pane4.setPadding(new Insets(45, 45, 45, 45));
-        pane4.setStyle("-fx-background-color: tan;-fx-padding: 10px;");
-        scene4 = new Scene(pane4, 640, 480);
-
-        thestage.setTitle("Biometric Registration");
-        Text scenetitle4 = new Text("Take Photo");
-        scenetitle4.setTextAlignment(TextAlignment.JUSTIFY);
-        scenetitle4.setId("welcome-text");
-        pane4.add(scenetitle4, 1, 0);
+        guiGridPane = new GridPane();
+        guiGridPane.setAlignment(Pos.CENTER);
+        guiGridPane.setVgap(10);
+        guiGridPane.setHgap(10);
+        guiGridPane.setPadding(new Insets(45, 45, 45, 45));
+        guiGridPane.setStyle("-fx-background-color: tan;-fx-padding: 10px;");
+        thisScene = new Scene(guiGridPane, 640, 480);
+        mainStage.setTitle("Biometric Registration");
+        Text sceneTitle = new Text("Take Photo");
+        sceneTitle.setTextAlignment(TextAlignment.JUSTIFY);
+        sceneTitle.setId("welcome-text");
+        guiGridPane.add(sceneTitle, 1, 0);
 
 
-        Button btnSignInScene3 = new Button("Take Photo");
-        HBox hbBtn4 = new HBox(10);
-        hbBtn4.setAlignment(Pos.BOTTOM_RIGHT);
-        hbBtn4.getChildren().add(btnSignInScene3);
-        pane4.add(hbBtn4, 1, 1);
+        Button takePhoto = new Button("Take Photo");
+        HBox box = new HBox(10);
+        box.setAlignment(Pos.BOTTOM_RIGHT);
+        box.getChildren().add(takePhoto);
+        guiGridPane.add(box, 1, 1);
 
-        final Text actiontarget4 = new Text();
-        pane4.add(actiontarget4, 1, 3);
+        final Text feedback = new Text();
+        guiGridPane.add(feedback, 1, 3);
 
-        btnSignInScene3.setOnAction(e -> {
-            actiontarget4.setId("actiontarget");
-            actiontarget4.setText("Sign in button pressed");
+        takePhoto.setOnAction(e -> {
+            feedback.setId("actiontarget");
+            feedback.setText("Photo Taken");
             try {
                 Image originalImage = getScreenShot();
                 BufferedImage bufferedImg = SwingFXUtils.fromFXImage(originalImage, null);
@@ -121,21 +112,21 @@ public class FacialRecognitionRegisterScene {
                 ex.printStackTrace();
             }
         });
-        scene4.getStylesheets().add
+        thisScene.getStylesheets().add
                 (application.RegistrationApplication.class.getResource("/Login.css").toExternalForm());
 
 
-        pane4.add(group, 1, 5);
-        thestage.setScene(scene4);
-        thestage.setResizable(false);
-        thestage.show();
+        guiGridPane.add(group, 1, 5);
+        mainStage.setScene(thisScene);
+        mainStage.setResizable(false);
+        mainStage.show();
         VideoStream webcam = new VideoStream();
         webcam.start();
 
     }
 
     public Scene getScene() {
-        return scene4;
+        return thisScene;
     }
 
     public Image getScreenShot() {
@@ -154,9 +145,6 @@ public class FacialRecognitionRegisterScene {
     }
 
     public void initOpenCv() {
-
-        //setLibraryPath();
-
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
         videoCapture = new VideoCapture();
@@ -164,7 +152,7 @@ public class FacialRecognitionRegisterScene {
 
         System.out.println("Camera open: " + videoCapture.isOpened());
 
-        thestage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+        mainStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             public void handle(WindowEvent we) {
 
                 timer.stop();
@@ -180,9 +168,7 @@ public class FacialRecognitionRegisterScene {
 
         MatOfRect faceDetections = new MatOfRect();
         //faceDetector.detectMultiScale( mat, faceDetections);
-
         //System.out.println(String.format("Detected %s faces", faceDetections.toArray().length));
-
         List<Rectangle2D> rectList = new ArrayList<>();
         for (Rect rect : faceDetections.toArray()) {
 
@@ -190,7 +176,6 @@ public class FacialRecognitionRegisterScene {
             int y = rect.y;
             int w = rect.width;
             int h = rect.height;
-
             rectList.add(new Rectangle2D(x, y, w, h));
         }
 
