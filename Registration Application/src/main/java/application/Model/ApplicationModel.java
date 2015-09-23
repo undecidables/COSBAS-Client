@@ -1,4 +1,4 @@
-package application.Views;
+package application.Model;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ import javafx.stage.Stage;
  * Created by Tienie on 9/23/2015.
  */
 
-public class ApplicationView extends Application {
+public class ApplicationModel extends Application {
 
 
     public static void main(String[] args) {
