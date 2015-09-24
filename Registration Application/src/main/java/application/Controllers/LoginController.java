@@ -38,6 +38,11 @@ public class LoginController extends BaseController {
 
         String EMPLID = textfield.getText();
         String Password = passwordField.getText();
+
+        if (EMPLID.length() < 3 || Password.length() < 3) {
+            actiontarget.setText("Incorrect EMPLID/Password");
+            return;
+        }
         actiontarget.setId("actiontarget");
         actiontarget.setText("Sign in button pressed");
         try {

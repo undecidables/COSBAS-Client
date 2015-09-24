@@ -33,6 +33,10 @@ public class RegistreeConfirmController extends BaseController {
     protected void handleRegistreeSubmitAction(ActionEvent event) {
         try {
             String emplid = registreeTextfield.getText();
+            if (emplid.length() < 3) {
+                registreeActionTarget.setText("Incorrect EMPLID/Password");
+                return;
+            }
             if (LDAPTester.getDnForUser(emplid, null) != null) {
                 registreeActionTarget.setText("User Found");
 
