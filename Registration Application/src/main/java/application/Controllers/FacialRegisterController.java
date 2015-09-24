@@ -16,7 +16,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -27,8 +30,10 @@ import org.opencv.videoio.VideoCapture;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
@@ -123,14 +128,16 @@ public class FacialRegisterController extends BaseController {
         Double H = faceRegion.getHeight();
         WritableImage croppedImage = new WritableImage(image.getPixelReader(), X.intValue(), Y.intValue(), W.intValue(), H.intValue());
 
+        croppedImage = grayscale(croppedImage);
         /* Uncomment this to save the image to disk so that you can test it.
+        */
         File file = new File("test.png");
         RenderedImage renderedImage = SwingFXUtils.fromFXImage(croppedImage, null);
         ImageIO.write(
                 renderedImage,
                 "png",
                 file);
-        */
+
 
 
         return croppedImage;
@@ -145,6 +152,22 @@ public class FacialRegisterController extends BaseController {
         }
     }
 
+    private WritableImage grayscale(Image img) {
+        WritableImage gray = new WritableImage((int) img.getWidth(), (int) img.getHeight());
+        PixelReader imgReader = img.getPixelReader();
+        PixelWriter imgWriter = gray.getPixelWriter();
+        for (int y = 0; y < img.getHeight(); ++y) {
+            for (int x = 0; x < img.getWidth(); ++x) {
+                Color c = imgReader.getColor(x, y);
+                int mx = (int) (0xFF * Math.max(c.getRed(), Math.max(c.getGreen(), c.getBlue())));
+                int mn = (int) (0xFF * Math.min(c.getRed(), Math.min(c.getGreen(), c.getBlue())));
+                int g = (mx + mn) / 2;
+                Color nc = Color.rgb(g, g, g);
+                imgWriter.setColor(x, y, nc);
+            }
+        }
+        return gray;
+    }
 
     class VideoStream extends Thread {
 
@@ -244,5 +267,6 @@ public class FacialRegisterController extends BaseController {
             }
         }
     }
+
 
 }
