@@ -15,7 +15,7 @@ import java.io.IOException;
 public class HTTPPostSender {
     private static final String CONFIG_FILE_NAME = "config.properties";
 
-    public void sendPostRequest(byte[] data, String emplid, String email) {
+    public void sendPostRequest(byte[] data, String emplid, String email) throws Exception {
         PropertiesConfiguration config = new PropertiesConfiguration();
         try {
 
@@ -45,7 +45,7 @@ public class HTTPPostSender {
                     //System.out.println("This is our result: " + aResponse.getResult());
                     System.out.println("");
                 } catch (HttpHostConnectException e) {
-                    System.out.println("Could not connect to server.");
+                    throw new Exception("Server Unavailable");
                 }
 
                 httpClient.close();

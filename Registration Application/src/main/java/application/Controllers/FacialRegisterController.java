@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -29,6 +30,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,7 +74,6 @@ public class FacialRegisterController extends BaseController {
             ImageIO.write(bufferedImg, "jpg", baos);
             baos.flush();
             byte[] imageInByte = baos.toByteArray();
-            System.out.println(getRegistrationDO().getEmplid() + " " + getRegistrationDO().getEmail());
             sendHTTPPostAsJSON(imageInByte, getRegistrationDO().getEmplid(), getRegistrationDO().getEmail());
             baos.close();
             actiontarget.setText("Photo Taken");
@@ -92,7 +94,7 @@ public class FacialRegisterController extends BaseController {
 
         } catch (Exception ex) {
             ex.printStackTrace();
-            actiontarget.setText("An Error has occurred - Please try again");
+            actiontarget.setText("Server Unavailable");
         }
     }
 
@@ -103,19 +105,44 @@ public class FacialRegisterController extends BaseController {
         webcam.start();
     }
 
-    public Image getScreenShot() {
+    public Image getScreenShot() throws Exception {
 
 
         Mat mat = new Mat();
         webcam.videoCapture.read(mat);
         javafx.scene.image.Image image = webcam.mat2Image(mat);
+        java.util.List<Rectangle2D> rectList = webcam.detectFaces(mat);
+        if (rectList.size() > 1) {
+            throw new Exception("More than one face detected");
+        }
+        Rectangle2D faceRegion = rectList.get(0);
 
-        return image;
+        Double X = faceRegion.getMinX();
+        Double Y = faceRegion.getMinY();
+        Double W = faceRegion.getWidth();
+        Double H = faceRegion.getHeight();
+        WritableImage croppedImage = new WritableImage(image.getPixelReader(), X.intValue(), Y.intValue(), W.intValue(), H.intValue());
+
+        /* Uncomment this to save the image to disk so that you can test it.
+        File file = new File("test.png");
+        RenderedImage renderedImage = SwingFXUtils.fromFXImage(croppedImage, null);
+        ImageIO.write(
+                renderedImage,
+                "png",
+                file);
+        */
+
+
+        return croppedImage;
     }
 
-    public void sendHTTPPostAsJSON(byte[] image, String emplid, String email) {
+    public void sendHTTPPostAsJSON(byte[] image, String emplid, String email) throws Exception {
         HTTPPostSender sender = new HTTPPostSender();
-        sender.sendPostRequest(image, emplid, email);
+        try {
+            sender.sendPostRequest(image, emplid, email);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
 
@@ -127,6 +154,7 @@ public class FacialRegisterController extends BaseController {
         CascadeClassifier faceDetector;
 
         public void run() {
+
             g2d = canvas.getGraphicsContext2D();
             g2d.setStroke(javafx.scene.paint.Color.GREEN);
 
@@ -141,9 +169,15 @@ public class FacialRegisterController extends BaseController {
 
                     videoCapture.read(mat);
 
+
                     java.util.List<Rectangle2D> rectList = detectFaces(mat);
 
                     javafx.scene.image.Image image = mat2Image(mat);
+
+                    canvas.setWidth(image.getWidth());
+                    canvas.setHeight(image.getHeight());
+
+                    stage.sizeToScene();
 
                     g2d.drawImage(image, 0, 0);
 
@@ -165,16 +199,10 @@ public class FacialRegisterController extends BaseController {
         public synchronized List<Rectangle2D> detectFaces(Mat mat) {
 
             MatOfRect faceDetections = new MatOfRect();
-            //faceDetector.detectMultiScale( mat, faceDetections);
-            //System.out.println(String.format("Detected %s faces", faceDetections.toArray().length));
+            faceDetector.detectMultiScale(mat, faceDetections);
             List<Rectangle2D> rectList = new ArrayList<>();
             for (Rect rect : faceDetections.toArray()) {
-
-                int x = rect.x;
-                int y = rect.y;
-                int w = rect.width;
-                int h = rect.height;
-                rectList.add(new Rectangle2D(x, y, w, h));
+                rectList.add(new Rectangle2D(rect.x, rect.y, rect.width, rect.height));
             }
 
             return rectList;
@@ -185,6 +213,10 @@ public class FacialRegisterController extends BaseController {
 
             videoCapture = new VideoCapture();
             videoCapture.open(0);
+
+
+            videoCapture.set(3, 640);
+            videoCapture.set(4, 480);
 
             System.out.println("Camera open: " + videoCapture.isOpened());
 
@@ -200,6 +232,16 @@ public class FacialRegisterController extends BaseController {
 
                 }
             });
+
+            faceDetector = new CascadeClassifier(getOpenCvResource(getClass(), "/haarcascade_frontalface_alt.xml"));
+        }
+
+        public String getOpenCvResource(Class<?> clazz, String path) {
+            try {
+                return Paths.get(clazz.getResource(path).toURI()).toString();
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
