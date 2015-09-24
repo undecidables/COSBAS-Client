@@ -1,25 +1,197 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd30efa7-32a4-4797-8394-44dc75616cf7" name="Default" comment="Added the ability for the Registration Client to send a POST request to the Server containing the image as a byte array.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/application/EmailValidator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/HTTPPostBuilder/BiometricData.class" afterPath="$PROJECT_DIR$/build/classes/main/HTTPPostBuilder/BiometricData.class" />
+    <list default="true" id="560ca18a-8993-47c6-a7dd-82f9c1a6de79" name="Default" comment="Renamed the package.">
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.gradle\2.4\taskArtifacts\cache.properties" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.gradle\2.4\taskArtifacts\cache.properties.lock" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.gradle\2.4\taskArtifacts\fileHashes.bin" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.gradle\2.4\taskArtifacts\fileSnapshots.bin" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.gradle\2.4\taskArtifacts\outputFileStates.bin" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.gradle\2.4\taskArtifacts\taskArtifacts.bin" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\copyright\profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\gradle.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__antlr_antlr_2_7_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__aopalliance_aopalliance_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__bouncycastle_bcprov_jdk15_140.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__ch_qos_logback_logback_classic_1_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__ch_qos_logback_logback_core_1_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_fasterxml_classmate_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_fasterxml_jackson_core_jackson_annotations_2_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_fasterxml_jackson_core_jackson_core_2_4_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_fasterxml_jackson_core_jackson_databind_2_4_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_google_api_client_google_api_client_1_20_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_google_apis_google_api_services_calendar_v3_rev126_1_20_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_google_code_findbugs_jsr305_1_3_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_google_code_gson_gson_2_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_google_guava_guava_jdk5_13_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_google_http_client_google_http_client_1_20_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_google_http_client_google_http_client_jackson2_1_20_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_google_oauth_client_google_oauth_client_1_20_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_google_oauth_client_google_oauth_client_java6_1_20_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_google_oauth_client_google_oauth_client_jetty_1_20_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_googlecode_json_simple_json_simple_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_googlecode_json_simple_json_simple_1_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__com_squareup_dagger_dagger_1_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__commons_codec_commons_codec_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__commons_codec_commons_codec_1_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__commons_collections_commons_collections_3_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__commons_configuration_commons_configuration_1_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__commons_io_commons_io_1_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__commons_lang_commons_lang_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__commons_lang_commons_lang_2_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__commons_logging_commons_logging_1_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__commons_logging_commons_logging_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__javax_annotation_javax_annotation_api_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__javax_inject_javax_inject_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__javax_servlet_javax_servlet_api_3_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__javax_servlet_jsp_javax_servlet_jsp_api_2_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__javax_validation_validation_api_1_1_0_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__javax_websocket_javax_websocket_api_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__junit_junit_4_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__junit_junit_4_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__nu_pattern_opencv_2_4_9_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__nz_net_ultraq_thymeleaf_thymeleaf_layout_dialect_1_2_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__ognl_ognl_3_0_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__opensymphony_ognl_2_6_11.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_bootstrap_extract_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_bootstrap_partition_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_core_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_core_avl_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_core_constants_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_core_entry_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_core_jndi_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_core_shared_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_jdbm_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_jdbm_store_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_kerberos_shared_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_protocol_ldap_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_protocol_shared_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_schema_bootstrap_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_schema_extras_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_schema_registries_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_server_jndi_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_utils_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_xdbm_base_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_xdbm_search_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_server_apacheds_xdbm_tools_1_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_shared_shared_asn1_0_9_15.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_shared_shared_asn1_codec_0_9_15.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_shared_shared_cursor_0_9_15.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_shared_shared_ldap_0_9_15.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_directory_shared_shared_ldap_constants_0_9_15.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_httpcomponents_httpclient_4_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_httpcomponents_httpclient_4_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_httpcomponents_httpcore_4_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_httpcomponents_httpcore_4_4_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_httpcomponents_httpcore_4_4_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_httpcomponents_httpmime_4_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_mina_mina_core_2_0_0_M6.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_tomcat_embed_tomcat_embed_core_8_0_23.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_tomcat_embed_tomcat_embed_el_8_0_23.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_tomcat_embed_tomcat_embed_logging_juli_8_0_23.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_apache_tomcat_embed_tomcat_embed_websocket_8_0_23.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_bytedeco_javacpp_0_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_bytedeco_javacpp_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_bytedeco_javacpp_presets_artoolkitplus_2_3_0_0_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_bytedeco_javacpp_presets_ffmpeg_2_3_0_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_bytedeco_javacpp_presets_flycapture_2_6_3_4_0_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_bytedeco_javacpp_presets_libdc1394_2_2_2_0_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_bytedeco_javacpp_presets_libfreenect_0_5_0_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_bytedeco_javacpp_presets_opencv_2_4_9_0_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_bytedeco_javacpp_presets_opencv_3_0_0_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_bytedeco_javacpp_presets_videoinput_0_200_0_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_bytedeco_javacv_0_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_annotations_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_http_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_io_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_jndi_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_jsp_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_plus_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_security_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_server_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_servlet_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_util_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_webapp_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_jetty_xml_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_orbit_javax_servlet_jsp_jstl_1_2_0_v201105211821.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_orbit_org_eclipse_jdt_core_3_8_2_v20130121.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_toolchain_jetty_schemas_3_1_M0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_websocket_javax_websocket_client_impl_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_websocket_javax_websocket_server_impl_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_websocket_websocket_api_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_websocket_websocket_client_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_websocket_websocket_common_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_websocket_websocket_server_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_eclipse_jetty_websocket_websocket_servlet_9_2_10_v20150310.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_glassfish_javax_el_3_0_1_b08.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_glassfish_web_javax_servlet_jsp_2_3_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_glassfish_web_javax_servlet_jsp_jstl_1_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_hamcrest_hamcrest_core_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_hamcrest_hamcrest_core_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_hibernate_hibernate_validator_5_1_3_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_javassist_javassist_3_16_1_GA.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_jboss_logging_jboss_logging_3_1_3_GA.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_mockito_mockito_core_1_10_19.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_mongodb_mongo_java_driver_2_13_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_mortbay_jetty_jetty_6_1_26.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_mortbay_jetty_jetty_util_6_1_26.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_mortbay_jetty_servlet_api_2_5_20081211.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_objenesis_objenesis_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_ow2_asm_asm_5_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_ow2_asm_asm_commons_5_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_ow2_asm_asm_tree_5_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_slf4j_jcl_over_slf4j_1_7_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_slf4j_jul_to_slf4j_1_7_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_slf4j_log4j_over_slf4j_1_7_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_slf4j_slf4j_api_1_7_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_actuator_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_autoconfigure_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_starter_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_starter_actuator_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_starter_data_mongodb_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_starter_jetty_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_starter_logging_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_starter_security_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_starter_thymeleaf_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_starter_tomcat_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_boot_spring_boot_starter_web_1_2_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_data_spring_data_commons_1_10_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_data_spring_data_mongodb_1_7_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_ldap_spring_ldap_core_2_0_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_security_spring_security_config_3_2_7_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_security_spring_security_core_4_0_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_security_spring_security_ldap_3_2_7_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_security_spring_security_web_4_0_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_session_spring_session_1_0_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_spring_aop_4_1_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_spring_beans_4_1_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_spring_context_4_1_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_spring_core_4_1_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_spring_expression_4_1_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_spring_tx_4_1_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_spring_web_4_1_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_spring_webmvc_4_1_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_webflow_spring_binding_2_4_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_webflow_spring_js_2_4_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_webflow_spring_js_resources_2_4_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_springframework_webflow_spring_webflow_2_4_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_thymeleaf_thymeleaf_2_1_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_thymeleaf_thymeleaf_spring4_2_1_4_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_unbescape_unbescape_1_1_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\Gradle__org_yaml_snakeyaml_1_14.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\libraries\opencv_300.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\uiDesigner.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Tienie\Documents\Client\COSBAS-Client\Registration Application\.idea\workspace.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/HTTPPostBuilder/HTTPPostSender.class" afterPath="$PROJECT_DIR$/build/classes/main/HTTPPostBuilder/HTTPPostSender.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/HTTPPostBuilder/HTTPRequestBuilder.class" afterPath="$PROJECT_DIR$/build/classes/main/HTTPPostBuilder/HTTPRequestBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/HTTPPostBuilder/HttpResponseHandler.class" afterPath="$PROJECT_DIR$/build/classes/main/HTTPPostBuilder/HttpResponseHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/application/RegistrationApplication$1.class" afterPath="$PROJECT_DIR$/build/classes/main/application/RegistrationApplication$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/application/RegistrationApplication.class" afterPath="$PROJECT_DIR$/build/classes/main/application/RegistrationApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/COSBAS-Biometric-Registration.iml" afterPath="$PROJECT_DIR$/COSBAS-Biometric-Registration.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPPostSender.java" afterPath="$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPPostSender.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPRequestBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPRequestBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/application/RegistrationApplication.java" afterPath="$PROJECT_DIR$/src/main/java/application/RegistrationApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="COSBAS-Biometric-Registration.iws" />
     <ignored path=".idea/workspace.xml" />
-    <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,20 +209,7 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view>
-          <tree_state>
-            <PATH>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
-              </PATH_ELEMENT>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="COSBAS-Biometric-Registration" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
-              </PATH_ELEMENT>
-            </PATH>
-          </tree_state>
-        </projects_view>
+        <projects_view />
       </state>
     </system>
   </component>
@@ -59,23 +218,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+      <file leaf-file-name="FacialRegisterController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/FacialRegisterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegistrationApplication.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/application/RegistrationApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.77198213">
-              <caret line="319" column="0" selection-start-line="319" selection-start-column="0" selection-end-line="319" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.551724">
+              <caret line="160" column="27" selection-start-line="160" selection-start-column="27" selection-end-line="160" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,46 +230,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmailValidator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/application/EmailValidator.java">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="27" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#427#428#0" expanded="true" />
-                <element signature="e#483#484#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HTTPRequestBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPRequestBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="45" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state vertical-scroll-proportion="-14.96">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bg.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/bg.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="haarcascade_frontalface_alt.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/haarcascade_frontalface_alt.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -130,44 +254,71 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPPostSender.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="30" />
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebCamStream.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/application/WebCamStream.java">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="44" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegistreeConfirmController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/RegistreeConfirmController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.29411766">
+              <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegistrationDataObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/RegistrationDataObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="35" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/Model/ApplicationModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
               <folding>
-                <element signature="imports" expanded="false" />
+                <element signature="e#327#328#0" expanded="false" />
+                <element signature="e#355#356#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Authenticator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/authentication/Authenticator.java">
+      <file leaf-file-name="BaseController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/BaseController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <caret line="8" column="58" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BiometricChoiceController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/BiometricChoiceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -427,9 +578,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$/../COSBAS-Server" value="2871507969550" />
-        <entry key="$PROJECT_DIR$" value="2883255966553" />
-        <entry key="$PROJECT_DIR$/../../COSBAS-Server" value="2871483766268" />
+        <entry key="$USER_HOME$/Desktop/COSBAS-Server" value="2871483766268" />
+        <entry key="$USER_HOME$/Desktop/Desktop/COSBAS-Server" value="2871507969550" />
+        <entry key="$PROJECT_DIR$" value="2885496211282" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -444,6 +595,10 @@
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
                           <list>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.1.6.RELEASE/a09f8d7c0c2b861f0d9e256de451c78b55aec0cf/spring-core-4.1.6.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.1.6.RELEASE/e2f486124d5dea2d91a9c2ea7d4456bc343ca2cc/spring-core-4.1.6.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/ecf26c7507d67782a3bbd148d170b31dfad001aa/commons-logging-1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-jetty/1.2.4.RELEASE/c7f33df0b344d556c5f895a378be8a47ef953fcd/spring-boot-starter-jetty-1.2.4.RELEASE-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-jetty/1.2.4.RELEASE/6d4994c6cf2496b0aa3a16a02725215434f0f9fe/spring-boot-starter-jetty-1.2.4.RELEASE.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-thymeleaf/1.2.4.RELEASE/7bb6af295fd20b10ee3106b0e073cb4afddf56d9/spring-boot-starter-thymeleaf-1.2.4.RELEASE-sources.jar" />
@@ -468,8 +623,6 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.ldap/spring-ldap-core/2.0.3.RELEASE/4cbe806f8606e20bf1cdaa42f2f3ec6a081bc6eb/spring-ldap-core-2.0.3.RELEASE.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.1.6.RELEASE/b415e1ace63a04dda23b2e7431678f726d6032ca/spring-tx-4.1.6.RELEASE-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.1.6.RELEASE/b5beecfa930e0e2ce6fb3999eee3f69c4776e6be/spring-tx-4.1.6.RELEASE.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacv/0.9/9b22e8c6ef0db0c7d495d8a2358be75583d5b451/javacv-0.9-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacv/0.9/fd7c91a44cd5659cd3f0f547cb2116cc05765ac2/javacv-0.9.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-data-mongodb/1.2.4.RELEASE/3625cff89bf2d1efc98ef94c3476712cddf64dbc/spring-boot-starter-data-mongodb-1.2.4.RELEASE-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-data-mongodb/1.2.4.RELEASE/c58fe530167513ca0cb2e10baadddf6e17afc12b/spring-boot-starter-data-mongodb-1.2.4.RELEASE.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-mongodb/1.7.1.RELEASE/695616fafd4d6e84ac5a805660990ebbaa7daf29/spring-data-mongodb-1.7.1.RELEASE-sources.jar" />
@@ -484,14 +637,19 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-ldap/3.2.7.RELEASE/8956e502b2d0ead146078478a6bdb442cbbe414f/spring-security-ldap-3.2.7.RELEASE.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-server-jndi/1.5.5/43207caff3ac343d9d0726f31b1e7b359b4cfc83/apacheds-server-jndi-1.5.5-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-server-jndi/1.5.5/150e5d7dccabcdd6f79888ec8750c925cd1d2f03/apacheds-server-jndi-1.5.5.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.5/7930c64c5dc509c147ecf8f0276698f8d83c547a/httpmime-4.5-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.5/7bdb321e86724b16af6134a0fd22fec649eda971/httpmime-4.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.5.1/2aab83661676c842d50995fe934550e3e23b3c6/httpmime-4.5.1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.5.1/96823b9421ebb9f490dec837d9f96134e864e3a7/httpmime-4.5.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.3/b972b5dfd2db7d41d76a6fc5445852522a136e2e/httpcore-4.4.3-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.3/e876a79d561e5c6207b78d347e198c8c4531a5e5/httpcore-4.4.3.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.dagger/dagger/1.2.2/fa37978a975da5ca71034b2a8d3818961c5c8399/dagger-1.2.2-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.dagger/dagger/1.2.2/e8f912ee19ad84958510883ea191135276b091f8/dagger-1.2.2.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-configuration/commons-configuration/1.10/2427d5eaf4011f855a95bd523febda041728393b/commons-configuration-1.10-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-configuration/commons-configuration/1.10/2b36e4adfb66d966c5aef2d73deb6be716389dc9/commons-configuration-1.10.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.0.0-1.0/6621ed0917ce2b05358727dab40ec0857c763585/opencv-3.0.0-1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.0.0-1.0/ce27c022688644a7179a37208adc24b636630bfa/opencv-3.0.0-1.0-windows-x86_64.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/ffmpeg/2.7.1-1.0/d78c98a81b9674edc788ac8a7295bc8e40d00765/ffmpeg-2.7.1-1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/ffmpeg/2.7.1-1.0/396c00a3ee2138c9697edeb63e1c07b2aed8ace8/ffmpeg-2.7.1-1.0-windows-x86_64.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/ffmpeg/2.7.1-1.0/64738c7c3de51e60dcd2426bf8f774c0f1d9a8b6/ffmpeg-2.7.1-1.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-jsp/9.2.10.v20150310/913aec78e169b2ffb56df752046b53d08fcbac53/jetty-jsp-9.2.10.v20150310-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-jsp/9.2.10.v20150310/9e2c812cda7b8710c78b4df06c864f222d6b5383/jetty-jsp-9.2.10.v20150310.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-webapp/9.2.10.v20150310/211432ce253c7394d33e5a572be1f5f9062f8aa2/jetty-webapp-9.2.10.v20150310-sources.jar" />
@@ -502,8 +660,6 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/javax-websocket-server-impl/9.2.10.v20150310/ac92051774354e83357cc6e899e5edfa66032eb4/javax-websocket-server-impl-9.2.10.v20150310.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter/1.2.4.RELEASE/4007ff07169a09c737933d2d59fdc1ffa0db98a3/spring-boot-starter-1.2.4.RELEASE-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter/1.2.4.RELEASE/4224cd984405b59e055d502c755e6d49d6020b18/spring-boot-starter-1.2.4.RELEASE.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.1.6.RELEASE/a09f8d7c0c2b861f0d9e256de451c78b55aec0cf/spring-core-4.1.6.RELEASE-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.1.6.RELEASE/e2f486124d5dea2d91a9c2ea7d4456bc343ca2cc/spring-core-4.1.6.RELEASE.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.thymeleaf/thymeleaf-spring4/2.1.4.RELEASE/69f9fde587c69648bc1c2d59681ab38e77221a64/thymeleaf-spring4-2.1.4.RELEASE-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.thymeleaf/thymeleaf-spring4/2.1.4.RELEASE/e5677e7daedfd05e001945abf4295305ac23826b/thymeleaf-spring4-2.1.4.RELEASE.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect/1.2.8/4079837ae0aa784f0531f8b9616aaf52bc53518a/thymeleaf-layout-dialect-1.2.8-sources.jar" />
@@ -536,22 +692,6 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client-java6/1.20.0/1b12417c242005a61679ddce26636a7439d8c2fe/google-oauth-client-java6-1.20.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mortbay.jetty/jetty/6.1.26/9e275882f6d3400b05674c79e97014a255dfaf43/jetty-6.1.26-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mortbay.jetty/jetty/6.1.26/2f546e289fddd5b1fab1d4199fbb6e9ef43ee4b0/jetty-6.1.26.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacpp/0.9/91f072a81db261e1186142b3b5996c625d45280a/javacpp-0.9-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacpp/0.9/8931375e4e7d91258ef92451c8d3bd444f8ba70a/javacpp-0.9.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/2.4.9-0.9/fd8e4a84db21fd80a9b75d026db7f018f3080668/opencv-2.4.9-0.9-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/2.4.9-0.9/f39a3ad0e200c1e0cb47bf639fdc0bb427b36fc3/opencv-2.4.9-0.9.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/ffmpeg/2.3-0.9/dce27f06f3ed6d2a41f6402874f88f2825658cf5/ffmpeg-2.3-0.9-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/ffmpeg/2.3-0.9/d80d33acdb2107e3503f49ef3a5f41d26d069cfb/ffmpeg-2.3-0.9.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/flycapture/2.6.3.4-0.9/485cce2f6fd210a7fad5a83782c51f91efa1e340/flycapture-2.6.3.4-0.9-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/flycapture/2.6.3.4-0.9/cd6a3bda878fd2a86cb2fa4b678a20dfc3059bc1/flycapture-2.6.3.4-0.9.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/libdc1394/2.2.2-0.9/cecf2641fd8e16d8955a1049d872ce66ff064dbe/libdc1394-2.2.2-0.9-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/libdc1394/2.2.2-0.9/56dd7b8e453133f8814f5fd0cca109cc750e0edd/libdc1394-2.2.2-0.9.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/libfreenect/0.5-0.9/2ca89f2ad069206acc5f973afabc626e825e4f9b/libfreenect-0.5-0.9-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/libfreenect/0.5-0.9/fd563d3317a62cb385389473a17d86894f5cea55/libfreenect-0.5-0.9.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/videoinput/0.200-0.9/3a9cae4318142bb2b1fefc5f23fc68c3aec1cc43/videoinput-0.200-0.9-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/videoinput/0.200-0.9/b55c67e7e63e3cb3afb01d9daff230a7ed815d15/videoinput-0.200-0.9.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/artoolkitplus/2.3.0-0.9/d9f92db78ab84359ed42fb3d04f7d751eba7c2fd/artoolkitplus-2.3.0-0.9-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/artoolkitplus/2.3.0-0.9/1193939a088e7196807331618c8d5feb9e020e23/artoolkitplus-2.3.0-0.9.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/3.2.7.RELEASE/e922f94169382a4d6472e1e2f6266dc6c97471d7/spring-security-config-3.2.7.RELEASE-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/3.2.7.RELEASE/36ded839a3f90b268c2b708a5a92a50aa0412223/spring-security-config-3.2.7.RELEASE.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.4.6/634b33a958b73dd4bbac06e1de5204faacc5dfe1/jackson-databind-2.4.6-sources.jar" />
@@ -570,6 +710,8 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.6/67313d715fbf0ea4fd0bdb69217fb77f807a8ce5/commons-lang-2.6-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.6/ce1edb914c94ebc388f086c6827e8bdeec71ac2/commons-lang-2.6.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacpp/1.0/f7b8fca7e8e4146e3690583ab2ddc2c6a11e202c/javacpp-1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacpp/1.0/3bb28b42811adc255ce5ce56338f7c1c002c0a17/javacpp-1.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.toolchain/jetty-schemas/3.1.M0/e15af2e59c6415e2d722f174aa579fc02c653252/jetty-schemas-3.1.M0-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.toolchain/jetty-schemas/3.1.M0/6179bafb6ed2eb029862356df6713078c7874f85/jetty-schemas-3.1.M0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/ab3976d4574c48d22dc1abf6a9e8bd0fdf928223/javax.servlet-api-3.1.0-sources.jar" />
@@ -721,16 +863,27 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-jdbm/1.5.5/b2e563d45c7a4cdf840fd5d49428692e0b5b6955/apacheds-jdbm-1.5.5.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-core-avl/1.5.5/f2882d0645ac7874279f41bf7c17bb90de9c6b1b/apacheds-core-avl-1.5.5-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.directory.server/apacheds-core-avl/1.5.5/f11563fc86bfa8caaddc1b498288bb0fb767a060/apacheds-core-avl-1.5.5.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5/c9504d3448744739d334bde12bfbc91fd7f85115/httpclient-4.5-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5/a1e6cbb3cc2c5f210dd1310ff9fcb2c09c0d1438/httpclient-4.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.1/c0ecd55724129bbd48850314b4ff8a360d670662/httpclient-4.5.1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.1/7e3cecc566df91338c6c67883b89ddd05a17db43/httpclient-4.5.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.9/3f15fff45d57656685abfee9e8302bf14580044c/commons-codec-1.9-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.9/9ce04e34240f674bc72680f8b843b1457383161a/commons-codec-1.9.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacv/1.0/c3368d9eeb3203a86c78db031b29eb670806cc93/javacv-1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacv/1.0/34aecdc27d00c73294eef65e9f078d8db35ef1/javacv-1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.0.0-1.0/96b9521df0d812f431a25edbdc4d5316c1b1e00/opencv-3.0.0-1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/flycapture/2.7.3.19-1.0/15464a23d9f9d9706100c94e2ec8d2b3655013ca/flycapture-2.7.3.19-1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/flycapture/2.7.3.19-1.0/a8aec13c5ff93cfb5f4848916acf7cf4e926509b/flycapture-2.7.3.19-1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/libdc1394/2.2.3-1.0/ac2d8d482768dfa3fd5c7949b1d29cf527ef8968/libdc1394-2.2.3-1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/libdc1394/2.2.3-1.0/ab4fb3621c29f8f8752624373837f1c32a6f5097/libdc1394-2.2.3-1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/libfreenect/0.5.2-1.0/50856dd042296a2c7e15692991ca614ed2f8599e/libfreenect-0.5.2-1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/libfreenect/0.5.2-1.0/f0206735d3a4a44e4df4dc2f4006d638a9c15a01/libfreenect-0.5.2-1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/videoinput/0.200-1.0/a51061c89a687b27349ca2c46412dc68f7041c1e/videoinput-0.200-1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/videoinput/0.200-1.0/f61bec20a8eee696f45aba7cedeb66c819f57491/videoinput-0.200-1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/artoolkitplus/2.3.1-1.0/5775dc4da76fc80f0e68abd8f2555d45afa5ce8b/artoolkitplus-2.3.1-1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/artoolkitplus/2.3.1-1.0/e96d21b58baa6c17eaadf6a8e9bd89493ad8cb5/artoolkitplus-2.3.1-1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/flandmark/1.07-1.0/a04107d8ce62cb384b53b0d193f010180be8284e/flandmark-1.07-1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/flandmark/1.07-1.0/700d52c21b96b0a0d2f27e198d2e9e8a8adc5a81/flandmark-1.07-1.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.googlecode.json-simple/json-simple/1.1.1/15bba08e3a239d54b68209c001f9c911559d2fed/json-simple-1.1.1-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.googlecode.json-simple/json-simple/1.1.1/c9ad4a0850ab676c5c64461a05ca524cdfff59f1/json-simple-1.1.1.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.10/6c98d6766e72d5575f96c9479d1c1d3b865c6e25/junit-4.10-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.10/e4f1766ce7404a08f45d859fb9c226fc9e41a861/junit-4.10.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.1/2ccf1154d1a8936042a8a742dc3e611d02ac7213/hamcrest-core-1.1-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.1/860340562250678d1a344907ac75754e259cdb14/hamcrest-core-1.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.12/58697792617f38bf86d8e26bc004aac505e516a9/slf4j-api-1.7.12-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.12/8e20852d05222dc286bf1c71d78d0531e177c317/slf4j-api-1.7.12.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.10.1.RELEASE/a6d2fa3e34b0314bc6662fdffdb55d8575cb69f6/spring-data-commons-1.10.1.RELEASE-sources.jar" />
@@ -745,14 +898,16 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.4.6/2a1f6edb86b8c6d29f37f6a807295d4e5c279707/jackson-core-2.4.6.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.glassfish/javax.el/3.0.1-b08/303fcd8c9ce98ccb708a20aaafb2ea1e8ef0b254/javax.el-3.0.1-b08-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.glassfish/javax.el/3.0.1-b08/8fa39d3901fc6ec8c0fff4ad4e48c26c4911c422/javax.el-3.0.1-b08.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/ecf26c7507d67782a3bbd148d170b31dfad001aa/commons-logging-1.2-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mongodb/mongo-java-driver/2.13.0/3a86ea66cd451ac9e52dd6a8032c53bfaa0ebcc2/mongo-java-driver-2.13.0-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mongodb/mongo-java-driver/2.13.0/6b19c1276871001fa85684475db7e4c538046b52/mongo-java-driver-2.13.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/ognl/ognl/3.0.8/1b6bace3760cdf6dfb2c0fea0b266fa9d802c403/ognl-3.0.8-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/ognl/ognl/3.0.8/37e1aebfde7eb7baebc9ad4f85116ef9009c5fc5/ognl-3.0.8.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.16.1-GA/8f95b972246d57bca63f7a715af2aa9f61bf7f34/javassist-3.16.1-GA-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.16.1-GA/315891b371395271977af518d4db5cee1a0bc9bf/javassist-3.16.1-GA.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.10/6c98d6766e72d5575f96c9479d1c1d3b865c6e25/junit-4.10-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.10/e4f1766ce7404a08f45d859fb9c226fc9e41a861/junit-4.10.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.1/2ccf1154d1a8936042a8a742dc3e611d02ac7213/hamcrest-core-1.1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.1/860340562250678d1a344907ac75754e259cdb14/hamcrest-core-1.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/1.2.4.RELEASE/311965232862846256f5fccff31783fe30136aa3/spring-boot-gradle-plugin-1.2.4.RELEASE-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/1.2.4.RELEASE/974d5f5a6857a9ee28e3faf05d44863826c4bcf5/spring-boot-gradle-plugin-1.2.4.RELEASE.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/1.2.4.RELEASE/905e03d3ff192f30a670641446df690bea56fcb9/spring-boot-loader-tools-1.2.4.RELEASE-sources.jar" />
@@ -897,26 +1052,31 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/Login.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/CSS/Login.css" />
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/authentication/LDAPSettings.java" />
-        <option value="$PROJECT_DIR$/src/main/java/authentication/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/RegistrationApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/authentication/Authenticator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/authentication/LDAPTester.java" />
-        <option value="$PROJECT_DIR$/src/main/java/HTTPPostBuilder/BiometricData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPPostBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HttpResponseHandler.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/application/WebCamStream.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPPostSender.java" />
-        <option value="$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPRequestBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/application/EmailValidator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Scenes/FacialRecognitionRegisterScene.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Scenes/ToRegisterScene.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Scenes/BiometricChoiceScene.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/ApplicationModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/ApplicationMVC.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Scenes/ApplicationRun.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/FXML Scenes/LoginScreen.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/application/RegistrationApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/ApplicationView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Scenes/LoginScene.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/FXML/LoginScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/application/ApplicationController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/FXML/SelectUserScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/FXML/BiometricChoiceScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/FXML/FacialRegisterScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/application/RegistrationDataObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Views/ApplicationView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Controllers/BaseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Controllers/BiometricChoiceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPPostSender.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/haarcascade_frontalface_alt.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Controllers/FacialRegisterController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Controllers/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/Controllers/RegistreeConfirmController.java" />
       </list>
     </option>
   </component>
@@ -943,7 +1103,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -977,145 +1137,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COSBAS-Biometric-Registration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Registration Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COSBAS-Biometric-Registration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Registration Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COSBAS-Biometric-Registration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Registration Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTTPPostBuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COSBAS-Biometric-Registration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Registration Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COSBAS-Biometric-Registration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Registration Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="F:/opencv/build/java/opencv-300.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.45057473" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Desktop/COSBAS-Server" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Tienie\Desktop\Desktop\COSBAS-Biometric-Registration\src\main\resources" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.RegistrationApplication">
+  <component name="RunManager" selected="Application.ApplicationModel">
     <configuration default="false" name="RegistrationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1135,50 +1174,6 @@
       <module name="COSBAS-Biometric-Registration" />
       <envs />
       <method />
-    </configuration>
-    <configuration default="false" name="build (1)" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
-      <module name="COSBAS-Biometric-Registration" />
-      <setting name="path" value="file://$PROJECT_DIR$/build.gradle" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="false" name="build (2)" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
-      <module name="COSBAS-Biometric-Registration" />
-      <setting name="path" value="file://$PROJECT_DIR$/build.gradle" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="false" name="build (3)" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
-      <module name="COSBAS-Biometric-Registration" />
-      <setting name="path" value="file://$PROJECT_DIR$/build.gradle" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="false" name="build (4)" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
-      <module name="COSBAS-Biometric-Registration" />
-      <setting name="path" value="file://$PROJECT_DIR$/build.gradle" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
@@ -1265,15 +1260,6 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method />
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1297,7 +1283,6 @@
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="JAR_PATH" value="$PROJECT_DIR$/json-simple-1.1.jar" />
       <envs />
       <method />
     </configuration>
@@ -1337,20 +1322,33 @@
       <listeners />
       <method />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.RegistrationApplication" />
-      <item index="1" class="java.lang.String" itemvalue="Groovy.build (1)" />
-      <item index="2" class="java.lang.String" itemvalue="Groovy.build (2)" />
-      <item index="3" class="java.lang.String" itemvalue="Groovy.build (3)" />
-      <item index="4" class="java.lang.String" itemvalue="Groovy.build (4)" />
+    <configuration default="false" name="ApplicationModel" type="Application" factoryName="Application" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="application.Model.ApplicationModel" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=&quot;F:\opencv\build\java\x64&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="COSBAS-Biometric-Registration" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.ApplicationModel" />
+      <item index="1" class="java.lang.String" itemvalue="Application.RegistrationApplication" />
     </list>
     <recent_temporary>
-      <list size="5">
+      <list size="1">
         <item index="0" class="java.lang.String" itemvalue="Application.RegistrationApplication" />
-        <item index="1" class="java.lang.String" itemvalue="Groovy.build (4)" />
-        <item index="2" class="java.lang.String" itemvalue="Groovy.build (3)" />
-        <item index="3" class="java.lang.String" itemvalue="Groovy.build (2)" />
-        <item index="4" class="java.lang.String" itemvalue="Groovy.build (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -1360,18 +1358,54 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cd30efa7-32a4-4797-8394-44dc75616cf7" name="Default" comment="" />
-      <created>1441429425433</created>
+      <changelist id="560ca18a-8993-47c6-a7dd-82f9c1a6de79" name="Default" comment="" />
+      <created>1442755438818</created>
       <option name="number" value="Default" />
-      <updated>1441429425433</updated>
+      <updated>1442755438818</updated>
     </task>
-    <task id="LOCAL-00001" summary="Added the ability for the Registration Client to send a POST request to the Server containing the image as a byte array.">
-      <created>1441826505073</created>
+    <task id="LOCAL-00001" summary="Major Structural Improvements&#10;Fixed the bugs with the webcam not working on some PCs.">
+      <created>1442755705323</created>
       <option name="number" value="00001" />
       <option name="project" value="LOCAL" />
-      <updated>1441826505073</updated>
+      <updated>1442755705323</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Code Cleanup">
+      <created>1442758925186</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1442758925186</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Migrated to MVC for the Application.&#10;Migrated to FXML-Built instead of Java-Built UI">
+      <created>1443001383284</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1443001383284</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Renamed the package.">
+      <created>1443002305999</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1443002305999</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed Canvas Cropping the Webcam Stream.&#10;Added Facial Detection in the form of a green Rectangle.&#10;Added image cropping based on facial detection.">
+      <created>1443087355325</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1443087355325</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added a gitignore&#10;Added image greyscaling">
+      <created>1443090282318</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1443090282318</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added input length validation">
+      <created>1443092571316</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1443092571316</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1380,17 +1414,17 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33853006" sideWeight="0.49570817" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22160356" sideWeight="0.6056867" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32516703" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2468017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07356077" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946696" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1401,7 +1435,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1417,24 +1451,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Added the ability for the Registration Client to send a POST request to the Server containing the image as a byte array." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the ability for the Registration Client to send a POST request to the Server containing the image as a byte array." />
+    <MESSAGE value="Major Structural Improvements&#10;Fixed the bugs with the webcam not working on some PCs." />
+    <MESSAGE value="Code Cleanup" />
+    <MESSAGE value="Migrated to MVC for the Application.&#10;Migrated to FXML-Built instead of Java-Built UI" />
+    <MESSAGE value="Renamed the package." />
+    <MESSAGE value="Fixed Canvas Cropping the Webcam Stream.&#10;Added Facial Detection in the form of a green Rectangle.&#10;Added image cropping based on facial detection." />
+    <MESSAGE value="Added a gitignore&#10;Added image greyscaling" />
+    <MESSAGE value="Added input length validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added input length validation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/application/RegistrationApplication.java</url>
-          <line>43</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="3" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1442,17 +1472,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/RegistrationApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/FacialRegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1462,382 +1482,162 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/WebCamStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/Authenticator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/LDAPSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/LDAPTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/RegistrationApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="306" column="26" selection-start-line="306" selection-start-column="26" selection-end-line="306" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/WebCamStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="5" selection-start-line="34" selection-start-column="3" selection-end-line="81" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/Authenticator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/haarcascade_frontalface_alt.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/LDAPSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/LDAPTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/RegistrationApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="224" column="38" selection-start-line="224" selection-start-column="38" selection-end-line="224" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/Authenticator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/LDAPSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/LDAPTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/gradle.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/LDAPSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/LDAPTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HttpResponseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HTTPPostBuilder/BiometricData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/authentication/Authenticator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/WebCamStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPPostSender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPRequestBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="45" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/bg.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="30" />
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/RegistreeConfirmController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/RegistrationDataObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Model/ApplicationModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
+          <folding>
+            <element signature="e#327#328#0" expanded="false" />
+            <element signature="e#355#356#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="58" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/FXML/FacialRegisterScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/BiometricChoiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/FacialRegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/RegistreeConfirmController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/RegistrationDataObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Model/ApplicationModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#327#328#0" expanded="false" />
+            <element signature="e#355#356#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="58" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/FXML/FacialRegisterScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/FXML/BiometricChoiceScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/BiometricChoiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1845,22 +1645,142 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/application/EmailValidator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="27" />
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/EmailValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/FXML/SelectUserScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.310345">
+          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/FXML/LoginScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.75862">
+          <caret line="24" column="31" selection-start-line="0" selection-start-column="0" selection-end-line="33" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/FXML/BiometricChoiceScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/FXML/FacialRegisterScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/RegistrationDataObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="58" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/BiometricChoiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Model/ApplicationModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#427#428#0" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="false" />
+            <element signature="e#355#356#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/RegistrationApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/HTTPPostBuilder/HTTPPostSender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77198213">
-          <caret line="319" column="0" selection-start-line="319" selection-start-column="0" selection-end-line="319" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/haarcascade_frontalface_alt.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.96">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/FacialRegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.551724">
+          <caret line="160" column="27" selection-start-line="160" selection-start-column="27" selection-end-line="160" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="44" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/Controllers/RegistreeConfirmController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29411766">
+          <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1945,7 +1865,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.45057473" />
+                <option value="0.23820484" />
               </list>
             </option>
           </splitter-proportions>
