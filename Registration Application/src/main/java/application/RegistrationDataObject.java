@@ -4,6 +4,7 @@ package application;
  * Created by Tienie on 9/23/2015.
  */
 public class RegistrationDataObject {
+    byte[] image;
     private String EMPLID;
     private String Email;
 
@@ -25,5 +26,13 @@ public class RegistrationDataObject {
 
     public void setEmail(String mail) {
         Email = mail;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] img) {
+        image = img;
     }
 }

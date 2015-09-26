@@ -1,6 +1,5 @@
 package application.Controllers;
 
-import HTTPPostBuilder.HTTPPostSender;
 import javafx.animation.AnimationTimer;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -29,11 +28,8 @@ import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.videoio.VideoCapture;
 
 import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
@@ -73,22 +69,15 @@ public class FacialRegisterController extends BaseController {
 
 
         try {
-            Image originalImage = getScreenShot();
-            BufferedImage bufferedImg = SwingFXUtils.fromFXImage(originalImage, null);
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(bufferedImg, "jpg", baos);
-            baos.flush();
-            byte[] imageInByte = baos.toByteArray();
-            sendHTTPPostAsJSON(imageInByte, getRegistrationDO().getEmplid(), getRegistrationDO().getEmail());
-            baos.close();
-            actiontarget.setText("Photo Taken");
 
+            saveImage();
+            actiontarget.setText("Photo Taken");
             webcam.timer.stop();
             webcam.videoCapture.release();
 
 
             stage = (Stage) signInBtn.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("/FXML/BiometricChoiceScreen.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/FXML/FacialRegisterConfirmScreen.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -110,7 +99,7 @@ public class FacialRegisterController extends BaseController {
         webcam.start();
     }
 
-    public Image getScreenShot() throws Exception {
+    public void saveImage() throws Exception {
 
 
         Mat mat = new Mat();
@@ -129,28 +118,16 @@ public class FacialRegisterController extends BaseController {
         WritableImage croppedImage = new WritableImage(image.getPixelReader(), X.intValue(), Y.intValue(), W.intValue(), H.intValue());
 
         croppedImage = grayscale(croppedImage);
-        /* Uncomment this to save the image to disk so that you can test it.
-        */
-        File file = new File("test.png");
-        RenderedImage renderedImage = SwingFXUtils.fromFXImage(croppedImage, null);
-        ImageIO.write(
-                renderedImage,
-                "png",
-                file);
-
-
-
-        return croppedImage;
+        getRegistrationDO().setImage(extractBytes(croppedImage));
     }
 
-    public void sendHTTPPostAsJSON(byte[] image, String emplid, String email) throws Exception {
-        HTTPPostSender sender = new HTTPPostSender();
-        try {
-            sender.sendPostRequest(image, emplid, email);
-        } catch (Exception e) {
-            throw e;
-        }
+    public byte[] extractBytes(WritableImage wim) throws IOException {
+        // open image
+        ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
+        ImageIO.write(SwingFXUtils.fromFXImage(wim, null), "png", byteOutput);
+        return byteOutput.toByteArray();
     }
+
 
     private WritableImage grayscale(Image img) {
         WritableImage gray = new WritableImage((int) img.getWidth(), (int) img.getHeight());
