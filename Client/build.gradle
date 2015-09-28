@@ -16,6 +16,9 @@ run {
     standardInput = System.in
     systemProperty "java.library.path", 'C:/opencv/build/x64/vc12/bin/;C:/opencv/build/java/;C:/opencv/build/java/x64/;'
 }
+test {
+    systemProperty "java.library.path", 'C:/opencv/build/x64/vc12/bin/;C:/opencv/build/java/;C:/opencv/build/java/x64/;'
+}
 
 
 dependencies {
