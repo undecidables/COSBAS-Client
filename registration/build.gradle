@@ -16,7 +16,6 @@ buildscript {
 }
 
 
-apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
@@ -24,6 +23,10 @@ apply plugin: 'spring-boot'
 //Java 8 because the system uses LocalDateTime API
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+bootRun{
+    systemProperty "java.library.path", 'C:/opencv/build/x64/vc12/bin/;C:/opencv/build/java/;C:/opencv/build/java/x64/;'
+}
 
 
 jar {
@@ -115,7 +118,7 @@ dependencies {
     compile 'com.googlecode.json-simple:json-simple:1.1.1'
 
 
-
+    compile project(":common")
     testCompile "junit:junit"
     testCompile "org.mockito:mockito-core:1.+"
 }

@@ -1,6 +1,7 @@
 package client;
 
 import java.util.ArrayList;
+import modules.*;
 
 /**
  * {@author Szymon}

@@ -24,9 +24,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.opencv.core.*;
-import org.opencv.imgcodecs.Imgcodecs;
+//import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.objdetect.CascadeClassifier;
-import org.opencv.videoio.VideoCapture;
+//import org.opencv.videoio.VideoCapture;
+import org.opencv.highgui.VideoCapture;
+
+import modules.ConvertMatToImageByteArray;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -111,11 +114,16 @@ public class FacialRegisterController extends BaseController {
     }
 
     public Image getScreenShot() throws Exception {
-
+        ConvertMatToImageByteArray converter = new ConvertMatToImageByteArray();
 
         Mat mat = new Mat();
         webcam.videoCapture.read(mat);
         javafx.scene.image.Image image = webcam.mat2Image(mat);
+        /*byte[] byteImage = converter.convertToImageByteArray(mat);
+        ByteArrayInputStream bais = new ByteArrayInputStream(byteImage);
+        BufferedImage bImage = ImageIO.read(bais);
+        WritableImage image = new WritableImage(bImage.getWidth(), bImage.getHeight());
+        SwingFXUtils.toFXImage(bImage, image);*/
         java.util.List<Rectangle2D> rectList = webcam.detectFaces(mat);
         if (rectList.size() > 1) {
             throw new Exception("More than one face detected");
@@ -195,7 +203,12 @@ public class FacialRegisterController extends BaseController {
 
                     java.util.List<Rectangle2D> rectList = detectFaces(mat);
 
-                    javafx.scene.image.Image image = mat2Image(mat);
+                    Image image = null;
+                    try {
+                        image = mat2Image(mat);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
                     canvas.setWidth(image.getWidth());
                     canvas.setHeight(image.getHeight());
@@ -213,17 +226,26 @@ public class FacialRegisterController extends BaseController {
             timer.start();
         }
 
-        public synchronized Image mat2Image(Mat mat) {
-            MatOfByte buffer = new MatOfByte();
+        public synchronized Image mat2Image(Mat mat) throws IOException {
+            ConvertMatToImageByteArray converter = new ConvertMatToImageByteArray();
+
+            byte[] byteImage = converter.convertToImageByteArray(mat);
+            ByteArrayInputStream bais = new ByteArrayInputStream(byteImage);
+            BufferedImage bImage = ImageIO.read(bais);
+            WritableImage image = new WritableImage(bImage.getWidth(), bImage.getHeight());
+            SwingFXUtils.toFXImage(bImage, image);
+            return image;
+
+   /*         MatOfByte buffer = new MatOfByte();
             Imgcodecs.imencode(".png", mat, buffer);
-            return new Image(new ByteArrayInputStream(buffer.toArray()));
+            return new Image(new ByteArrayInputStream(buffer.toArray()));*/
         }
 
         public synchronized List<Rectangle2D> detectFaces(Mat mat) {
 
             MatOfRect faceDetections = new MatOfRect();
             faceDetector.detectMultiScale(mat, faceDetections);
-            List<Rectangle2D> rectList = new ArrayList<>();
+            List<Rectangle2D> rectList = new ArrayList<Rectangle2D>();
             for (Rect rect : faceDetections.toArray()) {
                 rectList.add(new Rectangle2D(rect.x, rect.y, rect.width, rect.height));
             }

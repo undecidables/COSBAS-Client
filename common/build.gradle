@@ -1,0 +1,5 @@
+
+
+dependencies {
+    compile files("libs/opencv-2411.jar")
+}
