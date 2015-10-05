@@ -1,6 +1,8 @@
 package client;
 
-import java.io.FileOutputStream;
+import modules.Biometric;
+import modules.BiometricData;
+
 import java.io.IOException;
 import java.util.ArrayList;
 

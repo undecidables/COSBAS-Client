@@ -23,7 +23,7 @@ public class Face implements Biometric
         {
             for(byte[] image : images)
             {
-                BiometricData data = new BiometricData("face", image);
+                BiometricData data = new BiometricData("biometric-FACE", image);
                 datas.add(data);
 
             }

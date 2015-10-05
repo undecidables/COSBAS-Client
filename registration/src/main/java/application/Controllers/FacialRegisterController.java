@@ -2,6 +2,7 @@ package application.Controllers;
 
 import HTTPPostBuilder.HTTPPostSender;
 import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,16 +16,15 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.PixelReader;
-import javafx.scene.image.PixelWriter;
-import javafx.scene.image.WritableImage;
+import javafx.scene.image.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.opencv.core.*;
 //import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.highgui.Highgui;
+import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 //import org.opencv.videoio.VideoCapture;
 import org.opencv.highgui.VideoCapture;
@@ -42,6 +42,8 @@ import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Tienie on 9/23/2015.
@@ -69,7 +71,7 @@ public class FacialRegisterController extends BaseController {
     private Button signInBtn;
 
     @FXML
-    private Canvas canvas;
+    private ImageView canvas;
 
     @FXML
     protected void handleFacialSubmitButtonAction(ActionEvent event) {
@@ -109,15 +111,132 @@ public class FacialRegisterController extends BaseController {
     @FXML
     protected void initialize() {
 
-        webcam = new VideoStream();
-        webcam.start();
+
+        /*stage = (Stage) textfield.getScene().getWindow();
+
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            public void handle(WindowEvent we) {
+
+                capture.release();
+
+
+            }
+        });*/
+
+        startCamera();
+
+
+
+       // webcam = new VideoStream();
+       // webcam.start();
     }
+
+    @FXML
+    private ImageView currentFrame;
+
+    private VideoCapture capture = new VideoCapture();
+    private Timer timer;
+
+    private void startCamera()
+    {
+        capture.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 1280); //camera resolution set here we could maybe have this in the config file???
+        capture.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 720);
+        final ImageView frameView = currentFrame;
+        if(!capture.isOpened())
+        {
+            capture.open(0);
+
+            VideoCapture tempCap = new VideoCapture(0);
+            System.out.println(tempCap.isOpened() + " THIS IS THE STATUS OF US");
+
+            TimerTask frameGrabber = new TimerTask() {
+                @Override
+                public void run() {
+                    final Image tmp = grabFrame();
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            frameView.setImage(tmp);
+                        }
+                    });
+                }
+            };
+
+            timer = new Timer();
+            timer.schedule(frameGrabber, 0, 33);
+
+
+
+        }
+        else
+        {
+            if(timer != null)
+            {
+                timer.cancel();
+                timer = null;
+            }
+
+            capture.release();
+            frameView.setImage(null);
+        }
+    }
+
+    private Image grabFrame()
+    {
+        Image imageToShow = null;
+        Mat frame = new Mat();
+
+        if(capture.isOpened())
+        {
+            try
+            {
+                capture.read(frame);
+                if(!frame.empty())
+                {
+                    Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
+                    frame = detectFaces(frame);
+                    imageToShow = mat2Image(frame);
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println("Whoops : " + e.toString());
+            }
+        }
+
+        return imageToShow;
+    }
+
+    private Image mat2Image(Mat frame)
+    {
+        MatOfByte buffer = new MatOfByte();
+        Highgui.imencode(".png", frame, buffer);
+        return new Image(new ByteArrayInputStream(buffer.toArray()));
+    }
+
+    private Mat detectFaces(Mat frame)
+    {
+        MatOfRect faceDetections = new MatOfRect();
+        CascadeClassifier faceDetector = new CascadeClassifier("src/main/resources/haarcascade_frontalface_alt.xml");
+        faceDetector.detectMultiScale(frame, faceDetections);
+
+        for(Rect rect : faceDetections.toArray())
+        {
+            Core.rectangle(frame, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height),
+                    new Scalar(0, 255, 0));
+        }
+
+        return frame;
+    }
+
 
     public Image getScreenShot() throws Exception {
         ConvertMatToImageByteArray converter = new ConvertMatToImageByteArray();
 
+        Mat tempMat = new Mat();
         Mat mat = new Mat();
-        webcam.videoCapture.read(mat);
+        webcam.videoCapture.read(tempMat);
+        Imgproc.cvtColor(tempMat, mat, Imgproc.COLOR_RGB2GRAY);
         javafx.scene.image.Image image = webcam.mat2Image(mat);
         /*byte[] byteImage = converter.convertToImageByteArray(mat);
         ByteArrayInputStream bais = new ByteArrayInputStream(byteImage);
@@ -136,7 +255,7 @@ public class FacialRegisterController extends BaseController {
         Double H = faceRegion.getHeight();
         WritableImage croppedImage = new WritableImage(image.getPixelReader(), X.intValue(), Y.intValue(), W.intValue(), H.intValue());
 
-        croppedImage = grayscale(croppedImage);
+        //croppedImage = grayscale(croppedImage);
         /* Uncomment this to save the image to disk so that you can test it.
         */
         File file = new File("test.png");
@@ -160,23 +279,6 @@ public class FacialRegisterController extends BaseController {
         }
     }
 
-    private WritableImage grayscale(Image img) {
-        WritableImage gray = new WritableImage((int) img.getWidth(), (int) img.getHeight());
-        PixelReader imgReader = img.getPixelReader();
-        PixelWriter imgWriter = gray.getPixelWriter();
-        for (int y = 0; y < img.getHeight(); ++y) {
-            for (int x = 0; x < img.getWidth(); ++x) {
-                Color c = imgReader.getColor(x, y);
-                int mx = (int) (0xFF * Math.max(c.getRed(), Math.max(c.getGreen(), c.getBlue())));
-                int mn = (int) (0xFF * Math.min(c.getRed(), Math.min(c.getGreen(), c.getBlue())));
-                int g = (mx + mn) / 2;
-                Color nc = Color.rgb(g, g, g);
-                imgWriter.setColor(x, y, nc);
-            }
-        }
-        return gray;
-    }
-
     class VideoStream extends Thread {
 
         AnimationTimer timer;
@@ -186,7 +288,7 @@ public class FacialRegisterController extends BaseController {
 
         public void run() {
 
-            g2d = canvas.getGraphicsContext2D();
+         /*   g2d = canvas.getGraphicsContext2D();
             g2d.setStroke(javafx.scene.paint.Color.GREEN);
 
             initOpenCv();
@@ -223,7 +325,7 @@ public class FacialRegisterController extends BaseController {
 
                 }
             };
-            timer.start();
+            timer.start();*/
         }
 
         public synchronized Image mat2Image(Mat mat) throws IOException {

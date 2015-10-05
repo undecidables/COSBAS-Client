@@ -36,7 +36,7 @@ public class HTTPRequestBuilder {
         entityBuilder.addPart("email", email);
 
         if (_biometricData != null) {
-            entityBuilder.addBinaryBody("FACE", _biometricData);
+            entityBuilder.addBinaryBody("biometric-FACE", _biometricData);
         }
 
         HttpEntity entity = entityBuilder.build();
