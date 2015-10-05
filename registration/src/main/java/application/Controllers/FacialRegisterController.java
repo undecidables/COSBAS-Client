@@ -21,6 +21,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import modules.OPENCVCamera;
+import modules.OPENCVFaceDetection;
 import org.opencv.core.*;
 //import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.highgui.Highgui;
@@ -76,7 +78,7 @@ public class FacialRegisterController extends BaseController {
     @FXML
     protected void handleFacialSubmitButtonAction(ActionEvent event) {
 
-
+/*
         try {
             Image originalImage = getScreenShot();
             BufferedImage bufferedImg = SwingFXUtils.fromFXImage(originalImage, null);
@@ -105,6 +107,33 @@ public class FacialRegisterController extends BaseController {
         } catch (Exception ex) {
             ex.printStackTrace();
             actiontarget.setText("Server Unavailable");
+        }*/
+
+        if(capture.isOpened())
+        {
+            //timer.cancel();
+            Mat frame = new Mat();
+            capture.read(frame);
+            OPENCVFaceDetection detection = new OPENCVFaceDetection();
+            ConvertMatToImageByteArray convertor = new ConvertMatToImageByteArray();
+
+            ArrayList<byte[]> frames = new ArrayList<byte[]>();
+            frames.add(convertor.convertToImageByteArray(frame));
+
+            frames = detection.detectFaces(frames);
+            actiontarget.setText("Photo Taken");
+            try {
+                sendHTTPPostAsJSON(frames.get(0), getRegistrationDO().getEmplid(), getRegistrationDO().getEmail());
+            } catch (Exception e) {
+
+                actiontarget.setText("Server Unavailable");
+            }
+            //currentFrame.setImage(mat2Image(Highgui.imdecode(new MatOfByte(frames.get(0)), Highgui.IMREAD_GRAYSCALE)));
+
+        }
+        else
+        {
+
         }
     }
 
@@ -146,8 +175,8 @@ public class FacialRegisterController extends BaseController {
         {
             capture.open(0);
 
-            VideoCapture tempCap = new VideoCapture(0);
-            System.out.println(tempCap.isOpened() + " THIS IS THE STATUS OF US");
+           // VideoCapture tempCap = new VideoCapture(0);
+           // System.out.println(tempCap.isOpened() + " THIS IS THE STATUS OF US");
 
             TimerTask frameGrabber = new TimerTask() {
                 @Override
@@ -193,7 +222,7 @@ public class FacialRegisterController extends BaseController {
                 capture.read(frame);
                 if(!frame.empty())
                 {
-                    Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
+                    //Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
                     frame = detectFaces(frame);
                     imageToShow = mat2Image(frame);
                 }

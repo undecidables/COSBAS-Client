@@ -6,5 +6,5 @@ import java.util.ArrayList;
  * {@author Szymon}
  */
 public interface CameraInterface {
-    public ArrayList<byte[]> getImages();
+    public byte[] getImage();
 }

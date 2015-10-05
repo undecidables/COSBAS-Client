@@ -23,7 +23,7 @@ public class HTTPPostSender {
         } catch (Exception e) {
 
         }
-        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+        CloseableHttpClient httpClient = HttpClients.createDefault();
 
             HTTPRequestBuilder request = new HTTPRequestBuilder();
             if (config != null && data != null) {
@@ -31,30 +31,30 @@ public class HTTPPostSender {
                 String map = config.getProperty("map").toString();
                 String id = emplid;
                 String action = email;
+                System.out.println(id + " ++++++++");
+                System.out.println(email + " ++++++++");
                 HttpPost httpPost = request.buildRequest(url, map, id, action, data);
-                try {
-                    CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
-                    HttpResponseHandler response = new HttpResponseHandler();
+    //            try {
+/*                    CloseableHttpResponse httpResponse =*/// httpClient.execute(httpPost);
 
-                    String json = response.handleResponse(httpResponse);
+           //         HttpResponseHandler response = new HttpResponseHandler();
+
+                 /*   String json = response.handleResponse(httpResponse);
                     System.out.println("The reply: ");
                     System.out.println(json);
                     //Gson gson = new Gson();
                     //AccessResponse aResponse = gson.fromJson(json, AccessResponse.class);
 
                     //System.out.println("This is our result: " + aResponse.getResult());
-                    System.out.println("");
-                } catch (HttpHostConnectException e) {
+                    System.out.println("");*/
+             /*   } catch (HttpHostConnectException e) {
                     throw new Exception("Server Unavailable");
-                }
+            */  //  }
 
                 httpClient.close();
             } else {
                 System.out.println("Config or Data is Null");
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

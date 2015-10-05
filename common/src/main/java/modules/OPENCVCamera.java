@@ -11,21 +11,20 @@ import java.util.ArrayList;
  */
 public class OPENCVCamera implements CameraInterface {
 
-    public ArrayList<byte[]> getImages()
+    public byte[] getImage()
     {
-        ArrayList<Mat> matImages = captureFrames();
-        ArrayList<byte[]> images = new ArrayList<byte[]>();
-
+        Mat image = captureFrame();
         ImageByteArrayConverterInterface convertor = new ConvertMatToImageByteArray();
-        for(Mat image : matImages)
-        {
-            images.add(convertor.convertToImageByteArray(image));
-        }
 
-        return images;
+
+        if(image!=null)
+        {
+            return convertor.convertToImageByteArray(image);
+        }
+        return null;
     }
 
-    public ArrayList<Mat> captureFrames()
+    public Mat captureFrame()
     {
         VideoCapture camera = new VideoCapture(0); //param passed is the device number, dont know if it will always be zero. might have to find the right device num in the client main.
         //camera.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 1280); //camera resolution set here we could maybe have this in the config file???
@@ -47,28 +46,20 @@ public class OPENCVCamera implements CameraInterface {
         }
         else
         {
-            //need to take a few images incase one of them are blurry
-            int count = 0;
-            while (count < 4) {
-                try {
-                    Thread.sleep(250);
-                } catch (Exception e) {
 
-                }
-                Mat tempFrame = new Mat();
-                Mat frame = new Mat();
-                camera.read(tempFrame);
-                Imgproc.cvtColor(tempFrame, frame, Imgproc.COLOR_RGB2GRAY);
-                tempFrame = null;
-                tempFrames.add(frame);
-                System.out.println("Captured a photo.");
-                count++;
-            }
+
+            Mat tempFrame = new Mat();
+            Mat frame = new Mat();
+            camera.read(frame);
+            //Imgproc.cvtColor(frame, frame, Imgproc.COLOR_RGB2GRAY);
+            tempFrame = null;
+            tempFrames.add(frame);
+            System.out.println("Captured a photo.");
 
 
             camera.release();
 
-            return tempFrames;
+            return frame;
         }
         return null;
     }
