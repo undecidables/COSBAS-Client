@@ -15,7 +15,7 @@ import java.io.IOException;
 public class HTTPPostSender {
     private static final String CONFIG_FILE_NAME = "config.properties";
 
-    public void sendPostRequest(byte[] data, String emplid, String email) throws Exception {
+    public void sendPostRequest(byte[] data, String emplid, String email, String registratorID) throws Exception {
         PropertiesConfiguration config = new PropertiesConfiguration();
         try {
 
@@ -31,25 +31,26 @@ public class HTTPPostSender {
                 String map = config.getProperty("map").toString();
                 String id = emplid;
                 String action = email;
+
                 System.out.println(id + " ++++++++");
                 System.out.println(email + " ++++++++");
-                HttpPost httpPost = request.buildRequest(url, map, id, action, data);
-    //            try {
-/*                    CloseableHttpResponse httpResponse =*/// httpClient.execute(httpPost);
+                HttpPost httpPost = request.buildRequest(url, map, emplid, email, data, registratorID);
+                try {
+                    CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
 
-           //         HttpResponseHandler response = new HttpResponseHandler();
+                    HttpResponseHandler response = new HttpResponseHandler();
 
-                 /*   String json = response.handleResponse(httpResponse);
+                    String json = response.handleResponse(httpResponse);
                     System.out.println("The reply: ");
                     System.out.println(json);
                     //Gson gson = new Gson();
                     //AccessResponse aResponse = gson.fromJson(json, AccessResponse.class);
 
                     //System.out.println("This is our result: " + aResponse.getResult());
-                    System.out.println("");*/
-             /*   } catch (HttpHostConnectException e) {
+                    System.out.println("");
+                } catch (HttpHostConnectException e) {
                     throw new Exception("Server Unavailable");
-            */  //  }
+                }
 
                 httpClient.close();
             } else {

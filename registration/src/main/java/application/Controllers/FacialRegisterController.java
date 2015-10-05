@@ -123,7 +123,7 @@ public class FacialRegisterController extends BaseController {
             frames = detection.detectFaces(frames);
             actiontarget.setText("Photo Taken");
             try {
-                sendHTTPPostAsJSON(frames.get(0), getRegistrationDO().getEmplid(), getRegistrationDO().getEmail());
+                sendHTTPPostAsJSON(frames.get(0), getRegistrationDO().getEmplid(), getRegistrationDO().getEmail(), getRegistrationDO().getRegistratorsID());
             } catch (Exception e) {
 
                 actiontarget.setText("Server Unavailable");
@@ -299,10 +299,10 @@ public class FacialRegisterController extends BaseController {
         return croppedImage;
     }
 
-    public void sendHTTPPostAsJSON(byte[] image, String emplid, String email) throws Exception {
+    public void sendHTTPPostAsJSON(byte[] image, String emplid, String email, String registratorID) throws Exception {
         HTTPPostSender sender = new HTTPPostSender();
         try {
-            sender.sendPostRequest(image, emplid, email);
+            sender.sendPostRequest(image, emplid, email, registratorID);
         } catch (Exception e) {
             throw e;
         }

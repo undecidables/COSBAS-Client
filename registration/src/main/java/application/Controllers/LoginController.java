@@ -48,6 +48,7 @@ public class LoginController extends BaseController {
         try {
             Authenticator authenticator = new Authenticator();
             if (authenticator.doProcess(EMPLID, Password)) {
+                getRegistrationDO().setRegistratorsID(EMPLID);
                 actiontarget.setText("Login Succeeded " + EMPLID + " " + Password);
                 stage = (Stage) signInBtn.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("/FXML/SelectUserScreen.fxml"));
