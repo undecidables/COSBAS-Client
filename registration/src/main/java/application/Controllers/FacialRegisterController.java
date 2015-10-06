@@ -1,8 +1,10 @@
 package application.Controllers;
 
 import HTTPPostBuilder.HTTPPostSender;
+import application.Face;
 import application.Model.ApplicationModel;
 import application.RegistrationDataObject;
+import application.Utilities;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +15,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import modules.OPENCVCamera;
 import modules.OPENCVFaceDetection;
+import modules.BiometricData;
 import org.opencv.core.*;
 //import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.highgui.Highgui;
@@ -60,6 +64,9 @@ public class FacialRegisterController {
     @FXML
     protected void handleFacialSubmitButtonAction(ActionEvent event) {
 
+        face.fillData(registrationDataObject.getBiometricData());
+
+/*
         if(capture.isOpened())
         {
             //timer.cancel();
@@ -93,7 +100,7 @@ public class FacialRegisterController {
         else
         {
 
-        }
+        }*/
     }
 
     RegistrationDataObject registrationDataObject;
@@ -103,7 +110,9 @@ public class FacialRegisterController {
 
         ApplicationContext app = ApplicationModel.app;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
-
+        utility = (Utilities) app.getBean("utilities");
+        camera = utility.getCameraObject();
+        face = (Face) app.getBean("face");
         startCamera();
 
     }
@@ -111,46 +120,32 @@ public class FacialRegisterController {
     @FXML
     private ImageView currentFrame;
 
+    Face face;
+    Utilities utility;
+    OPENCVCamera camera;
     private VideoCapture capture = new VideoCapture();
     private Timer timer;
 
     private void startCamera()
     {
-        capture.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 1280); //camera resolution set here we could maybe have this in the config file???
-        capture.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 720);
         final ImageView frameView = currentFrame;
-        if(!capture.isOpened())
-        {
-            capture.open(0);
-
-            TimerTask frameGrabber = new TimerTask() {
-                @Override
-                public void run() {
-                    final Image tmp = grabFrame();
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            frameView.setImage(tmp);
-                        }
-                    });
-                }
-            };
-
-            timer = new Timer();
-            timer.schedule(frameGrabber, 0, 33);
-
-        }
-        else
-        {
-            if(timer != null)
-            {
-                timer.cancel();
-                timer = null;
+        System.out.println("yeah");
+        TimerTask frameGrabber = new TimerTask() {
+            @Override
+            public void run() {
+                final Image tmp = grabFrame();
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        frameView.setImage(tmp);
+                    }
+                });
             }
+        };
 
-            capture.release();
-            frameView.setImage(null);
-        }
+        timer = new Timer();
+        timer.schedule(frameGrabber, 0, 33);
+
     }
 
     private Image grabFrame()
@@ -158,11 +153,11 @@ public class FacialRegisterController {
         Image imageToShow = null;
         Mat frame = new Mat();
 
-        if(capture.isOpened())
+        if(camera.isOpened())
         {
             try
             {
-                capture.read(frame);
+                frame = camera.captureFrame();
                 if(!frame.empty())
                 {
                     //Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);

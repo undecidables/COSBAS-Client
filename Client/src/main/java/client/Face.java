@@ -19,7 +19,9 @@ public class Face implements Biometric
 
         OPENCVCamera c = new OPENCVCamera();
         ArrayList<byte[]> images =  new ArrayList<byte[]>();
+        c.startCamera();
         images.add(c.getImage());
+        c.releaseCamera();
         images = detectFaces.detectFaces(images);
 
 

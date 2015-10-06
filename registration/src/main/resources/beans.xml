@@ -4,4 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="registerUserData" class="application.RegistrationDataObject" scope="singleton" >
     </bean>
+
+    <bean id="utilities" class="application.Utilities" lazy-init="true" scope="singleton">
+
+    </bean>
+
+
+    <bean id="face" lazy-init="true" class="application.Face"></bean>
 </beans>

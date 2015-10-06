@@ -1,6 +1,6 @@
 package application;
 
-import HTTPPostBuilder.BiometricData;
+import modules.BiometricData;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -18,7 +18,9 @@ public class RegistrationDataObject {
 
     @Autowired
     public RegistrationDataObject() {
-        System.out.println("Whooooo i am being called?");
+        biometricData = new ArrayList<BiometricData>();
+        contactDetails = new ArrayList<ContactDetail>();
+
     }
 
     public void setContactDetails(ArrayList<ContactDetail> contactDetails)
