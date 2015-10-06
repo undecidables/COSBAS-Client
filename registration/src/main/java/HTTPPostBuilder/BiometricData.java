@@ -1,7 +1,7 @@
 package HTTPPostBuilder;
 
 /**
- * Created by POLSKA on 29/06/2015.
+ * {@author Szymon}
  */
 public class BiometricData {
     private final byte[] data;

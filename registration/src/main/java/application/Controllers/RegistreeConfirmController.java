@@ -1,5 +1,7 @@
 package application.Controllers;
 
+import application.Model.ApplicationModel;
+import application.RegistrationDataObject;
 import authentication.LDAPTester;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,12 +12,24 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.springframework.context.ApplicationContext;
 
 
 /**
  * Created by Tienie on 9/23/2015.
  */
-public class RegistreeConfirmController extends BaseController {
+public class RegistreeConfirmController{
+
+
+    @FXML
+    protected void initialize() {
+        ApplicationContext app = ApplicationModel.app;
+        registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
+
+    }
+
+    RegistrationDataObject registrationDataObject;
+
 
     Stage stage;
     Parent root;
@@ -40,7 +54,7 @@ public class RegistreeConfirmController extends BaseController {
             if (LDAPTester.getDnForUser(emplid, null) != null) {
                 registreeActionTarget.setText("User Found");
 
-                getRegistrationDO().setEmplid(emplid);
+                registrationDataObject.setEmplid(emplid);
 
                 stage = (Stage) signInBtn.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("/FXML/BiometricChoiceScreen.fxml"));

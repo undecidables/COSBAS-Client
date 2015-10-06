@@ -1,56 +1,39 @@
 package application.Controllers;
 
 import HTTPPostBuilder.HTTPPostSender;
-import javafx.animation.AnimationTimer;
+import application.Model.ApplicationModel;
+import application.RegistrationDataObject;
 import javafx.application.Platform;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import modules.OPENCVCamera;
 import modules.OPENCVFaceDetection;
 import org.opencv.core.*;
 //import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.highgui.Highgui;
-import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 //import org.opencv.videoio.VideoCapture;
 import org.opencv.highgui.VideoCapture;
 
 import modules.ConvertMatToImageByteArray;
+import org.springframework.context.ApplicationContext;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
  * Created by Tienie on 9/23/2015.
  */
-public class FacialRegisterController extends BaseController {
+public class FacialRegisterController {
+
 
 
     static {
@@ -93,7 +76,7 @@ public class FacialRegisterController extends BaseController {
             if(frames.get(0)!=null)
             {
                 try {
-                    sendHTTPPostAsJSON(frames.get(0), getRegistrationDO().getEmplid(), getRegistrationDO().getEmail(), getRegistrationDO().getRegistratorsID());
+                    sendHTTPPostAsJSON(frames.get(0), registrationDataObject.getEmplid(), registrationDataObject.getEmail(), registrationDataObject.getRegistratorID());
                 } catch (Exception e) {
 
                     actiontarget.setText("Server Unavailable");
@@ -113,8 +96,13 @@ public class FacialRegisterController extends BaseController {
         }
     }
 
+    RegistrationDataObject registrationDataObject;
+
     @FXML
     protected void initialize() {
+
+        ApplicationContext app = ApplicationModel.app;
+        registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
 
         startCamera();
 

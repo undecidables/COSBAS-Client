@@ -1,25 +1,53 @@
 package application;
 
+import HTTPPostBuilder.BiometricData;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+
 /**
  * Created by Tienie on 9/23/2015.
  */
+//@Component
 public class RegistrationDataObject {
     private String empID;
     private String email;
-    private String registratorsID;
+    private String registratorID;
+    private ArrayList<BiometricData> biometricData;
+    private ArrayList<ContactDetail> contactDetails;
 
+    @Autowired
     public RegistrationDataObject() {
-
+        System.out.println("Whooooo i am being called?");
     }
 
-    public String getRegistratorsID()
+    public void setContactDetails(ArrayList<ContactDetail> contactDetails)
     {
-        return registratorsID;
+        this.contactDetails = contactDetails;
     }
 
-    public void setRegistratorsID(String registratorsID)
+    public ArrayList<ContactDetail> getContactDetails()
     {
-        this.registratorsID = registratorsID;
+        return contactDetails;
+    }
+
+    public void setBiometricData(ArrayList<BiometricData> biometricData)
+    {
+        this.biometricData = biometricData;
+    }
+
+    public ArrayList<BiometricData> getBiometricData(){
+        return biometricData;
+    }
+
+    public String getRegistratorID()
+    {
+        return registratorID;
+    }
+
+    public void setRegistratorID(String registratorID)
+    {
+        this.registratorID = registratorID;
     }
 
     public String getEmplid() {

@@ -1,6 +1,8 @@
 package application.Controllers;
 
 import application.EmailValidator;
+import application.Model.ApplicationModel;
+import application.RegistrationDataObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,15 +13,18 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.springframework.context.ApplicationContext;
 
 
 /**
  * Created by Tienie on 9/23/2015.
  */
-public class BiometricChoiceController extends BaseController {
+public class BiometricChoiceController {
 
     Stage stage;
     Parent root;
+
+    RegistrationDataObject registrationDataObject;
 
     @FXML
     private Button signInBtn;
@@ -39,8 +44,11 @@ public class BiometricChoiceController extends BaseController {
     @FXML
     protected void initialize() {
 
-        if (registrationDO.getEmail() != null) {
-            emailField.setText(registrationDO.getEmail());
+        ApplicationContext app = ApplicationModel.app;
+        registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
+
+        if (registrationDataObject.getEmail() != null) {
+            emailField.setText(registrationDataObject.getEmail());
             emailField.setDisable(true);
         }
     }
@@ -55,7 +63,7 @@ public class BiometricChoiceController extends BaseController {
             try {
                 if (BiometricSystem.equals("Facial")) {
 
-                    getRegistrationDO().setEmail(email);
+                    registrationDataObject.setEmail(email);
                     stage = (Stage) signInBtn.getScene().getWindow();
                     root = FXMLLoader.load(getClass().getResource("/FXML/FacialRegisterScreen.fxml"));
                     Scene scene = new Scene(root);

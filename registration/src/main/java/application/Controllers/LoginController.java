@@ -1,5 +1,7 @@
 package application.Controllers;
 
+import application.Model.ApplicationModel;
+import application.RegistrationDataObject;
 import authentication.Authenticator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,12 +13,15 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.springframework.context.ApplicationContext;
 
 
 /**
  * Created by Tienie on 9/23/2015.
  */
-public class LoginController extends BaseController {
+
+public class LoginController{
+
 
     Stage stage;
     Parent root;
@@ -36,10 +41,10 @@ public class LoginController extends BaseController {
     @FXML
     protected void handleLoginSubmitButtonAction(ActionEvent event) {
 
-        String EMPLID = textfield.getText();
+        String registratorId = textfield.getText();
         String Password = passwordField.getText();
 
-        if (EMPLID.length() < 3 || Password.length() < 3) {
+        if (registratorId.length() < 3 || Password.length() < 3) {
             actiontarget.setText("Incorrect EMPLID/Password");
             return;
         }
@@ -47,9 +52,9 @@ public class LoginController extends BaseController {
         actiontarget.setText("Sign in button pressed");
         try {
             Authenticator authenticator = new Authenticator();
-            if (authenticator.doProcess(EMPLID, Password)) {
-                getRegistrationDO().setRegistratorsID(EMPLID);
-                actiontarget.setText("Login Succeeded " + EMPLID + " " + Password);
+            if (authenticator.doProcess(registratorId, Password)) {
+                registrationDataObject.setRegistratorID(registratorId);
+                actiontarget.setText("Login Succeeded " + registratorId + " " + Password);
                 stage = (Stage) signInBtn.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("/FXML/SelectUserScreen.fxml"));
                 Scene scene = new Scene(root);
@@ -61,5 +66,15 @@ public class LoginController extends BaseController {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+
     }
+
+    @FXML
+    protected void initialize() {
+        ApplicationContext app = ApplicationModel.app;
+        registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
+
+    }
+
+    RegistrationDataObject registrationDataObject;
 } //Controller
