@@ -11,7 +11,7 @@ import org.springframework.context.ApplicationContext;
 import java.util.ArrayList;
 
 /**
- * Created by simon on 2015-10-06.
+ * {@author Szymon}
  */
 public class Face implements Biometric {
 

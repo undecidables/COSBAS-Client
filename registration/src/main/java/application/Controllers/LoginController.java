@@ -4,6 +4,7 @@ import application.Model.ApplicationModel;
 import application.RegistrationDataObject;
 import authentication.Authenticator;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,6 +14,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.springframework.context.ApplicationContext;
 
 
@@ -40,6 +42,7 @@ public class LoginController{
 
     @FXML
     protected void handleLoginSubmitButtonAction(ActionEvent event) {
+
 
         String registratorId = textfield.getText();
         String Password = passwordField.getText();
@@ -70,7 +73,18 @@ public class LoginController{
     }
 
     @FXML
+    private void closeAction(ActionEvent event)
+    {
+        System.out.println("PLease work");
+    }
+
+
+    @FXML
     protected void initialize() {
+
+
+
+
         ApplicationContext app = ApplicationModel.app;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
 

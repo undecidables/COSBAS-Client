@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 
 /**
- * Created by Tienie on 9/23/2015.
+ * {@author Tienie}
  */
-//@Component
 public class RegistrationDataObject {
     private String empID;
     private String email;

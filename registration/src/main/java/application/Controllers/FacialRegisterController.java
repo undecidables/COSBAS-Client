@@ -15,21 +15,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import modules.OPENCVCamera;
-import modules.OPENCVFaceDetection;
-import modules.BiometricData;
+import javafx.stage.WindowEvent;
+import javafx.event.EventHandler;
+import modules.*;
 import org.opencv.core.*;
 //import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.highgui.Highgui;
 import org.opencv.objdetect.CascadeClassifier;
 //import org.opencv.videoio.VideoCapture;
-import org.opencv.highgui.VideoCapture;
 
-import modules.ConvertMatToImageByteArray;
 import org.springframework.context.ApplicationContext;
 
-import java.io.ByteArrayInputStream;
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -66,53 +61,21 @@ public class FacialRegisterController {
 
         face.fillData(registrationDataObject.getBiometricData());
 
-/*
-        if(capture.isOpened())
-        {
-            //timer.cancel();
-            Mat frame = new Mat();
-            capture.read(frame);
-            OPENCVFaceDetection detection = new OPENCVFaceDetection();
-            ConvertMatToImageByteArray convertor = new ConvertMatToImageByteArray();
+        //sending of httppost to server????
 
-            ArrayList<byte[]> frames = new ArrayList<byte[]>();
-            frames.add(convertor.convertToImageByteArray(frame));
-
-            frames = detection.detectFaces(frames);
-            actiontarget.setText("Photo Taken");
-            if(frames.get(0)!=null)
-            {
-                try {
-                    sendHTTPPostAsJSON(frames.get(0), registrationDataObject.getEmplid(), registrationDataObject.getEmail(), registrationDataObject.getRegistratorID());
-                } catch (Exception e) {
-
-                    actiontarget.setText("Server Unavailable");
-                }
-            }
-            else
-            {
-                //notify about more than one face in the picture must not show....
-            }
-
-            //currentFrame.setImage(mat2Image(Highgui.imdecode(new MatOfByte(frames.get(0)), Highgui.IMREAD_GRAYSCALE)));
-
-        }
-        else
-        {
-
-        }*/
     }
 
-    RegistrationDataObject registrationDataObject;
+
 
     @FXML
     protected void initialize() {
-
         ApplicationContext app = ApplicationModel.app;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
         utility = (Utilities) app.getBean("utilities");
         camera = utility.getCameraObject();
         face = (Face) app.getBean("face");
+        convertMatToImage = utility.getConvertMatToImage();
+        detectAndBorderFaces = utility.getDetectAndBorderFaces();
         startCamera();
 
     }
@@ -120,16 +83,17 @@ public class FacialRegisterController {
     @FXML
     private ImageView currentFrame;
 
-    Face face;
-    Utilities utility;
-    OPENCVCamera camera;
-    private VideoCapture capture = new VideoCapture();
+    private Face face;
+    private Utilities utility;
+    private OPENCVCamera camera;
+    private RegistrationDataObject registrationDataObject;
+    private ConvertMatToImage convertMatToImage;
+    private OPENCVDetectAndBorderFaces detectAndBorderFaces;
     private Timer timer;
 
     private void startCamera()
     {
         final ImageView frameView = currentFrame;
-        System.out.println("yeah");
         TimerTask frameGrabber = new TimerTask() {
             @Override
             public void run() {
@@ -144,25 +108,23 @@ public class FacialRegisterController {
         };
 
         timer = new Timer();
-        timer.schedule(frameGrabber, 0, 33);
+        timer.schedule(frameGrabber, 0, 70);
 
     }
 
+    //this shouldnt sit here, move it somewhere
     private Image grabFrame()
     {
         Image imageToShow = null;
-        Mat frame = new Mat();
-
         if(camera.isOpened())
         {
             try
             {
-                frame = camera.captureFrame();
+                Mat frame = camera.captureFrame();
                 if(!frame.empty())
                 {
-                    //Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
-                    frame = detectFaces(frame);
-                    imageToShow = mat2Image(frame);
+                    frame = detectAndBorderFaces.detectAndBorderFaces(frame);
+                    imageToShow = (Image) convertMatToImage.convert((Object) frame);
                 }
             }
             catch (Exception e)
@@ -171,30 +133,13 @@ public class FacialRegisterController {
             }
         }
 
+        //this calls the function to set up onclose, need to find a more elegant solution.
+        setOnClose();
+
         return imageToShow;
     }
 
-    private Image mat2Image(Mat frame)
-    {
-        MatOfByte buffer = new MatOfByte();
-        Highgui.imencode(".png", frame, buffer);
-        return new Image(new ByteArrayInputStream(buffer.toArray()));
-    }
-
-    private Mat detectFaces(Mat frame)
-    {
-        MatOfRect faceDetections = new MatOfRect();
-        CascadeClassifier faceDetector = new CascadeClassifier("src/main/resources/haarcascade_frontalface_alt.xml");
-        faceDetector.detectMultiScale(frame, faceDetections);
-
-        for(Rect rect : faceDetections.toArray())
-        {
-            Core.rectangle(frame, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height),
-                    new Scalar(0, 255, 0));
-        }
-
-        return frame;
-    }
+    //this shouldnt sit here, move it somewhere
 
 
     public void sendHTTPPostAsJSON(byte[] image, String emplid, String email, String registratorID) throws Exception {
@@ -205,6 +150,23 @@ public class FacialRegisterController {
             throw e;
         }
     }
+
+    private boolean setClose = false;
+    private void setOnClose()
+    {
+        if(!setClose) {
+            ((Stage) currentFrame.getScene().getWindow()).setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent event) {
+                    timer.cancel();
+                    camera.releaseCamera();
+                }
+            });
+            setClose = true;
+        }
+    }
+
+
 
 
 }

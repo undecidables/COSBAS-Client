@@ -40,7 +40,6 @@ public class BiometricChoiceController {
 
     private String email;
 
-
     @FXML
     protected void initialize() {
 
@@ -69,6 +68,7 @@ public class BiometricChoiceController {
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
+
                 } else if (BiometricSystem.equals("Fingerprint")) {
                     System.out.println("Finger");
                 }

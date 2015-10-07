@@ -1,12 +1,13 @@
 package application;
 
-/**
- * Created by Tienie on 13/09/2015.
- */
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+/**
+ * {@author Tienie}
+ */
 public class EmailValidator {
 
     private static final String EMAIL_PATTERN =

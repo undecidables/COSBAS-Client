@@ -44,12 +44,12 @@ public class OPENCVFaceDetection implements FaceDetection {
         }
 
         ArrayList<byte[]> frames = new ArrayList<byte[]>();
-        ImageByteArrayConverterInterface convertor = new ConvertMatToImageByteArray();
+        ConvertorInterface convertor = new ConvertMatToImageByteArray();
 
         for (Mat frame : tempFrames)
         {
 
-            frames.add(convertor.convertToImageByteArray(frame));
+            frames.add((byte[]) convertor.convert(frame));
         }
 
         tempFrames = null;

@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 /**
  * {@author Szymon}
  */
-public class ConvertMatToImageByteArray<T> implements ImageByteArrayConverterInterface<T>
+public class ConvertMatToImageByteArray<T> implements ConvertorInterface<T>
 {
 
 
@@ -20,7 +20,8 @@ public class ConvertMatToImageByteArray<T> implements ImageByteArrayConverterInt
      * @param _data image data stored in a different form like a Mat object
      * @return returns the image
      */
-    public byte[] convertToImageByteArray(T _data)
+    @Override
+    public Object convert(Object _data)
     {
         if(_data != null)
         {

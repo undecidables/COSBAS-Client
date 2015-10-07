@@ -3,7 +3,6 @@ package modules;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.highgui.VideoCapture;
-import org.opencv.imgproc.Imgproc;
 
 import java.util.ArrayList;
 
@@ -52,12 +51,12 @@ public class OPENCVCamera implements CameraInterface {
     public byte[] getImage()
     {
         Mat image = captureFrame();
-        ImageByteArrayConverterInterface convertor = new ConvertMatToImageByteArray();
+        ConvertorInterface convertor = new ConvertMatToImageByteArray();
 
 
         if(image!=null)
         {
-            return convertor.convertToImageByteArray(image);
+            return (byte[]) convertor.convert(image);
         }
         return null;
     }

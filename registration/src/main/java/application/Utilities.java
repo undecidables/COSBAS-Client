@@ -1,18 +1,20 @@
 package application;
 
-import application.Model.ApplicationModel;
+import modules.ConvertMatToImage;
 import modules.OPENCVCamera;
+import modules.OPENCVDetectAndBorderFaces;
 import modules.OPENCVFaceDetection;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 
 /**
- * Created by simon on 2015-10-06.
+ * {@author Szymon}
  */
 public class Utilities {
 
     OPENCVCamera cameraObject;
     OPENCVFaceDetection detectFaces;
+    ConvertMatToImage convertMatToImage;
+    OPENCVDetectAndBorderFaces detectAndBorderFaces;
 
     @Autowired
     public Utilities() {
@@ -20,6 +22,13 @@ public class Utilities {
         //detectFaces = (OPENCVFaceDetection) app.getBean("detectFaces");
         cameraObject = new OPENCVCamera();
         detectFaces = new OPENCVFaceDetection();
+        convertMatToImage = new ConvertMatToImage();
+        detectAndBorderFaces = new OPENCVDetectAndBorderFaces();
+    }
+
+    public OPENCVDetectAndBorderFaces getDetectAndBorderFaces()
+    {
+        return detectAndBorderFaces;
     }
 
     public OPENCVCamera getCameraObject() {
@@ -29,6 +38,11 @@ public class Utilities {
     public OPENCVFaceDetection getDetection()
     {
         return detectFaces;
+    }
+
+    public ConvertMatToImage getConvertMatToImage()
+    {
+        return convertMatToImage;
     }
 
 }

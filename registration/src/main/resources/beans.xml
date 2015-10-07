@@ -10,5 +10,6 @@
     </bean>
 
 
+
     <bean id="face" lazy-init="true" class="application.Face"></bean>
 </beans>

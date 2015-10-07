@@ -10,9 +10,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by Tienie on 9/23/2015.
+ * {@author Tienie}
  */
-
 public class ApplicationModel extends Application {
 
     public static ApplicationContext app;
@@ -33,10 +32,12 @@ public class ApplicationModel extends Application {
     public void start(Stage primaryStage) {
         app = new ClassPathXmlApplicationContext("beans.xml");
 
+
         primaryStage.setTitle("Biometric Registration");
         try {
             Pane myPane = FXMLLoader.load(getClass().getResource("/FXML/LoginScreen.fxml"));
             Scene myScene = new Scene(myPane);
+
             primaryStage.setScene(myScene);
             primaryStage.show();
         } catch (Exception e) {
