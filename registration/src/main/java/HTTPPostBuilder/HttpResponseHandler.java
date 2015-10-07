@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 
 public class HttpResponseHandler {
     //check status codes, it might just be the server is down
-    public String handleResponse(CloseableHttpResponse httpResponse) throws IOException {
+    public static String handleResponse(CloseableHttpResponse httpResponse) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(
                 httpResponse.getEntity().getContent()));
 

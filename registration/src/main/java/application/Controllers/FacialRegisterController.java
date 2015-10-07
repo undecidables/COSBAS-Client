@@ -1,10 +1,8 @@
 package application.Controllers;
 
 import HTTPPostBuilder.HTTPPostSender;
-import application.Face;
+import application.*;
 import application.Model.ApplicationModel;
-import application.RegistrationDataObject;
-import application.Utilities;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +16,8 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.event.EventHandler;
 import modules.*;
+import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.http.client.methods.HttpPost;
 import org.opencv.core.*;
 //import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.objdetect.CascadeClassifier;
@@ -60,6 +60,14 @@ public class FacialRegisterController {
     protected void handleFacialSubmitButtonAction(ActionEvent event) {
 
         face.fillData(registrationDataObject.getBiometricData());
+        HttpPost httpPost = new HttpPostRegistrationBuilder().buildPost(registrationDataObject);
+        try {
+            HTTPPostSender.sendPostRequest(httpPost);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //httpBuilder.addUserAgentHeader("Pi-Client");
+       // httpBuilder.addStringEntities();
 
         //sending of httppost to server????
 
@@ -76,6 +84,7 @@ public class FacialRegisterController {
         face = (Face) app.getBean("face");
         convertMatToImage = utility.getConvertMatToImage();
         detectAndBorderFaces = utility.getDetectAndBorderFaces();
+        config = (PropertiesConfiguration) app.getBean("config");
         startCamera();
 
     }
@@ -83,6 +92,7 @@ public class FacialRegisterController {
     @FXML
     private ImageView currentFrame;
 
+    private PropertiesConfiguration config;
     private Face face;
     private Utilities utility;
     private OPENCVCamera camera;
@@ -141,15 +151,6 @@ public class FacialRegisterController {
 
     //this shouldnt sit here, move it somewhere
 
-
-    public void sendHTTPPostAsJSON(byte[] image, String emplid, String email, String registratorID) throws Exception {
-        HTTPPostSender sender = new HTTPPostSender();
-        try {
-            sender.sendPostRequest(image, emplid, email, registratorID);
-        } catch (Exception e) {
-            throw e;
-        }
-    }
 
     private boolean setClose = false;
     private void setOnClose()
