@@ -1,4 +1,4 @@
-package application.Model;
+package application;
 
 //import application.Supplier;
 import javafx.application.Application;
@@ -12,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * {@author Tienie}
  */
-public class ApplicationModel extends Application {
+public class RegistrationApplication extends Application {
 
     public static ApplicationContext app;
 

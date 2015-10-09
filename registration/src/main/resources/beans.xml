@@ -2,10 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="registerUserData" class="application.RegistrationDataObject" scope="singleton" >
+    <bean id="registerUserData" class="application.Model.RegistrationDataObject" scope="singleton" >
     </bean>
 
-    <bean id="utilities" class="application.Utilities" lazy-init="true" scope="singleton">
+    <bean id="utilities" class="application.Model.Utilities" lazy-init="true" scope="singleton">
 
     </bean>
 
@@ -14,5 +14,5 @@
     </bean>
 
 
-    <bean id="face" lazy-init="true" class="application.Face"></bean>
+    <bean id="face" lazy-init="true" class="application.Model.Face"></bean>
 </beans>

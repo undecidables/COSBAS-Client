@@ -1,6 +1,6 @@
-package application;
+package application.Model;
 
-import application.Model.ApplicationModel;
+import application.RegistrationApplication;
 import modules.BiometricData;
 import modules.HttpPostBuilderInterface;
 import modules.HttpPostRequestBuilder;
@@ -18,10 +18,11 @@ public class HttpPostRegistrationBuilder implements HttpPostBuilderInterface
 
     public HttpPostRegistrationBuilder()
     {
-        app = ApplicationModel.app;
+        app = RegistrationApplication.app;
         config = (PropertiesConfiguration) app.getBean("config");
     }
 
+    @Override
     public HttpPost buildPost(Object data)
     {
         HttpPostRequestBuilder httpBuilder = new HttpPostRequestBuilder(config.getProperty("url").toString(), config.getProperty("map").toString());

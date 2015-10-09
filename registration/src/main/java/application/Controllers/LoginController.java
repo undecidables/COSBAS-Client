@@ -1,10 +1,9 @@
 package application.Controllers;
 
-import application.Model.ApplicationModel;
-import application.RegistrationDataObject;
+import application.RegistrationApplication;
+import application.Model.RegistrationDataObject;
 import authentication.Authenticator;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +13,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import org.springframework.context.ApplicationContext;
 
 
@@ -78,7 +76,7 @@ public class LoginController{
 
 
 
-        ApplicationContext app = ApplicationModel.app;
+        ApplicationContext app = RegistrationApplication.app;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
 
     }

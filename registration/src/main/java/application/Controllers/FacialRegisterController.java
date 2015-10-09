@@ -1,8 +1,7 @@
 package application.Controllers;
 
-import application.HttpRegisterPostSender;
-import application.*;
-import application.Model.ApplicationModel;
+import application.Model.*;
+import application.RegistrationApplication;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -85,7 +84,7 @@ public class FacialRegisterController {
 
     @FXML
     protected void initialize() {
-        ApplicationContext app = ApplicationModel.app;
+        ApplicationContext app = RegistrationApplication.app;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
         utility = (Utilities) app.getBean("utilities");
         camera = utility.getCameraObject();

@@ -1,4 +1,4 @@
-package application;
+package application.Model;
 
 import modules.ConvertMatToImage;
 import modules.OPENCVCamera;

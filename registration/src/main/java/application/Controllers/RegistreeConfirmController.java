@@ -1,7 +1,7 @@
 package application.Controllers;
 
-import application.Model.ApplicationModel;
-import application.RegistrationDataObject;
+import application.RegistrationApplication;
+import application.Model.RegistrationDataObject;
 import authentication.LDAPTester;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +23,7 @@ public class RegistreeConfirmController{
 
     @FXML
     protected void initialize() {
-        ApplicationContext app = ApplicationModel.app;
+        ApplicationContext app = RegistrationApplication.app;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
 
     }

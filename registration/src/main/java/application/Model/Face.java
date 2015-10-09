@@ -1,6 +1,6 @@
-package application;
+package application.Model;
 
-import application.Model.ApplicationModel;
+import application.RegistrationApplication;
 import modules.Biometric;
 import modules.BiometricData;
 import modules.OPENCVCamera;
@@ -22,7 +22,7 @@ public class Face implements Biometric {
     @Autowired
     public Face()
     {
-        ApplicationContext app = ApplicationModel.app;
+        ApplicationContext app = RegistrationApplication.app;
         utilities = (Utilities) app.getBean("utilities");
         cameraObject = utilities.getCameraObject();
         detectFaces = utilities.getDetection();

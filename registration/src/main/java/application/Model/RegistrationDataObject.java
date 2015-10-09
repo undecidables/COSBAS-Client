@@ -1,4 +1,4 @@
-package application;
+package application.Model;
 
 import modules.BiometricData;
 import org.springframework.beans.factory.annotation.Autowired;

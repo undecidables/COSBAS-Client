@@ -1,8 +1,8 @@
 package application.Controllers;
 
-import application.EmailValidator;
-import application.Model.ApplicationModel;
-import application.RegistrationDataObject;
+import application.Model.EmailValidator;
+import application.RegistrationApplication;
+import application.Model.RegistrationDataObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,7 +43,7 @@ public class BiometricChoiceController {
     @FXML
     protected void initialize() {
 
-        ApplicationContext app = ApplicationModel.app;
+        ApplicationContext app = RegistrationApplication.app;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
 
         if (registrationDataObject.getEmail() != null) {
