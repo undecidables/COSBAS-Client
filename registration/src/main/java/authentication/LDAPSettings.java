@@ -11,6 +11,10 @@ import org.springframework.ldap.core.support.LdapContextSource;
 /**
  * This class is a Spring LDAP Configuration file. It contains Beans which sets up LdapTemplate and ContextSource from the web.Application.Properties file.
  */
+
+/**
+ * @author Tienie
+ */
 @Configuration
 @PropertySource("classpath:/application.properties")
 public class LDAPSettings {

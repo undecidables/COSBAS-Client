@@ -17,7 +17,7 @@ import org.springframework.context.ApplicationContext;
 
 
 /**
- * Created by Tienie on 9/23/2015.
+ * @author Tienie
  */
 public class BiometricChoiceController {
 
@@ -70,7 +70,6 @@ public class BiometricChoiceController {
                     stage.show();
 
                 } else if (BiometricSystem.equals("Fingerprint")) {
-                    System.out.println("Finger");
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();

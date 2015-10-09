@@ -1,7 +1,7 @@
 package application;
 
 /**
- * @author simon
+ * @author Szymon
  */
 public class ContactDetail {
     private String type;

@@ -15,6 +15,10 @@ import java.util.List;
  * This class is a Spring LDAP Integrated LDAP Authenticator. It authenticates a user with LDAP by doing a simple binding with the user's DN (Domain Name) and password.
  * NOTE: By doing the binding, it's only necessary to send in the DN and cleartext password - the server automatically compares the cleartext password with the hashed+salted password.
  */
+
+/**
+ * @author Tienie
+ */
 public class LDAPTester {
 
     /**

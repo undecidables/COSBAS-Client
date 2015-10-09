@@ -1,5 +1,18 @@
 
 
 dependencies {
+    compile ('org.apache.httpcomponents:httpmime:4.+'){
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
+    compile ('org.apache.httpcomponents:httpcore:4.+'){
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+
+    }
+    compile ('org.apache.httpcomponents:httpclient:4.+'){
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
+
+    compile 'com.google.code.gson:gson:2.3.1'
+
     compile files("libs/opencv-2411.jar")
 }

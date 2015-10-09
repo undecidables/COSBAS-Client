@@ -28,6 +28,9 @@ bootRun{
     systemProperty "java.library.path", 'C:/opencv/build/x64/vc12/bin/;C:/opencv/build/java/;C:/opencv/build/java/x64/;'
 }
 
+run{
+    systemProperty "java.library.path", 'C:/opencv/build/x64/vc12/bin/;C:/opencv/build/java/;C:/opencv/build/java/x64/;'
+}
 
 jar {
     baseName = 'cosbas'
@@ -38,58 +41,16 @@ jar {
 repositories {
     mavenLocal()
     mavenCentral()
-    maven {
-        url 'http://jasperreports.sourceforge.net/maven2'
-    }
-    maven {
-        url 'http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/'
-    }
 }
 
 
 dependencies {
-    compile  "org.springframework.boot:spring-boot-starter-jetty"
-    compile  "org.springframework.boot:spring-boot-starter-thymeleaf"
-    compile  "org.springframework:spring-context:4.1.6.RELEASE"
-    compile  "org.springframework.security:spring-security-web:4.0.1.RELEASE"
-    compile  "org.springframework.webflow:spring-webflow:2.4.0.RELEASE"
-    compile  "org.springframework.session:spring-session:1.0.1.RELEASE"
-    compile  "org.thymeleaf:thymeleaf:2.0.5"
 
-    compile "com.google.api-client:google-api-client:1.20.0"
-    compile "com.google.oauth-client:google-oauth-client-jetty:1.20.0"
-    //compile "org.springframework.security.oauth:spring-security-oauth2:2.0.7.RELEASE"
-    //compile 'org.springframework.security.oauth:spring-security-oauth:2.0.7.RELEASE'
-    compile "com.google.apis:google-api-services-calendar:v3-rev126-1.20.0"
-    compile "com.google.code.gson:gson:2.3.1"
-
-    compile  "org.springframework.ldap:spring-ldap-core:2.0.3.RELEASE"
+    compile "org.springframework:spring-context:4.1.6.RELEASE"
+    compile "org.springframework.ldap:spring-ldap-core:2.0.3.RELEASE"
     compile "org.springframework:spring-tx"
-
-    compile "org.bytedeco:javacv:0.9"
-
-    //compile  "net.sf.jasperreports:jasperreports:6.1.0"
-
-
-    compile "org.springframework.boot:spring-boot-starter-data-mongodb"
-    compile 'org.springframework.data:spring-data-mongodb:1.7.1.RELEASE'
-
-
-    //spring security
-    compile "org.springframework.boot:spring-boot-starter-security"
-    compile ("org.springframework.boot:spring-boot-starter-web"){
-        exclude module: "spring-boot-starter-tomcat"
-    }
-    compile "org.springframework.boot:spring-boot-starter-actuator"
-
-
-
     compile "org.springframework.security:spring-security-ldap"
     compile "org.apache.directory.server:apacheds-server-jndi:1.5.5"
-
-    compile 'com.googlecode.json-simple:json-simple:1.1'
-    compile 'org.apache.httpcomponents:httpclient:4.3.4'
-
     compile('org.apache.httpcomponents:httpmime:4.+') {
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
@@ -100,24 +61,8 @@ dependencies {
     compile('org.apache.httpcomponents:httpclient:4.+') {
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
-    compile 'com.squareup.dagger:dagger:1.2.2'
-    compile 'com.squareup.dagger:dagger-compiler:1.2.2'
+
     compile 'commons-configuration:commons-configuration:1.10'
-    compile 'com.google.inject:guice:4.0'
-
-    compile 'org.bytedeco:javacv:1.0'
-    compile 'org.bytedeco.javacpp-presets:opencv:3.0.0-1.0:windows-x86_64'
-    compile 'org.bytedeco.javacpp-presets:ffmpeg:2.7.1-1.0:windows-x86_64'
-
-
-
-
-    compile 'com.google.code.gson:gson:2.3.1'
-    compile 'org.bytedeco.javacpp-presets:ffmpeg:2.6.1-0.11'
-    //compile files("libs/opencv-2411.jar")
-    compile 'commons-configuration:commons-configuration:1.10'
-    compile 'com.googlecode.json-simple:json-simple:1.1.1'
-
 
     compile project(":common")
     testCompile "junit:junit"

@@ -2,16 +2,17 @@ package application;
 
 import application.Model.ApplicationModel;
 import modules.BiometricData;
+import modules.HttpPostBuilderInterface;
+import modules.HttpPostRequestBuilder;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.log4j.ConsoleAppender;
 import org.springframework.context.ApplicationContext;
 
 /**
- * Created by simon on 2015-10-07.
+ * @author Szymon
  */
-public class HttpPostRegistrationBuilder {
-
+public class HttpPostRegistrationBuilder implements HttpPostBuilderInterface
+{
     ApplicationContext app;
     PropertiesConfiguration config;
 
@@ -21,21 +22,22 @@ public class HttpPostRegistrationBuilder {
         config = (PropertiesConfiguration) app.getBean("config");
     }
 
-    public HttpPost buildPost(RegistrationDataObject reg)
+    public HttpPost buildPost(Object data)
     {
         HttpPostRequestBuilder httpBuilder = new HttpPostRequestBuilder(config.getProperty("url").toString(), config.getProperty("map").toString());
+        RegistrationDataObject reg = (RegistrationDataObject) data;
         httpBuilder.addUserAgentHeader("Registration");
         httpBuilder.addStringEntities("userID", reg.getEmplid());
         httpBuilder.addStringEntities("registratorID", reg.getRegistratorID());
 
-        for(BiometricData data : reg.getBiometricData())
+        for(BiometricData bData : reg.getBiometricData())
         {
-            httpBuilder.addOtherEntities(data.getType(), data.getData());
+            httpBuilder.addOtherEntities(bData.getType(), bData.getData());
         }
 
-        for(ContactDetail data : reg.getContactDetails())
+        for(ContactDetail cData : reg.getContactDetails())
         {
-            httpBuilder.addStringEntities(data.getType(), data.getDetails());
+            httpBuilder.addStringEntities(cData.getType(), cData.getDetails());
         }
 
         httpBuilder.setEntity();

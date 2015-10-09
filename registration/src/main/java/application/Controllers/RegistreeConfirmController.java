@@ -16,7 +16,7 @@ import org.springframework.context.ApplicationContext;
 
 
 /**
- * Created by Tienie on 9/23/2015.
+ * @author Tienie
  */
 public class RegistreeConfirmController{
 
@@ -62,7 +62,7 @@ public class RegistreeConfirmController{
                 stage.setScene(scene);
                 stage.show();
             } else {
-                System.out.println("User Does Not Exist");
+
             }
 
         } catch (Exception ex) {

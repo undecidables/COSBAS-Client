@@ -1,12 +1,14 @@
 package application.Controllers;
 
-import HTTPPostBuilder.HTTPPostSender;
+import application.HttpRegisterPostSender;
 import application.*;
 import application.Model.ApplicationModel;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -20,16 +22,16 @@ import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.http.client.methods.HttpPost;
 import org.opencv.core.*;
 //import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.objdetect.CascadeClassifier;
 //import org.opencv.videoio.VideoCapture;
 
 import org.springframework.context.ApplicationContext;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Created by Tienie on 9/23/2015.
+ * @author Tienie
  */
 public class FacialRegisterController {
 
@@ -57,20 +59,26 @@ public class FacialRegisterController {
     private ImageView canvas;
 
     @FXML
-    protected void handleFacialSubmitButtonAction(ActionEvent event) {
+    protected void handleFacialSubmitButtonAction(ActionEvent event) throws IOException {
 
         face.fillData(registrationDataObject.getBiometricData());
         HttpPost httpPost = new HttpPostRegistrationBuilder().buildPost(registrationDataObject);
         try {
-            HTTPPostSender.sendPostRequest(httpPost);
+            HttpRegisterPostSender postSender = new HttpRegisterPostSender();
+            RegisterResponse registerResponse = (RegisterResponse) postSender.sendPostRequest(httpPost);
+            //do something with response, this will be moved with the new UI...
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //httpBuilder.addUserAgentHeader("Pi-Client");
-       // httpBuilder.addStringEntities();
 
-        //sending of httppost to server????
+        closeAndClean();
 
+        //code duplication??? make a class that hndles this maybe???
+        stage = (Stage) currentFrame.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("/FXML/BiometricChoiceScreen.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 
@@ -122,7 +130,6 @@ public class FacialRegisterController {
 
     }
 
-    //this shouldnt sit here, move it somewhere
     private Image grabFrame()
     {
         Image imageToShow = null;
@@ -139,7 +146,6 @@ public class FacialRegisterController {
             }
             catch (Exception e)
             {
-                System.out.println("Whoops : " + e.toString());
             }
         }
 
@@ -149,7 +155,6 @@ public class FacialRegisterController {
         return imageToShow;
     }
 
-    //this shouldnt sit here, move it somewhere
 
 
     private boolean setClose = false;
@@ -159,12 +164,33 @@ public class FacialRegisterController {
             ((Stage) currentFrame.getScene().getWindow()).setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent event) {
-                    timer.cancel();
-                    camera.releaseCamera();
+                    closeAndClean();
                 }
             });
             setClose = true;
         }
+    }
+
+    private void clearOnCloseEvent()
+    {
+        ((Stage) currentFrame.getScene().getWindow()).setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+            }
+        });
+    }
+
+    private void closeAndClean()
+    {
+        clearOnCloseEvent();
+        timer.cancel();
+        timer = null;
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        camera.releaseCamera();
     }
 
 

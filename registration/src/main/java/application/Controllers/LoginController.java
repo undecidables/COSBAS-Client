@@ -19,9 +19,8 @@ import org.springframework.context.ApplicationContext;
 
 
 /**
- * Created by Tienie on 9/23/2015.
+ * @author Tienie
  */
-
 public class LoginController{
 
 
@@ -70,12 +69,6 @@ public class LoginController{
             ex.printStackTrace();
         }
 
-    }
-
-    @FXML
-    private void closeAction(ActionEvent event)
-    {
-        System.out.println("PLease work");
     }
 
 
