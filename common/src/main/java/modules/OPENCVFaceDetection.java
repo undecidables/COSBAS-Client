@@ -24,7 +24,6 @@ public class OPENCVFaceDetection implements FaceDetection {
             Mat matFrame = Highgui.imdecode(new MatOfByte(frame), Highgui.IMREAD_GRAYSCALE);
             OPENCVFaceDetectors fd = new OPENCVFaceDetectors(matFrame, tempFrames);
             threads.add(fd);
-            System.out.println("Running a thread");
             fd.run();
         }
 
@@ -33,7 +32,6 @@ public class OPENCVFaceDetection implements FaceDetection {
         {
             try
             {
-                System.out.println("Joining thread");
                 thread.join();
             }
             catch (InterruptedException e)

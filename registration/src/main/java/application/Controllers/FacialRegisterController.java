@@ -86,11 +86,11 @@ public class FacialRegisterController {
     protected void initialize() {
         ApplicationContext app = RegistrationApplication.app;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
-        utility = (Utilities) app.getBean("utilities");
-        camera = utility.getCameraObject();
+        camera = (OPENCVCamera) app.getBean("camera");
+
         face = (Face) app.getBean("face");
-        convertMatToImage = utility.getConvertMatToImage();
-        detectAndBorderFaces = utility.getDetectAndBorderFaces();
+        convertMatToImage = (ConvertMatToImage) app.getBean("convertMatToImage");
+        detectAndBorderFaces = (OPENCVDetectAndBorderFaces) app.getBean("detectBorderFaces");
         config = (PropertiesConfiguration) app.getBean("config");
         startCamera();
 
@@ -101,7 +101,6 @@ public class FacialRegisterController {
 
     private PropertiesConfiguration config;
     private Face face;
-    private Utilities utility;
     private OPENCVCamera camera;
     private RegistrationDataObject registrationDataObject;
     private ConvertMatToImage convertMatToImage;

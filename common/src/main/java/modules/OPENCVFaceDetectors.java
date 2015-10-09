@@ -29,14 +29,13 @@ public class OPENCVFaceDetectors extends Thread
     public void run()
     {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        System.out.println("\nRunning FaceDetector");
 
         CascadeClassifier faceDetector = new CascadeClassifier("src/main/resources/haarcascade_frontalface_alt.xml");
 
         MatOfRect faceDetections = new MatOfRect();
         faceDetector.detectMultiScale(frame, faceDetections);
 
-        System.out.println(String.format("Detected %s faces", faceDetections.toArray().length));
+       // System.out.println(String.format("Detected %s faces", faceDetections.toArray().length));
         ArrayList<Rect> rectToCrop = new ArrayList<Rect>();
         //Rect rect_Crop = null;
         if(faceDetections.toArray().length == 1)

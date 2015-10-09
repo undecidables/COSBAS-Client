@@ -15,7 +15,6 @@ import java.util.ArrayList;
  */
 public class Face implements Biometric {
 
-    Utilities utilities;
     OPENCVCamera cameraObject;
     OPENCVFaceDetection detectFaces;
 
@@ -23,9 +22,8 @@ public class Face implements Biometric {
     public Face()
     {
         ApplicationContext app = RegistrationApplication.app;
-        utilities = (Utilities) app.getBean("utilities");
-        cameraObject = utilities.getCameraObject();
-        detectFaces = utilities.getDetection();
+        cameraObject = (OPENCVCamera) app.getBean("camera");
+        detectFaces = (OPENCVFaceDetection) app.getBean("faceDetection");
 
 
     }
