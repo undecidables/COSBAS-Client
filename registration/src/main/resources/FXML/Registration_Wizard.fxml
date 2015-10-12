@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="btnStep1" layoutX="132.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="1" />
+      <Button fx:id="btnStep2" layoutX="232.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="2" />
+      <Button fx:id="btnStep3" layoutX="332.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="3" />
+      <Button fx:id="btnStep4" layoutX="432.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="4" />
+      <Separator layoutX="170.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
+      <Separator layoutX="271.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
+      <Separator layoutX="370.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
+      <Pane layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-border-color: lightgrey;">
+         <children>
+            <Label alignment="CENTER" layoutX="171.0" layoutY="14.0" text="Choose Authorized Person" textFill="#808080">
+               <font>
+                  <Font name="Lucida Grande" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="163.0" fitWidth="172.0" layoutX="206.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../users.png" />
+               </image>
+            </ImageView>
+            <ComboBox fx:id="cmbEmployees" layoutX="186.0" layoutY="232.0" prefWidth="150.0" promptText="Employee..." />
+            <Label layoutX="45.0" layoutY="37.0" prefHeight="17.0" prefWidth="484.0" text="To register details, you need to be an authorized Computer Science Employee" textFill="#b5b5b5" />
+            <Button fx:id="btnNext1" layoutX="343.0" layoutY="232.0" mnemonicParsing="false" text="Next" />
+         </children>
+      </Pane>
+      <AnchorPane layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-border-color: lightgrey; -fx-background-color: white;">
+         <children>
+            <Label alignment="CENTER" layoutX="154.0" layoutY="14.0" text="Facial Recognition Information" textFill="#808080">
+               <font>
+                  <Font name="Lucida Grande" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="currentFrame" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="72.0" pickOnBounds="true" />
+            <Button fx:id="btnTakePhotos" layoutX="80.0" layoutY="246.0" mnemonicParsing="false" text="Take Photos" />
+            <Label layoutX="258.0" layoutY="45.0" prefHeight="17.0" prefWidth="286.0" text="To remove bad images, simply click on them." textFill="#b5b5b5" />
+            <ImageView fx:id="imgFB1" fitHeight="77.0" fitWidth="88.0" layoutX="258.0" layoutY="69.0" pickOnBounds="true" />
+            <ImageView fx:id="imgFB2" fitHeight="77.0" fitWidth="88.0" layoutX="349.0" layoutY="69.0" pickOnBounds="true" />
+            <ImageView fx:id="imgFB3" fitHeight="77.0" fitWidth="88.0" layoutX="440.0" layoutY="69.0" pickOnBounds="true" />
+            <ImageView fx:id="imgFB4" fitHeight="77.0" fitWidth="88.0" layoutX="258.0" layoutY="151.0" pickOnBounds="true" />
+            <ImageView fx:id="imgFB5" fitHeight="77.0" fitWidth="88.0" layoutX="349.0" layoutY="151.0" pickOnBounds="true" />
+            <ImageView fx:id="imgFB6" fitHeight="77.0" fitWidth="88.0" layoutX="440.0" layoutY="151.0" pickOnBounds="true" />
+            <Button fx:id="btnNext2" layoutX="372.0" layoutY="246.0" mnemonicParsing="false" text="Next" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnCancel" layoutX="239.0" layoutY="365.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="124.0" text="Cancel" />
+   </children>
+</AnchorPane>
