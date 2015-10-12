@@ -1,8 +1,5 @@
 package client;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import modules.*;
 
@@ -20,7 +17,10 @@ public class Face implements Biometric
         OPENCVCamera c = new OPENCVCamera();
         ArrayList<byte[]> images =  new ArrayList<byte[]>();
         c.startCamera();
-        images.add(c.getImage());
+        for(int i = 0; i < 3; i++)
+        {
+            images.add(c.getImage());
+        }
         c.releaseCamera();
         images = detectFaces.detectFaces(images);
 

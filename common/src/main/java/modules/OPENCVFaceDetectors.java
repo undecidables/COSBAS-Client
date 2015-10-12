@@ -1,9 +1,4 @@
-package modules;/*import org.bytedeco.javacpp.BytePointer;
-import org.bytedeco.javacpp.opencv_core.IplImage;
-
-import static org.bytedeco.javacpp.opencv_core.*;
-import static org.bytedeco.javacpp.opencv_highgui.*;
-import static org.bytedeco.javacpp.opencv_objdetect.*;*/
+package modules;
 
 import org.opencv.core.*;
 import org.opencv.objdetect.CascadeClassifier;
@@ -35,34 +30,75 @@ public class OPENCVFaceDetectors extends Thread
         MatOfRect faceDetections = new MatOfRect();
         faceDetector.detectMultiScale(frame, faceDetections);
 
-       // System.out.println(String.format("Detected %s faces", faceDetections.toArray().length));
         ArrayList<Rect> rectToCrop = new ArrayList<Rect>();
-        //Rect rect_Crop = null;
-        if(faceDetections.toArray().length == 1)
-        {
-            for (Rect rect : faceDetections.toArray()) {
-                Core.rectangle(frame, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height),
-                        new Scalar(0, 255, 0));
-                rectToCrop.add(new Rect(rect.x, rect.y, rect.width, rect.height));
-            }
 
+
+        int lowest = 999999;
+
+        int frameCenterX = (frame.width()/2);
+        int frameCenterY = (frame.height()/2);
+
+        Mat centerFace = null;
+
+        for (Rect rect : faceDetections.toArray()) {
+            rectToCrop.add(new Rect(rect.x, rect.y, rect.width, rect.height));
+        }
+
+        if(rectToCrop.size() > 1)
+        {
             for(Rect rectCrop : rectToCrop)
             {
-                Mat newFace = new Mat(frame, rectCrop);
-                if(!newFace.isContinuous())
+                int rectCenterX = (rectCrop.x + rectCrop.width/2);
+                int rectCenterY = (rectCrop.y + rectCrop.height/2);
+
+                int distance = getDistance(frameCenterX, frameCenterY, rectCenterX, rectCenterY);
+
+                if(distance < lowest)
                 {
-                    Mat temp = newFace.clone();
-                    newFace = temp;
+                    lowest = distance;
+                    centerFace = cropToRectangle(frame, rectCrop);
+
                 }
-                frames.add(newFace);
+
             }
         }
         else
         {
-            frame = null;
+            centerFace = cropToRectangle(frame, rectToCrop.get(0));
         }
+
+
+
+        frames.add(centerFace);
+
     }
 
+    private Mat cropToRectangle(Mat frame, Rect rectToCrop)
+    {
+        Mat newFrame = new Mat(frame, rectToCrop);
+        if(!newFrame.isContinuous())
+        {
+            Mat temp = newFrame.clone();
+            newFrame = temp;
+        }
+        return newFrame;
+    }
+
+    private int getDistance(int x1, int y1, int x2, int y2)
+    {
+        int distance = -1;
+
+        int x = (x1 - x2);
+        int y = (y1 - y2);
+
+        x = x * x;
+        y = y * y;
+
+        distance = x + y;
+        distance = (int) Math.sqrt(distance);
+
+        return distance;
+    }
 
 
 }
