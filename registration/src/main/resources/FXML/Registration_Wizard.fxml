@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
@@ -17,7 +18,7 @@
       <Separator layoutX="170.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
       <Separator layoutX="271.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
       <Separator layoutX="370.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
-      <Pane layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-border-color: lightgrey;">
+      <Pane fx:id="pnlStep1" layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-border-color: lightgrey;">
          <children>
             <Label alignment="CENTER" layoutX="171.0" layoutY="14.0" text="Choose Authorized Person" textFill="#808080">
                <font>
@@ -34,7 +35,7 @@
             <Button fx:id="btnNext1" layoutX="343.0" layoutY="232.0" mnemonicParsing="false" text="Next" />
          </children>
       </Pane>
-      <AnchorPane layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-border-color: lightgrey; -fx-background-color: white;">
+      <AnchorPane fx:id="pnlStep2" layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-border-color: lightgrey; -fx-background-color: white;">
          <children>
             <Label alignment="CENTER" layoutX="154.0" layoutY="14.0" text="Facial Recognition Information" textFill="#808080">
                <font>
@@ -51,6 +52,83 @@
             <ImageView fx:id="imgFB5" fitHeight="77.0" fitWidth="88.0" layoutX="349.0" layoutY="151.0" pickOnBounds="true" />
             <ImageView fx:id="imgFB6" fitHeight="77.0" fitWidth="88.0" layoutX="440.0" layoutY="151.0" pickOnBounds="true" />
             <Button fx:id="btnNext2" layoutX="372.0" layoutY="246.0" mnemonicParsing="false" text="Next" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pnlStep3" layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-background-color: white; -fx-border-color: lightgrey;">
+         <children>
+            <Label alignment="CENTER" layoutX="130.0" layoutY="14.0" text="Fingerprint Recognition Information" textFill="#808080">
+               <font>
+                  <Font name="Lucida Grande" size="18.0" />
+               </font>
+            </Label>
+            <Circle fx:id="shpLeftIndex" layoutX="94.0" layoutY="63.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#00ff3c" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Circle>
+            <Circle fx:id="shpLeftThumb" layoutX="140.0" layoutY="114.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#00ff3c" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Circle>
+            <Circle fx:id="shpRightThumb" layoutX="174.0" layoutY="114.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#00ff3c" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Circle>
+            <Circle fx:id="shpRightIndex" layoutX="219.0" layoutY="65.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#00ff3c" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Circle>
+            <ImageView fitHeight="186.0" fitWidth="286.0" layoutX="14.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../hands.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnTakeImage" layoutX="112.0" layoutY="252.0" mnemonicParsing="false" text="Take Image" />
+            <ImageView fx:id="imgFP1" fitHeight="80.0" fitWidth="80.0" layoutX="320.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgFP3" fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgFP2" fitHeight="80.0" fitWidth="80.0" layoutX="320.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgFP4" fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="320.0" layoutY="46.0" prefHeight="17.0" prefWidth="172.0" text="Click on image to retake..." textFill="#b5b5b5" />
+            <Button fx:id="btnNext3" layoutX="400.0" layoutY="252.0" mnemonicParsing="false" text="Next" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pnlStep4" layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-background-color: white; -fx-border-color: lightgrey;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="187.0" layoutY="72.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../success.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="190.0" layoutY="24.0" text="Registration Complete" textFill="#808080">
+               <font>
+                  <Font name="Lucida Grande" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="102.0" layoutY="47.0" prefHeight="17.0" prefWidth="371.0" text="The new user has successfully been registered on COSBAS" textFill="#b5b5b5" />
+            <Button fx:id="btnDone" layoutX="243.0" layoutY="231.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="88.0" text="Done" />
          </children>
       </AnchorPane>
       <Button fx:id="btnCancel" layoutX="239.0" layoutY="365.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="124.0" text="Cancel" />
