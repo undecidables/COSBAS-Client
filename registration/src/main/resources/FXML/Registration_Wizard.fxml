@@ -43,7 +43,7 @@
                </font>
             </Label>
             <ImageView fx:id="currentFrame" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="72.0" pickOnBounds="true" />
-            <Button fx:id="btnTakePhotos" layoutX="80.0" layoutY="246.0" mnemonicParsing="false" text="Take Photos" />
+            <Button fx:id="btnTakePhotos" layoutX="80.0" layoutY="246.0" mnemonicParsing="false" text="Take Photos" onAction="#takeImages" />
             <Label layoutX="258.0" layoutY="45.0" prefHeight="17.0" prefWidth="286.0" text="To remove bad images, simply click on them." textFill="#b5b5b5" />
             <ImageView fx:id="imgFB1" fitHeight="77.0" fitWidth="88.0" layoutX="258.0" layoutY="69.0" pickOnBounds="true" />
             <ImageView fx:id="imgFB2" fitHeight="77.0" fitWidth="88.0" layoutX="349.0" layoutY="69.0" pickOnBounds="true" />

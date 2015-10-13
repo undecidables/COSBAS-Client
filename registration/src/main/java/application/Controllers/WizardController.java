@@ -1,9 +1,7 @@
 package application.Controllers;
 
-import application.Face;
+import application.*;
 import application.Model.ApplicationModel;
-import application.RegistrationDataObject;
-import application.Utilities;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -20,6 +18,7 @@ import javafx.stage.Stage;
 import modules.ConvertMatToImage;
 import modules.OPENCVCamera;
 import modules.OPENCVDetectAndBorderFaces;
+import org.apache.http.client.methods.HttpPost;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.springframework.context.ApplicationContext;
@@ -88,6 +87,12 @@ public class WizardController {
     protected void initialize() {
         app = ApplicationModel.app;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
+        utility = (Utilities) app.getBean("utilities");
+        camera = utility.getCameraObject();
+        face = (Face) app.getBean("face");
+        convertMatToImage = utility.getConvertMatToImage();
+        detectAndBorderFaces = utility.getDetectAndBorderFaces();
+        config = (PropertiesConfiguration) app.getBean("config");
         pnlStep1.setVisible(true);
         pnlStep2.setVisible(false);
         pnlStep3.setVisible(false);
@@ -119,12 +124,6 @@ public class WizardController {
             pnlStep1.setVisible(false);
             pnlStep2.setVisible(true);
             btnStep2.setDisable(false);
-            utility = (Utilities) app.getBean("utilities");
-            camera = utility.getCameraObject();
-            face = (Face) app.getBean("face");
-            convertMatToImage = utility.getConvertMatToImage();
-            detectAndBorderFaces = utility.getDetectAndBorderFaces();
-            config = (PropertiesConfiguration) app.getBean("config");
             startCamera();
         } else if (selectedEvent == btnNext2) {
             //Facial Recognition Data
@@ -212,5 +211,17 @@ public class WizardController {
         }
 
         return imageToShow;
+    }
+
+    public void takeImages(ActionEvent actionEvent) {
+        face.fillData(registrationDataObject.getBiometricData());
+        HttpPost httpPost = new HttpPostRegistrationBuilder().buildPost(registrationDataObject);
+        try {
+            HttpRegisterPostSender postSender = new HttpRegisterPostSender();
+            RegisterResponse registerResponse = (RegisterResponse) postSender.sendPostRequest(httpPost);
+            System.out.println(registerResponse.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
