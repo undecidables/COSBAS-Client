@@ -3,6 +3,7 @@ package application.Controllers;
 import application.Model.ApplicationModel;
 import application.RegistrationDataObject;
 import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
