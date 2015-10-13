@@ -87,12 +87,9 @@ public class WizardController {
     protected void initialize() {
         app = ApplicationModel.app;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
-        utility = (Utilities) app.getBean("utilities");
-        camera = utility.getCameraObject();
-        face = (Face) app.getBean("face");
-        convertMatToImage = utility.getConvertMatToImage();
-        detectAndBorderFaces = utility.getDetectAndBorderFaces();
-        config = (PropertiesConfiguration) app.getBean("config");
+        //TODO Remove hardcoded stuff
+        registrationDataObject.setEmplid("BCrawley");
+        //TODO Remove Hardcoded stuff^
         pnlStep1.setVisible(true);
         pnlStep2.setVisible(false);
         pnlStep3.setVisible(false);
@@ -124,6 +121,13 @@ public class WizardController {
             pnlStep1.setVisible(false);
             pnlStep2.setVisible(true);
             btnStep2.setDisable(false);
+
+            utility = (Utilities) app.getBean("utilities");
+            camera = utility.getCameraObject();
+            face = (Face) app.getBean("face");
+            convertMatToImage = utility.getConvertMatToImage();
+            detectAndBorderFaces = utility.getDetectAndBorderFaces();
+            config = (PropertiesConfiguration) app.getBean("config");
             startCamera();
         } else if (selectedEvent == btnNext2) {
             //Facial Recognition Data
