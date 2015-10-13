@@ -28,15 +28,9 @@ import org.springframework.context.ApplicationContext;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import modules.BiometricData;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Optional;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 /**
  * {@author Jason Richard Evans}
@@ -53,9 +47,11 @@ public class WizardController {
 
     //Variables to be used by registration procedures...
     private String emplid;
-    private List<BufferedImage> FacialRecData;
-    @FXML
-    private ImageView[] imageFeedback = {imgFB1, imgFB2, imgFB3, imgFB4, imgFB5, imgFB6};
+    private List<ImageView> imageFeedback = new ArrayList<ImageView>(){{
+       add(imgFB1); add(imgFB2); add(imgFB3);
+       add(imgFB4); add(imgFB5); add(imgFB6);
+    }};
+    private List<Image> FacialRecData = new ArrayList<Image>();
 
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -271,23 +267,21 @@ public class WizardController {
         List<BiometricData> faceImages = registrationDataObject.getBiometricData();
         for (BiometricData pic: faceImages){
             if (pic.getType() == "biometric-FACE"){
-                try {
-                    System.out.println("ATTENTION: Got an image of facial type...");
-                    InputStream in = new ByteArrayInputStream(pic.getData());
-                    BufferedImage bImageFromConvert = ImageIO.read(in);
-                    FacialRecData.add(bImageFromConvert);
-                }
-                catch(IOException error){
-                    error.printStackTrace();
-                }
+                Image temp = new Image(new ByteArrayInputStream(pic.getData()));
+                if (temp != null)
+                    FacialRecData.add(temp);
             }
 
         }
 
-        /*for (int i = 0; (i < 5) && (FacialRecData.get(i) != null); i++){
-            Image image = SwingFXUtils.toFXImage(FacialRecData.get(i), null);
-            imageFeedback[i].setImage(image);
+        /*for(int i = 0; i < FacialRecData.size(); i++){
+            (imageFeedback.get(i)).setImage(FacialRecData.get(i));
         }*/
+        imgFB1.setImage(FacialRecData.get(0));
+        imgFB2.setImage(FacialRecData.get(1));
+        imgFB3.setImage(FacialRecData.get(2));
+        imgFB4.setImage(FacialRecData.get(3));
+        imgFB5.setImage(FacialRecData.get(4));
     }
 
     public void takeFingerprintImage(ActionEvent actionEvent) {
