@@ -124,7 +124,7 @@
                   <Image url="@../hands.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnTakeImage" layoutX="112.0" layoutY="252.0" mnemonicParsing="false" text="Take Image" />
+            <Button fx:id="btnTakeImage" layoutX="112.0" layoutY="252.0" mnemonicParsing="false" text="Take Image" onAction="#takeFingerprintImage" />
             <ImageView fx:id="imgFP1" fitHeight="80.0" fitWidth="80.0" layoutX="320.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgFP3" fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgFP2" fitHeight="80.0" fitWidth="80.0" layoutX="320.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />

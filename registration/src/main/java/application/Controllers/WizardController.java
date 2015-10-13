@@ -3,18 +3,20 @@ package application.Controllers;
 import application.*;
 import application.Model.ApplicationModel;
 import javafx.application.Platform;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import modules.ConvertMatToImage;
 import modules.OPENCVCamera;
@@ -32,6 +34,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -47,6 +50,7 @@ public class WizardController {
     public ImageView imgFB4;
     public ImageView imgFB5;
     public ImageView imgFB6;
+
     //Variables to be used by registration procedures...
     private String emplid;
     private List<BufferedImage> FacialRecData;
@@ -96,6 +100,16 @@ public class WizardController {
     @FXML
     private Button btnDone;
 
+    //Finger highlighters for fingerprint data collection.
+    @FXML
+    private Circle shpLeftIndex;
+    @FXML
+    private Circle shpLeftThumb;
+    @FXML
+    private Circle shpRightThumb;
+    @FXML
+    private Circle shpRightIndex;
+
     RegistrationDataObject registrationDataObject;
     ApplicationContext app;
 
@@ -114,6 +128,10 @@ public class WizardController {
         btnStep2.setDisable(true);
         btnStep3.setDisable(true);
         btnStep4.setDisable(true);
+        shpRightThumb.setVisible(false);
+        shpRightIndex.setVisible(false);
+        shpLeftThumb.setVisible(false);
+        shpLeftIndex.setVisible(false);
     }
 
     public void logout(Event event) {
@@ -270,5 +288,51 @@ public class WizardController {
             Image image = SwingFXUtils.toFXImage(FacialRecData.get(i), null);
             imageFeedback[i].setImage(image);
         }*/
+    }
+
+    public void takeFingerprintImage(ActionEvent actionEvent) {
+        for(int i = 0; i < 4; i++) {
+            switch (i) {
+                case 0: {
+                    shpRightThumb.setVisible(false);
+                    shpRightIndex.setVisible(false);
+                    shpLeftThumb.setVisible(false);
+                    shpLeftIndex.setVisible(true);
+                    break;
+                }
+                case 1: {
+                    shpRightThumb.setVisible(false);
+                    shpRightIndex.setVisible(false);
+                    shpLeftThumb.setVisible(true);
+                    shpLeftIndex.setVisible(false);
+                    break;
+                }
+                case 2: {
+                    shpRightThumb.setVisible(false);
+                    shpRightIndex.setVisible(true);
+                    shpLeftThumb.setVisible(false);
+                    shpLeftIndex.setVisible(false);
+                    break;
+                }
+                case 3: {
+                    shpRightThumb.setVisible(true);
+                    shpRightIndex.setVisible(false);
+                    shpLeftThumb.setVisible(false);
+                    shpLeftIndex.setVisible(false);
+                    break;
+                }
+            }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setX(0);
+            alert.setY(0);
+            alert.setTitle("COSBAS Information");
+            alert.setHeaderText("Fingerprint Recognition Data");
+            alert.setContentText("Please place finger on scanner as shown in image...");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                //then take picture from the fingerprint scanner and place it in an image on the UI.
+            }
+        }
+        shpRightThumb.setVisible(false);
     }
 }
