@@ -1,6 +1,5 @@
 package application.Model;
 
-//import application.Supplier;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,32 +15,27 @@ public class ApplicationModel extends Application {
 
     public static ApplicationContext app;
 
-
-
     public static void main(String[] args) {
-
         launch(args);
     }
 
-    public static void oL(String[] args)
+    /*public static void oL(String[] args)
     {
         launch(args);
-    }
+    }*/
 
     @Override
     public void start(Stage primaryStage) {
         app = new ClassPathXmlApplicationContext("beans.xml");
 
-
         primaryStage.setTitle("Biometric Registration");
         try {
-            Pane myPane = FXMLLoader.load(getClass().getResource("/FXML/LoginScreen.fxml"));
+            Pane myPane = FXMLLoader.load(getClass().getResource("/FXML/Registration_Login.fxml"));
             Scene myScene = new Scene(myPane);
 
             primaryStage.setScene(myScene);
             primaryStage.show();
         } catch (Exception e) {
-            System.out.println("Here");
             e.printStackTrace();
         }
     }

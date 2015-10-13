@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="application.Controllers.LoginController" hgap="10" vgap="10"
+<GridPane xmlns:fx="http://javafx.com/fxml" hgap="10" vgap="10"
           styleClass="Login" stylesheets="@/Login.css">
     <padding>
         <Insets top="25" right="25" bottom="25" left="25"/>
