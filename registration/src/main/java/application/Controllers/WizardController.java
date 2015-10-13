@@ -23,10 +23,6 @@ public class WizardController {
     //Variables to be used by registration procedures...
     private String emplid;
 
-    public Button btnNext1;
-    public Button btnNext2;
-    public Button btnNext3;
-    public Button btnDone;
     //Panels that will act as the steps we take the user through to be able to register.
     @FXML
     private Pane pnlStep1;
@@ -46,6 +42,17 @@ public class WizardController {
     private Button btnStep3;
     @FXML
     private Button btnStep4;
+
+    //Buttons to traverse forward in the registration process.
+    @FXML
+    private Button btnNext1;
+    @FXML
+    private Button btnNext2;
+    @FXML
+    private Button btnNext3;
+    @FXML
+    private Button btnDone;
+
     RegistrationDataObject registrationDataObject;
 
     @FXML
@@ -78,6 +85,7 @@ public class WizardController {
     public void nextStep(ActionEvent actionEvent) {
         Object selectedEvent = actionEvent.getSource();
         if (selectedEvent == btnNext1){
+            //Choosen EMPLID to register.
             //TODO add functionality to add authorized personel to cmbBox
             //TODO check is a user has been selected...
             pnlStep1.setVisible(false);
@@ -85,14 +93,24 @@ public class WizardController {
             btnStep2.setDisable(false);
         }
         else if (selectedEvent == btnNext2){
+            //Facial Recognition Data
+            //TODO add functionality to display live feedback and display images captured.
             pnlStep2.setVisible(false);
             pnlStep3.setVisible(true);
             btnStep3.setDisable(false);
         }
         else if (selectedEvent == btnNext3){
+            //Fingerprint Recognition Data
+            //TODO add functionality to display which finger to capture and then display image captured.
             pnlStep3.setVisible(false);
             pnlStep4.setVisible(true);
             btnStep4.setDisable(false);
+
+            //TODO save all data captured. This has to be done here as the user may cancel the registration process at any time.
+            //because registration by this point is complete...we cannot let the user go back and change things...
+            btnStep1.setDisable(true);
+            btnStep2.setDisable(true);
+            btnStep3.setDisable(true);
         }
         else if (selectedEvent == btnDone){
             try {
@@ -105,6 +123,28 @@ public class WizardController {
             catch (IOException error){
                 error.printStackTrace();
             }
+        }
+    }
+
+    public void doTravel(ActionEvent actionEvent) {
+        Object selectedElement = actionEvent.getSource();
+        if (selectedElement == btnStep1 && !btnStep1.isDisabled()){
+            pnlStep1.setVisible(true);
+            pnlStep2.setVisible(false);
+            pnlStep3.setVisible(false);
+            pnlStep4.setVisible(false);
+        }
+        else if (selectedElement == btnStep2 && !btnStep2.isDisabled()){
+            pnlStep1.setVisible(false);
+            pnlStep2.setVisible(true);
+            pnlStep3.setVisible(false);
+            pnlStep4.setVisible(false);
+        }
+        else if (selectedElement == btnStep3 && !btnStep3.isDisabled()){
+            pnlStep1.setVisible(false);
+            pnlStep2.setVisible(false);
+            pnlStep3.setVisible(true);
+            pnlStep4.setVisible(false);
         }
     }
 }

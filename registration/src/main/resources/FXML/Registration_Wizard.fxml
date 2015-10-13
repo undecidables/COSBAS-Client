@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.WizardController">
    <children>
-      <Button fx:id="btnStep1" layoutX="132.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="1" />
+      <Button fx:id="btnStep1" layoutX="132.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="1" onAction="#doTravel"/>
       <Button fx:id="btnStep2" layoutX="232.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="2" />
       <Button fx:id="btnStep3" layoutX="332.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="3" />
       <Button fx:id="btnStep4" layoutX="432.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="4" />
