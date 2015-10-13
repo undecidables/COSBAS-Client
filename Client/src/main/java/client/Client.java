@@ -10,6 +10,8 @@ import org.apache.http.conn.HttpHostConnectException;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.opencv.core.Core;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 import java.io.IOException;
@@ -23,28 +25,21 @@ import java.util.Scanner;
 
 public class Client {
 
-    private static final String CONFIG_FILE_NAME = "config.properties";
+    public static ApplicationContext context;
 
     static{ System.loadLibrary(Core.NATIVE_LIBRARY_NAME); }
     public static void main(String[] args) throws IOException, ConfigurationException
     {
 
+        context = new ClassPathXmlApplicationContext("beans.xml");
 
         System.out.println("Starting up client");
 
-        PropertiesConfiguration config = new PropertiesConfiguration();
-        config.load(CONFIG_FILE_NAME);
+        PropertiesConfiguration config = (PropertiesConfiguration) context.getBean("config");
 
 
         Scanner scan= new Scanner(System.in);
 
-
-       /* File f = new File("programs/Fingerprint Scanner/ftrScanAPI_Ex-0");
-        System.out.println(f.getAbsolutePath());
-        if(f.exists())
-        {
-            System.out.println("I exist");
-        }*/
         String input = "";
 
 
