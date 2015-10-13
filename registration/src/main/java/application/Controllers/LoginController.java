@@ -3,7 +3,9 @@ package application.Controllers;
 import application.Model.ApplicationModel;
 import application.RegistrationDataObject;
 import authentication.Authenticator;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -69,4 +71,8 @@ public class LoginController{
     }
 
     RegistrationDataObject registrationDataObject;
+
+    public void doExit(Event event) {
+        Platform.exit();
+    }
 } //Controller
