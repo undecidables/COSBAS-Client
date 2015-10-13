@@ -3,8 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-       <bean id="config" class="org.apache.commons.configuration.PropertiesConfiguration" >
-              <constructor-arg name="fileName" type="java.lang.String" value="config.properties" />
-       </bean>
+    <bean id="config" class="org.apache.commons.configuration.PropertiesConfiguration" >
+       <constructor-arg name="fileName" type="java.lang.String" value="config.properties" />
+    </bean>
+
+    <bean id="detectFaces" class="modules.OPENCVFaceDetection" lazy-init="true"/>
+    <bean id="camera" class="modules.OPENCVCamera" lazy-init="true" />
+    <bean id="fingerPrintScanner" class="client.FutronicFingerprintScanner" lazy-init="true" />
+
 
 </beans>

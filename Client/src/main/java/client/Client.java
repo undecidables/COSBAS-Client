@@ -33,9 +33,11 @@ public class Client {
 
         context = new ClassPathXmlApplicationContext("beans.xml");
 
-        System.out.println("Starting up client");
 
         PropertiesConfiguration config = (PropertiesConfiguration) context.getBean("config");
+
+        String doorID = config.getProperty("id").toString();
+        String action = config.getProperty("action").toString();
 
 
         Scanner scan= new Scanner(System.in);
@@ -44,15 +46,16 @@ public class Client {
 
 
         while(scan.hasNextLine()){
+            AuthenticationDataObject authDO = new AuthenticationDataObject(doorID, action);
             input = scan.nextLine();
-            //this means that no keycode was entered so take some pictures and scan finger print
+
             ArrayList<BiometricData> data;
             if(input.toString().equals(""))
             {
                 Factory factory = new Factory();
                 data = factory.produce();
             }
-            else //keycode was entered, lets authenticate it. should we maybe take pictures of people that entered via keycode??
+            else
             {
                 if(input.toString().equals("quity"))
                 {
@@ -63,56 +66,22 @@ public class Client {
                 data.add(d);
             }
 
+            authDO.setBiometricData(data);
 
-            CloseableHttpClient httpClient = HttpClients.createDefault();
-            HttpRequestBuilder request = new HttpRequestBuilder();
-            HttpPost httpPost = request.buildRequest(config.getProperty("url").toString(),config.getProperty("map").toString(),
-                    config.getProperty("id").toString(), config.getProperty("action").toString(), data);
+            HttpPost httpPost = new HttpPostClientBuilder().buildPost(authDO);
             try
             {
-                CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
-                HttpResponseHandler response = new HttpResponseHandler();
-
-                String json = response.handleResponse(httpResponse);
-                System.out.println("The reply: ");
-                System.out.println(json);
-                Gson gson = new Gson();
-                AccessResponse aResponse = gson.fromJson(json, AccessResponse.class);
-
-                System.out.println("This is our result: " + aResponse.getResult());
-                System.out.println("");
+                HttpClientPostSender sender = new HttpClientPostSender();
+                AccessResponse accessResponse = (AccessResponse) sender.sendPostRequest(httpPost);
+                System.out.println(accessResponse.getMessage() + " : " + accessResponse.getResult());
             }
-            catch(HttpHostConnectException e)
+            catch (Exception e)
             {
-                System.out.println("Could not connect to server.");
+                System.out.println("Exception: " + e.toString());
             }
-
-            httpClient.close();
 
         }
 
-       /* //PropertiesConfiguration prop;
-        //have to spin, wait for something to activate me
-        //for now activate on keypress??? can only do that if enter is pressed or something along those lines
-        //need to set up a config file for server address + port and as well as where the images will be stored
-
-        //do we agree on the emthod?? authenticateMe?????
-
-
-
-
-
-       // System.out.println("POST Result Status:: "
-       //         + httpResponse.getStatusLine().getStatusCode());
-
-
-        // print result
-       // System.out.println(response.toString());
-
-*/
-
-
-        System.out.println("Closing client");
     }
 
 }
