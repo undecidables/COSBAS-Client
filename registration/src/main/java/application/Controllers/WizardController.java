@@ -2,6 +2,7 @@ package application.Controllers;
 
 import application.*;
 import application.Model.ApplicationModel;
+import authentication.LDAPTester;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -9,9 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -56,6 +55,12 @@ public class WizardController {
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
+
+    //Registree data
+    @FXML
+    private TextField edtEmplid;
+    @FXML
+    private Label lblEmplidFB;
 
     //Image Capturing
     private PropertiesConfiguration config;
@@ -113,9 +118,6 @@ public class WizardController {
     protected void initialize() {
         app = ApplicationModel.app;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
-        //TODO Remove hardcoded stuff
-        registrationDataObject.setEmplid("BCrawley");
-        //TODO Remove Hardcoded stuff^
         pnlStep1.setVisible(true);
         pnlStep2.setVisible(false);
         pnlStep3.setVisible(false);
@@ -146,13 +148,21 @@ public class WizardController {
         Object selectedEvent = actionEvent.getSource();
         if (selectedEvent == btnNext1) {
             //Choosen EMPLID to register.
-            //TODO add functionality to add authorized personel to cmbBox
-            //TODO check is a user has been selected...
-            pnlStep1.setVisible(false);
-            pnlStep2.setVisible(true);
-            btnStep2.setDisable(false);
+            String emplid = edtEmplid.getText();
+            if (emplid.length() < 3) {
+                lblEmplidFB.setVisible(true);
+                return;
+            }
+            if (LDAPTester.getDnForUser(emplid, null) != null) {
+                lblEmplidFB.setVisible(false);
+                registrationDataObject.setEmplid(emplid);
 
-            startCamera();
+                pnlStep1.setVisible(false);
+                pnlStep2.setVisible(true);
+                btnStep2.setDisable(false);
+
+                startCamera();
+            }
         } else if (selectedEvent == btnNext2) {
             //Facial Recognition Data
             //TODO add functionality to display live feedback and display images captured.

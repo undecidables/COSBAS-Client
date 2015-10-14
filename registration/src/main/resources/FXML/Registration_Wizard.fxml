@@ -18,23 +18,6 @@
       <Separator layoutX="170.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
       <Separator layoutX="271.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
       <Separator layoutX="370.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
-      <Pane fx:id="pnlStep1" layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-border-color: lightgrey;">
-         <children>
-            <Label alignment="CENTER" layoutX="171.0" layoutY="14.0" text="Choose Authorized Person" textFill="#808080">
-               <font>
-                  <Font name="Lucida Grande" size="18.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="163.0" fitWidth="172.0" layoutX="206.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../users.png" />
-               </image>
-            </ImageView>
-            <ComboBox fx:id="cmbEmployees" layoutX="186.0" layoutY="232.0" prefWidth="150.0" promptText="Employee..." />
-            <Label layoutX="45.0" layoutY="37.0" prefHeight="17.0" prefWidth="484.0" text="To register details, you need to be an authorized Computer Science Employee" textFill="#b5b5b5" />
-            <Button fx:id="btnNext1" layoutX="343.0" layoutY="232.0" mnemonicParsing="false" onAction="#nextStep" text="Next" />
-         </children>
-      </Pane>
       <AnchorPane fx:id="pnlStep2" layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-border-color: lightgrey; -fx-background-color: white;">
          <children>
             <Label alignment="CENTER" layoutX="154.0" layoutY="14.0" text="Facial Recognition Information" textFill="#808080">
@@ -124,7 +107,7 @@
                   <Image url="@../hands.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnTakeImage" layoutX="112.0" layoutY="252.0" mnemonicParsing="false" text="Take Image" onAction="#takeFingerprintImage" />
+            <Button fx:id="btnTakeImage" layoutX="112.0" layoutY="252.0" mnemonicParsing="false" onAction="#takeFingerprintImage" text="Take Image" />
             <ImageView fx:id="imgFP1" fitHeight="80.0" fitWidth="80.0" layoutX="320.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgFP3" fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgFP2" fitHeight="80.0" fitWidth="80.0" layoutX="320.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />
@@ -149,6 +132,28 @@
             <Button fx:id="btnDone" layoutX="243.0" layoutY="231.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="27.0" prefWidth="88.0" text="Done" />
          </children>
       </AnchorPane>
+      <Pane fx:id="pnlStep1" layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-border-color: lightgrey; -fx-background-color: white;">
+         <children>
+            <Label alignment="CENTER" layoutX="171.0" layoutY="14.0" text="Choose Authorized Person" textFill="#808080">
+               <font>
+                  <Font name="Lucida Grande" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="163.0" fitWidth="172.0" layoutX="206.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../users.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="edtEmplid" layoutX="186.0" layoutY="232.0" prefWidth="150.0" />
+            <Label layoutX="45.0" layoutY="37.0" prefHeight="17.0" prefWidth="484.0" text="To register details, you need to be an authorized Computer Science Employee" textFill="#b5b5b5" />
+            <Button fx:id="btnNext1" layoutX="343.0" layoutY="232.0" mnemonicParsing="false" onAction="#nextStep" text="Next" />
+            <Label fx:id="lblEmplidFB" alignment="CENTER" layoutX="186.0" layoutY="263.0" prefHeight="17.0" prefWidth="150.0" text="Emplid Not Found" textAlignment="CENTER" textFill="#c92222" visible="false">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Button fx:id="btnCancel" layoutX="239.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="27.0" prefWidth="124.0" text="Cancel" />
    </children>
 </AnchorPane>
