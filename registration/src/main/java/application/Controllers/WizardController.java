@@ -43,6 +43,7 @@ public class WizardController {
     public ImageView imgFB4;
     public ImageView imgFB5;
     public ImageView imgFB6;
+    public Button btnCancel;
 
     //Variables to be used by registration procedures...
     private String emplid;
@@ -215,6 +216,7 @@ public class WizardController {
             btnStep1.setDisable(true);
             btnStep2.setDisable(true);
             btnStep3.setDisable(true);
+            btnCancel.setVisible(false);
         } else if (selectedEvent == btnDone) {
             try {
                 Stage stage = (Stage) btnStep1.getScene().getWindow();
