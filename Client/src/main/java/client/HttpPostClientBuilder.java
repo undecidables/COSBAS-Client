@@ -8,7 +8,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.springframework.context.ApplicationContext;
 
 /**
- * Created by simon on 2015-10-12.
+ * {@author Szymon}
  */
 public class HttpPostClientBuilder implements HttpPostBuilderInterface {
 

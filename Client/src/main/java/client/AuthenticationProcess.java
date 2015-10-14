@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Created by simon on 2015-10-14.
+ * {@author Szymon}
  */
 public class AuthenticationProcess extends Thread {
 

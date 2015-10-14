@@ -3,7 +3,7 @@ package client;
 import com.pi4j.io.gpio.*;
 
 /**
- * Created by simon on 2015-10-14.
+ * {@author Szymon}
  */
 public class GPIOAccess {
 

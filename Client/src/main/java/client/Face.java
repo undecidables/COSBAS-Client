@@ -23,9 +23,6 @@ public class Face implements Biometric
 
     public void fillData(ArrayList<BiometricData> datas, int number)
     {
-        //OPENCVFaceDetection detectFaces = new OPENCVFaceDetection();
-
-        //OPENCVCamera camera = new OPENCVCamera();
         ArrayList<byte[]> images =  new ArrayList<byte[]>();
         for(int i = 0; i < number; i++)
         {

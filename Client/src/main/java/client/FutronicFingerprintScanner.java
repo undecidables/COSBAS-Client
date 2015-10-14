@@ -1,8 +1,5 @@
 package client;
 
-import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
- * Created by simon on 2015-09-06.
+ * {@author Szymon}
  */
 public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
 
@@ -20,7 +17,6 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
 
     public byte[] getImage()
     {
-        //this can only be tested with futronic device when run on pi. wait can look into windows java as well will do.
         ArrayList<byte[]> images = new ArrayList<byte[]>();
         try
         {
@@ -36,11 +32,9 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
     }
 
     public byte[] captureFrame() throws IOException {
-        //do a check for system so
 
-        ArrayList<byte[]> images = new ArrayList<byte[]>();
         byte[] fingerprint = null;
-        //int dirName = (int) (Math.random() * 100);
+
 	    String dirName = "fingerprints";
         File dir = new File(dirName);
         dir.mkdir();

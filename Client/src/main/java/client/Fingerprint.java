@@ -27,9 +27,6 @@ public class Fingerprint implements Biometric {
 
     public void fillData(ArrayList<BiometricData> _data, int number)
     {
-        //FutronicFingerprintScanner fingerprintScanner = new FutronicFingerprintScanner();
-
-        //make it loop a few times
         ArrayList<byte[]> images = new ArrayList<byte[]>();
 
         for(int i = 0; i < number; i++)
@@ -46,11 +43,5 @@ public class Fingerprint implements Biometric {
             _data.add(new BiometricData("biometric-FINGER", image));
         }
     }
-
-    /**
-     * This method will capture data from IO device and store somewhere on the client
-     */
-
-
 
 }

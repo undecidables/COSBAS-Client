@@ -5,7 +5,7 @@ import modules.BiometricData;
 import java.util.ArrayList;
 
 /**
- * Created by simon on 2015-10-12.
+ * {@author Szymon}
  */
 public class AuthenticationDataObject {
     private ArrayList<BiometricData> biometricData;

@@ -3,7 +3,7 @@ package client;
 import java.util.ArrayList;
 
 /**
- * Created by simon on 2015-09-06.
+ * {@author Szymon}
  */
 public interface FingerPrintScannerInterface {
     public byte[] getImage();

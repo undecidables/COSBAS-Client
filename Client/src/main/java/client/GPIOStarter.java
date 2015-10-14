@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 /**
- * Created by simon on 2015-10-14.
+ * {@author Szymon}
  */
 public class GPIOStarter {
 
