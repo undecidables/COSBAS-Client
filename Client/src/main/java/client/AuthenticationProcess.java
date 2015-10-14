@@ -37,63 +37,67 @@ public class AuthenticationProcess extends Thread {
     public void run()
     {
         Scanner scan= new Scanner(System.in);
-
+        boolean spin = true;
         String input = "";
 
+        while(spin)
+        {
 
-        while(scan.hasNextLine()){
-            try {
-                synchronized (object) {
+            try
+            {
+                synchronized (object)
+                {
                     object.wait();
                 }
 
-                AuthenticationDataObject authDO = new AuthenticationDataObject(doorID, action);
-                input = scan.nextLine();
+                while (scan.hasNextLine())
+                {
+                    System.out.println("Welcome");
+                    System.out.println("Please enter keycode or press enter for biometric auth.");
+                    AuthenticationDataObject authDO = new AuthenticationDataObject(doorID, action);
+                    input = scan.nextLine();
 
-                ArrayList<BiometricData> data = null;
-                if(input.toString().equals(""))
-                {
-                    Factory factory = new Factory();
-                    try {
-                        data = factory.produce();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    ArrayList<BiometricData> data = null;
+                    if (input.toString().equals("")) {
+                        Factory factory = new Factory();
+                        try {
+                            data = factory.produce();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        if (input.toString().equals("+/-")) {
+                            spin = false;
+                            break;
+                        }
+                        data = new ArrayList<BiometricData>();
+                        BiometricData d = new BiometricData("biometric-CODE", input.getBytes());
+                        data.add(d);
                     }
-                }
-                else
-                {
-                    if(input.toString().equals("+/-"))
+
+                    if (data != null) {
+                        authDO.setBiometricData(data);
+                    }
+
+
+                    HttpPost httpPost = new HttpPostClientBuilder().buildPost(authDO);
+                    try
                     {
-                        return;
+                        HttpClientPostSender sender = new HttpClientPostSender();
+                        AccessResponse accessResponse = (AccessResponse) sender.sendPostRequest(httpPost);
+                        System.out.println(accessResponse.getMessage() + " : " + accessResponse.getResult());
                     }
-                    data = new ArrayList<BiometricData>();
-                    BiometricData d = new BiometricData("biometric-CODE", input.getBytes());
-                    data.add(d);
-                }
+                    catch (Exception e)
+                    {
+                        System.out.println("Exception: " + e.toString());
+                    }
 
-                if(data!=null)
-                {
-                    authDO.setBiometricData(data);
                 }
-
-
-                HttpPost httpPost = new HttpPostClientBuilder().buildPost(authDO);
-                try
-                {
-                    HttpClientPostSender sender = new HttpClientPostSender();
-                    AccessResponse accessResponse = (AccessResponse) sender.sendPostRequest(httpPost);
-                    System.out.println(accessResponse.getMessage() + " : " + accessResponse.getResult());
-                }
-                catch (Exception e)
-                {
-                    System.out.println("Exception: " + e.toString());
-                }
-
-            } catch (InterruptedException e) {
+            }
+            catch (InterruptedException e)
+            {
                 e.printStackTrace();
             }
-
-
         }
 
 

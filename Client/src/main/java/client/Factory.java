@@ -3,6 +3,7 @@ package client;
 import modules.Biometric;
 import modules.BiometricData;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,6 +18,15 @@ public class Factory {
 
         face.fillData(data, 2);
         finger.fillData(data, 3);
+
+        int count = 0;
+        for (BiometricData d : data)
+        {
+            FileOutputStream fos = new FileOutputStream(count+ d.getType() +".png");
+            fos.write(d.getData());
+            fos.close();
+            count++;
+        }
 
         return data;
     }
