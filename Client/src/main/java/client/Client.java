@@ -33,8 +33,12 @@ public class Client {
 
         context = new ClassPathXmlApplicationContext("beans.xml");
 
+        noname n = new noname();
+        n.start();
 
-        PropertiesConfiguration config = (PropertiesConfiguration) context.getBean("config");
+
+
+       /* PropertiesConfiguration config = (PropertiesConfiguration) context.getBean("config");
 
         String doorID = config.getProperty("id").toString();
         String action = config.getProperty("action").toString();
@@ -80,7 +84,7 @@ public class Client {
                 System.out.println("Exception: " + e.toString());
             }
 
-        }
+        }*/
 
     }
 

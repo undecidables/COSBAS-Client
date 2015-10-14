@@ -42,6 +42,8 @@ dependencies {
 
     compile 'org.springframework:spring-context:4.2.1.RELEASE'
 
+    compile 'com.pi4j:pi4j-core:1.0'
+
     compile project(":common")
     //compile files("../common/libs/opencv-2411.jar")
     //compile files

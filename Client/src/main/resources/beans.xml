@@ -11,5 +11,7 @@
     <bean id="camera" class="modules.OPENCVCamera" lazy-init="true" />
     <bean id="fingerPrintScanner" class="client.FutronicFingerprintScanner" lazy-init="true" />
 
+    <bean id="object" class="java.lang.Object" scope="singleton" />
+
 
 </beans>
