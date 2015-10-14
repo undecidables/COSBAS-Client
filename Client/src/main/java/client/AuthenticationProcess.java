@@ -43,8 +43,9 @@ public class AuthenticationProcess extends Thread {
 
         while(scan.hasNextLine()){
             try {
-                object.wait();
-
+                synchronized (object) {
+                    object.wait();
+                }
 
                 AuthenticationDataObject authDO = new AuthenticationDataObject(doorID, action);
                 input = scan.nextLine();

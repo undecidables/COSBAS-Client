@@ -31,7 +31,9 @@ public class noname {
             @Override
             public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
                 System.out.println("Someone is here");
-                object.notifyAll();
+                synchronized (object) {
+                    object.notifyAll();
+                }
             }
         });
 

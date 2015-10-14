@@ -34,11 +34,16 @@ public class Fingerprint implements Biometric {
 
         for(int i = 0; i < number; i++)
         {
-            images.add(fingerprintScanner.getImage());
+            byte[] image = fingerprintScanner.getImage();
+            if(image!=null)
+            {
+                images.add(image);
+            }
+
         }
         for(byte[] image : images)
         {
-            _data.add(new BiometricData("finger", image));
+            _data.add(new BiometricData("biometric-FINGER", image));
         }
     }
 

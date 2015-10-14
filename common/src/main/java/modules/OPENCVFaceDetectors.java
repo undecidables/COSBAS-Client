@@ -64,13 +64,18 @@ public class OPENCVFaceDetectors extends Thread
         }
         else
         {
-            centerFace = cropToRectangle(frame, rectToCrop.get(0));
+            if(!rectToCrop.isEmpty())
+            {
+                centerFace = cropToRectangle(frame, rectToCrop.get(0));
+            }
+
         }
 
 
-
-        frames.add(centerFace);
-
+        if(centerFace != null)
+        {
+            frames.add(centerFace);
+        }
     }
 
     private Mat cropToRectangle(Mat frame, Rect rectToCrop)
