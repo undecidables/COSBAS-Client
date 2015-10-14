@@ -158,6 +158,17 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
+            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="225.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../1_circle.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="47.0" layoutX="225.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../2_circle.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="240.0" layoutY="122.0" orientation="VERTICAL" prefHeight="23.0" prefWidth="3.0" />
          </children>
       </Pane>
       <Button fx:id="btnCancel" layoutX="239.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="27.0" prefWidth="124.0" text="Cancel" />
