@@ -1,22 +1,12 @@
 package client;
 
-import com.google.gson.Gson;
-import modules.BiometricData;
 import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.conn.HttpHostConnectException;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.opencv.core.Core;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * {@author Szymon}
@@ -33,7 +23,7 @@ public class Client {
 
         context = new ClassPathXmlApplicationContext("beans.xml");
 
-        noname n = new noname();
+        GPIOStarter n = new GPIOStarter();
         n.start();
 
 

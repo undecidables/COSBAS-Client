@@ -10,44 +10,49 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 /**
  * Created by simon on 2015-10-14.
  */
-public class noname {
+public class GPIOStarter {
 
     private ApplicationContext context;
     private Object object = new Object();
+    final GpioController gpio;
+    final GpioPinDigitalInput input;
 
-    public noname()
+    public GPIOStarter()
     {
         context = Client.context;
         object = (Object) context.getBean("object");
-    }
 
-
-    public void start()
-    {
-        final GpioController gpio = GpioFactory.getInstance();
-        final GpioPinDigitalInput input = gpio.provisionDigitalInputPin(RaspiPin.GPIO_28, PinPullResistance.PULL_DOWN);
+        gpio = GpioFactory.getInstance();
+        input = gpio.provisionDigitalInputPin(RaspiPin.GPIO_28, PinPullResistance.PULL_DOWN);
 
         input.addListener(new GpioPinListenerDigital() {
             @Override
             public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-                System.out.println("Someone is here");
                 synchronized (object) {
                     object.notifyAll();
                 }
             }
         });
+    }
 
+
+    public void start()
+    {
         AuthenticationProcess process = new AuthenticationProcess();
 
         process.run();
 
 
-        try {
+        try
+        {
             process.join();
-        } catch (InterruptedException e) {
+        }
+        catch (InterruptedException e)
+        {
             e.printStackTrace();
         }
-        finally {
+        finally
+        {
             gpio.shutdown();
         }
     }

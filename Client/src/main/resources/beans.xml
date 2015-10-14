@@ -10,6 +10,7 @@
     <bean id="detectFaces" class="modules.OPENCVFaceDetection" lazy-init="true"/>
     <bean id="camera" class="modules.OPENCVCamera" lazy-init="true" />
     <bean id="fingerPrintScanner" class="client.FutronicFingerprintScanner" lazy-init="true" />
+    <bean id="access" class="client.GPIOAccess" lazy-init="true" scope="singleton" />
 
     <bean id="object" class="java.lang.Object" scope="singleton" />
 

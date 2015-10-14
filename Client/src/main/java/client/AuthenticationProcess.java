@@ -17,6 +17,7 @@ public class AuthenticationProcess extends Thread {
     private ApplicationContext context;
     private PropertiesConfiguration config;
     private Object object;
+    private GPIOAccess access;
 
     private final String doorID;
     private final String action;
@@ -28,6 +29,7 @@ public class AuthenticationProcess extends Thread {
         context = Client.context;
         config = (PropertiesConfiguration) context.getBean("config");
         object = (Object) context.getBean("object");
+        access = (GPIOAccess) context.getBean("access");
 
         doorID = config.getProperty("id").toString();
         action = config.getProperty("action").toString();
@@ -42,7 +44,8 @@ public class AuthenticationProcess extends Thread {
 
         while(spin)
         {
-
+            System.out.println("Welcome");
+            System.out.println("Please enter keycode or press enter for biometric auth.");
             try
             {
                 synchronized (object)
@@ -52,8 +55,7 @@ public class AuthenticationProcess extends Thread {
 
                 while (scan.hasNextLine())
                 {
-                    System.out.println("Welcome");
-                    System.out.println("Please enter keycode or press enter for biometric auth.");
+
                     AuthenticationDataObject authDO = new AuthenticationDataObject(doorID, action);
                     input = scan.nextLine();
 
@@ -86,6 +88,11 @@ public class AuthenticationProcess extends Thread {
                         HttpClientPostSender sender = new HttpClientPostSender();
                         AccessResponse accessResponse = (AccessResponse) sender.sendPostRequest(httpPost);
                         System.out.println(accessResponse.getMessage() + " : " + accessResponse.getResult());
+
+                        if(accessResponse.getResult() == true)
+                        {
+                            access.allowAccess();
+                        }
                     }
                     catch (Exception e)
                     {
