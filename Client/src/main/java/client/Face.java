@@ -21,14 +21,13 @@ public class Face implements Biometric
         camera = (OPENCVCamera) context.getBean("camera");
     }
 
-    public void fillData(ArrayList<BiometricData> datas)
+    public void fillData(ArrayList<BiometricData> datas, int number)
     {
         //OPENCVFaceDetection detectFaces = new OPENCVFaceDetection();
 
         //OPENCVCamera camera = new OPENCVCamera();
         ArrayList<byte[]> images =  new ArrayList<byte[]>();
-        camera.startCamera();
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < number; i++)
         {
             images.add(camera.getImage());
         }

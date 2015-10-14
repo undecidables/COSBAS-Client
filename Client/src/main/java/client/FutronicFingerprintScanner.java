@@ -18,13 +18,13 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
     {
     }
 
-    public ArrayList<byte[]> getImages()
+    public byte[] getImage()
     {
         //this can only be tested with futronic device when run on pi. wait can look into windows java as well will do.
         ArrayList<byte[]> images = new ArrayList<byte[]>();
         try
         {
-            images = captureFrames();
+            return captureFrame();
         }
         catch (IOException e)
         {
@@ -32,16 +32,17 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
             System.out.println("An error occured: IOException");
         }
 
-        return images;
+        return null;
     }
 
-    public ArrayList<byte[]> captureFrames() throws IOException {
+    public byte[] captureFrame() throws IOException {
         //do a check for system so
 
         ArrayList<byte[]> images = new ArrayList<byte[]>();
+        byte[] fingerprint = null;
         //int dirName = (int) (Math.random() * 100);
 	    String dirName = "fingerprints";
-        File dir = new File(dirName + "");
+        File dir = new File(dirName);
         dir.mkdir();
 
         if(!System.getProperty("os.arch").equals("arm"))
@@ -76,7 +77,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                             File image = path.toFile();
                             if(image.exists())
                             {
-                                images.add(Files.readAllBytes(path));
+                                fingerprint = (Files.readAllBytes(path));
                                 image.delete();
                                 count++;
                                 break;
@@ -113,7 +114,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
 
             dir.delete();
         }
-        return images;
+        return fingerprint;
     }
 
 

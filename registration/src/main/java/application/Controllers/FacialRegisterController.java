@@ -60,7 +60,7 @@ public class FacialRegisterController {
     @FXML
     protected void handleFacialSubmitButtonAction(ActionEvent event) throws IOException {
 
-        face.fillData(registrationDataObject.getBiometricData());
+        face.fillData(registrationDataObject.getBiometricData(), 6);
         HttpPost httpPost = new HttpPostRegistrationBuilder().buildPost(registrationDataObject);
         try {
             HttpRegisterPostSender postSender = new HttpRegisterPostSender();

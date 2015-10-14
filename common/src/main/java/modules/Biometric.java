@@ -7,5 +7,5 @@ import java.util.ArrayList;
  */
 public interface Biometric
 {
-    public void fillData(ArrayList<BiometricData> _data);
+    public void fillData(ArrayList<BiometricData> _data, int _number);
 }

@@ -15,8 +15,8 @@ public class Factory {
         Biometric finger = new Fingerprint();
         ArrayList<BiometricData> data = new ArrayList<BiometricData>();
 
-        face.fillData(data);
-        finger.fillData(data);
+        face.fillData(data, 2);
+        finger.fillData(data, 3);
 
         return data;
     }

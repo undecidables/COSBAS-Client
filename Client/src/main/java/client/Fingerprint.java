@@ -25,13 +25,17 @@ public class Fingerprint implements Biometric {
         fingerprintScanner = (FutronicFingerprintScanner) context.getBean("fingerPrintScanner");
     }
 
-    public void fillData(ArrayList<BiometricData> _data)
+    public void fillData(ArrayList<BiometricData> _data, int number)
     {
         //FutronicFingerprintScanner fingerprintScanner = new FutronicFingerprintScanner();
 
         //make it loop a few times
-        ArrayList<byte[]> images = fingerprintScanner.getImages();
+        ArrayList<byte[]> images = new ArrayList<byte[]>();
 
+        for(int i = 0; i < number; i++)
+        {
+            images.add(fingerprintScanner.getImage());
+        }
         for(byte[] image : images)
         {
             _data.add(new BiometricData("finger", image));

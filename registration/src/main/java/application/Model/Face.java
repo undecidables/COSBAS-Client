@@ -29,10 +29,10 @@ public class Face implements Biometric {
     }
 
     @Override
-    public void fillData(ArrayList<BiometricData> datas) {
+    public void fillData(ArrayList<BiometricData> datas, int number) {
 
         ArrayList<byte[]> images =  new ArrayList<byte[]>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < number; i++)
         {
             images.add(cameraObject.getImage());
         }
