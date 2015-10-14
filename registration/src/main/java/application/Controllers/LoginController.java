@@ -74,5 +74,6 @@ public class LoginController{
 
     public void doExit(Event event) {
         Platform.exit();
+        System.exit(0);
     }
 } //Controller

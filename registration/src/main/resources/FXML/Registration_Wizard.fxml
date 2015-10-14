@@ -28,27 +28,27 @@
             <ImageView fx:id="currentFrame" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="72.0" pickOnBounds="true" />
             <Button fx:id="btnTakePhotos" layoutX="80.0" layoutY="246.0" mnemonicParsing="false" onAction="#takeImages" text="Take Photos" />
             <Label layoutX="258.0" layoutY="45.0" prefHeight="17.0" prefWidth="286.0" text="To remove bad images, simply click on them." textFill="#b5b5b5" />
-            <ImageView fx:id="imgFB1" fitHeight="77.0" fitWidth="88.0" layoutX="258.0" layoutY="69.0" pickOnBounds="true" onMouseClicked="#discardImage">
+            <ImageView fx:id="imgFB1" fitHeight="77.0" fitWidth="88.0" layoutX="258.0" layoutY="69.0" onMouseClicked="#discardImage" pickOnBounds="true">
                <image>
                   <Image url="@../No_Image.png" />
                </image></ImageView>
-            <ImageView fx:id="imgFB2" fitHeight="77.0" fitWidth="88.0" layoutX="349.0" layoutY="69.0" pickOnBounds="true" onMouseClicked="#discardImage">
+            <ImageView fx:id="imgFB2" fitHeight="77.0" fitWidth="88.0" layoutX="349.0" layoutY="69.0" onMouseClicked="#discardImage" pickOnBounds="true">
                <image>
                   <Image url="@../No_Image.png" />
                </image></ImageView>
-            <ImageView fx:id="imgFB3" fitHeight="77.0" fitWidth="88.0" layoutX="440.0" layoutY="69.0" pickOnBounds="true" onMouseClicked="#discardImage">
+            <ImageView fx:id="imgFB3" fitHeight="77.0" fitWidth="88.0" layoutX="440.0" layoutY="69.0" onMouseClicked="#discardImage" pickOnBounds="true">
                <image>
                   <Image url="@../No_Image.png" />
                </image></ImageView>
-            <ImageView fx:id="imgFB4" fitHeight="77.0" fitWidth="88.0" layoutX="258.0" layoutY="151.0" pickOnBounds="true" onMouseClicked="#discardImage">
+            <ImageView fx:id="imgFB4" fitHeight="77.0" fitWidth="88.0" layoutX="258.0" layoutY="151.0" onMouseClicked="#discardImage" pickOnBounds="true">
                <image>
                   <Image url="@../No_Image.png" />
                </image></ImageView>
-            <ImageView fx:id="imgFB5" fitHeight="77.0" fitWidth="88.0" layoutX="349.0" layoutY="151.0" pickOnBounds="true" onMouseClicked="#discardImage">
+            <ImageView fx:id="imgFB5" fitHeight="77.0" fitWidth="88.0" layoutX="349.0" layoutY="151.0" onMouseClicked="#discardImage" pickOnBounds="true">
                <image>
                   <Image url="@../No_Image.png" />
                </image></ImageView>
-            <ImageView fx:id="imgFB6" fitHeight="77.0" fitWidth="88.0" layoutX="440.0" layoutY="151.0" pickOnBounds="true" onMouseClicked="#discardImage">
+            <ImageView fx:id="imgFB6" fitHeight="77.0" fitWidth="88.0" layoutX="440.0" layoutY="151.0" onMouseClicked="#discardImage" pickOnBounds="true">
                <image>
                   <Image url="@../No_Image.png" />
                </image></ImageView>
@@ -139,15 +139,21 @@
                   <Font name="Lucida Grande" size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="163.0" fitWidth="172.0" layoutX="206.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="163.0" fitWidth="172.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../users.png" />
                </image>
             </ImageView>
-            <TextField fx:id="edtEmplid" layoutX="186.0" layoutY="232.0" prefWidth="150.0" />
+            <TextField fx:id="edtEmplid" layoutX="287.0" layoutY="89.0" prefHeight="27.0" prefWidth="200.0" promptText="EMPLID" />
             <Label layoutX="45.0" layoutY="37.0" prefHeight="17.0" prefWidth="484.0" text="To register details, you need to be an authorized Computer Science Employee" textFill="#b5b5b5" />
-            <Button fx:id="btnNext1" layoutX="343.0" layoutY="232.0" mnemonicParsing="false" onAction="#nextStep" text="Next" />
-            <Label fx:id="lblEmplidFB" alignment="CENTER" layoutX="186.0" layoutY="263.0" prefHeight="17.0" prefWidth="150.0" text="Emplid Not Found" textAlignment="CENTER" textFill="#c92222" visible="false">
+            <Button fx:id="btnNext1" layoutX="337.0" layoutY="215.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="27.0" prefWidth="101.0" text="Next" />
+            <Label fx:id="lblEmplidFB" alignment="CENTER" layoutX="312.0" layoutY="116.0" prefHeight="17.0" prefWidth="150.0" text="Emplid Not Found" textAlignment="CENTER" textFill="#c92222" visible="false">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="edtEmail" layoutX="287.0" layoutY="147.0" prefHeight="27.0" prefWidth="200.0" promptText="E-Mail eg emplid@cs.up.ac.za" />
+            <Label fx:id="lblInvalEmail" alignment="CENTER" layoutX="308.0" layoutY="174.0" prefHeight="17.0" prefWidth="150.0" text="Invalid Email" textAlignment="CENTER" textFill="#c92222" visible="false">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

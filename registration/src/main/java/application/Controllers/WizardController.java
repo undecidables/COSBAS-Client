@@ -62,6 +62,10 @@ public class WizardController {
     private TextField edtEmplid;
     @FXML
     private Label lblEmplidFB;
+    @FXML
+    private TextField edtEmail;
+    @FXML
+    private Label lblInvalEmail;
 
     //Image Capturing
     private PropertiesConfiguration config;
@@ -132,6 +136,12 @@ public class WizardController {
         shpLeftThumb.setVisible(false);
         shpLeftIndex.setVisible(false);
         numFaceDiscard = 0;
+        btnNext2.setDisable(true);
+        btnNext3.setDisable(true);
+        if (registrationDataObject.getEmail() != null) {
+            edtEmail.setText(registrationDataObject.getEmail());
+            edtEmail.setDisable(true);
+        }
     }
 
     public void logout(Event event) {
@@ -151,15 +161,23 @@ public class WizardController {
     public void nextStep(ActionEvent actionEvent) {
         Object selectedEvent = actionEvent.getSource();
         if (selectedEvent == btnNext1) {
-            //Choosen EMPLID to register.
+            //Choosen EMPLID to register and email.
+            String email = edtEmail.getText();
+            EmailValidator validator = new EmailValidator();
             String emplid = edtEmplid.getText();
+
             if (emplid.length() < 3) {
                 lblEmplidFB.setVisible(true);
                 return;
             }
+            if (!validator.validate(email)){
+                lblInvalEmail.setVisible(true);
+                return;
+            }
             if (LDAPTester.getDnForUser(emplid, null) != null) {
-                lblEmplidFB.setVisible(false);
+                lblEmplidFB.setVisible(false); lblInvalEmail.setVisible(false);
                 registrationDataObject.setEmplid(emplid);
+                registrationDataObject.setEmail(email);
 
                 pnlStep1.setVisible(false);
                 pnlStep2.setVisible(true);
@@ -167,9 +185,11 @@ public class WizardController {
 
                 startCamera();
             }
+            else{
+                lblEmplidFB.setVisible(true);
+            }
         } else if (selectedEvent == btnNext2) {
             //Facial Recognition Data
-            //TODO add functionality to display live feedback and display images captured.
             camera.releaseCamera();
             pnlStep2.setVisible(false);
             pnlStep3.setVisible(true);
@@ -181,7 +201,15 @@ public class WizardController {
             pnlStep4.setVisible(true);
             btnStep4.setDisable(false);
 
-            //TODO save all data captured. This has to be done here as the user may cancel the registration process at any time.
+            //Sending data to the server...
+            HttpPost httpPost = new HttpPostRegistrationBuilder().buildPost(registrationDataObject);
+            try {
+                HttpRegisterPostSender postSender = new HttpRegisterPostSender();
+                RegisterResponse registerResponse = (RegisterResponse) postSender.sendPostRequest(httpPost);
+                System.out.println(registerResponse.getMessage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             //because registration by this point is complete...we cannot let the user go back and change things...
             btnStep1.setDisable(true);
             btnStep2.setDisable(true);
@@ -271,14 +299,6 @@ public class WizardController {
         numFaceDiscard = 0;
         registrationDataObject.setBiometricData(new ArrayList<BiometricData>()); //Clean start
         face.fillData(registrationDataObject.getBiometricData());
-        HttpPost httpPost = new HttpPostRegistrationBuilder().buildPost(registrationDataObject);
-        try {
-            HttpRegisterPostSender postSender = new HttpRegisterPostSender();
-            RegisterResponse registerResponse = (RegisterResponse) postSender.sendPostRequest(httpPost);
-            System.out.println(registerResponse.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         List<BiometricData> faceImages = registrationDataObject.getBiometricData();
         for (BiometricData pic: faceImages){
@@ -299,6 +319,8 @@ public class WizardController {
         imgFB4.setImage(FacialRecData.get(3));
         imgFB5.setImage(FacialRecData.get(4));
         imgFB6.setImage(FacialRecData.get(5));
+
+        btnNext2.setDisable(false);
     }
 
     public void takeFingerprintImage(ActionEvent actionEvent) {
@@ -345,11 +367,12 @@ public class WizardController {
             }
         }
         shpRightThumb.setVisible(false);
+        btnNext3.setDisable(false);
     }
 
     public void discardImage(Event event) {
         numFaceDiscard += 1;
-        if (numFaceDiscard <= 6 && FacialRecData.size() > 5){
+        if (numFaceDiscard <= 6 || FacialRecData.size() > 6){
             Object source = event.getSource();
             if (source == imgFB1){
                 FacialRecData.remove(0);
