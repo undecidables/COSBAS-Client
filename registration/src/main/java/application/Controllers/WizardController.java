@@ -46,6 +46,7 @@ public class WizardController {
 
     //Variables to be used by registration procedures...
     private String emplid;
+    private int numFaceDiscard = 0;
     private List<ImageView> imageFeedback = new ArrayList<ImageView>(){{
        add(imgFB1); add(imgFB2); add(imgFB3);
        add(imgFB4); add(imgFB5); add(imgFB6);
@@ -130,10 +131,13 @@ public class WizardController {
         shpRightIndex.setVisible(false);
         shpLeftThumb.setVisible(false);
         shpLeftIndex.setVisible(false);
+        numFaceDiscard = 0;
     }
 
     public void logout(Event event) {
         try {
+            try{camera.releaseCamera();}
+            catch (Exception e){/*Ignored.*/}
             Stage stage = (Stage) btnStep1.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/FXML/Registration_Landing.fxml"));
             Scene scene = new Scene(root);
@@ -264,6 +268,8 @@ public class WizardController {
     }
 
     public void takeImages(ActionEvent actionEvent) {
+        numFaceDiscard = 0;
+        registrationDataObject.setBiometricData(new ArrayList<BiometricData>()); //Clean start
         face.fillData(registrationDataObject.getBiometricData());
         HttpPost httpPost = new HttpPostRegistrationBuilder().buildPost(registrationDataObject);
         try {
@@ -292,6 +298,7 @@ public class WizardController {
         imgFB3.setImage(FacialRecData.get(2));
         imgFB4.setImage(FacialRecData.get(3));
         imgFB5.setImage(FacialRecData.get(4));
+        imgFB6.setImage(FacialRecData.get(5));
     }
 
     public void takeFingerprintImage(ActionEvent actionEvent) {
@@ -338,5 +345,34 @@ public class WizardController {
             }
         }
         shpRightThumb.setVisible(false);
+    }
+
+    public void discardImage(Event event) {
+        numFaceDiscard += 1;
+        if (numFaceDiscard <= 6 && FacialRecData.size() > 5){
+            Object source = event.getSource();
+            if (source == imgFB1){
+                FacialRecData.remove(0);
+            } else if(source == imgFB2){
+                FacialRecData.remove(1);
+            } else if(source == imgFB3){
+                FacialRecData.remove(2);
+            } else if(source == imgFB4){
+                FacialRecData.remove(3);
+            } else if(source == imgFB5){
+                FacialRecData.remove(4);
+            } else if(source == imgFB6){
+                FacialRecData.remove(5);
+            }
+            ((ImageView)source).setImage(FacialRecData.get(FacialRecData.size()-1));
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("COSBAS Warning");
+            alert.setHeaderText("Facial Recognition Data");
+            alert.setContentText("There are no more images available to replace the current image. If images are still"
+                    + "not of good quality for you, please retake images.");
+            alert.showAndWait();
+        }
     }
 }

@@ -26,7 +26,7 @@ public class HttpRegisterPostSender implements HttpPostSenderInterface {
         }
         catch (HttpHostConnectException e)
         {
-                    throw new Exception("Server Unavailable");
+                    throw new Exception("The COSBAS Server is currently unavailable");
         }
         finally
         {

@@ -26,15 +26,13 @@ public class Face implements Biometric {
         utilities = (Utilities) app.getBean("utilities");
         cameraObject = utilities.getCameraObject();
         detectFaces = utilities.getDetection();
-
-
     }
 
     @Override
     public void fillData(ArrayList<BiometricData> datas) {
 
         ArrayList<byte[]> images =  new ArrayList<byte[]>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 12; i++)
         {
             images.add(cameraObject.getImage());
         }
