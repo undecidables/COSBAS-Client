@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.WizardController">
+   <children>
+      <Button fx:id="btnStep1" layoutX="132.0" layoutY="14.0" mnemonicParsing="false" onAction="#doTravel" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="1" />
+      <Button fx:id="btnStep2" layoutX="232.0" layoutY="14.0" mnemonicParsing="false" onAction="#doTravel" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="2" />
+      <Button fx:id="btnStep3" layoutX="332.0" layoutY="14.0" mnemonicParsing="false" onAction="#doTravel" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="3" />
+      <Button fx:id="btnStep4" layoutX="432.0" layoutY="14.0" mnemonicParsing="false" onAction="#doTravel" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 120;" text="4" />
+      <Separator layoutX="170.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
+      <Separator layoutX="271.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
+      <Separator layoutX="370.0" layoutY="29.0" prefHeight="3.0" prefWidth="59.0" />
+      <AnchorPane fx:id="pnlStep2" layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-border-color: lightgrey; -fx-background-color: white;">
+         <children>
+            <Label alignment="CENTER" layoutX="154.0" layoutY="14.0" text="Facial Recognition Information" textFill="#808080">
+               <font>
+                  <Font name="Lucida Grande" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="currentFrame" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="72.0" pickOnBounds="true" />
+            <Button fx:id="btnTakePhotos" layoutX="80.0" layoutY="246.0" mnemonicParsing="false" onAction="#takeImages" text="Take Photos" />
+            <Label layoutX="258.0" layoutY="45.0" prefHeight="17.0" prefWidth="286.0" text="To remove bad images, simply click on them." textFill="#b5b5b5" />
+            <ImageView fx:id="imgFB1" fitHeight="77.0" fitWidth="88.0" layoutX="258.0" layoutY="69.0" onMouseClicked="#discardImage" pickOnBounds="true">
+               <image>
+                  <Image url="@../No_Image.png" />
+               </image></ImageView>
+            <ImageView fx:id="imgFB2" fitHeight="77.0" fitWidth="88.0" layoutX="349.0" layoutY="69.0" onMouseClicked="#discardImage" pickOnBounds="true">
+               <image>
+                  <Image url="@../No_Image.png" />
+               </image></ImageView>
+            <ImageView fx:id="imgFB3" fitHeight="77.0" fitWidth="88.0" layoutX="440.0" layoutY="69.0" onMouseClicked="#discardImage" pickOnBounds="true">
+               <image>
+                  <Image url="@../No_Image.png" />
+               </image></ImageView>
+            <ImageView fx:id="imgFB4" fitHeight="77.0" fitWidth="88.0" layoutX="258.0" layoutY="151.0" onMouseClicked="#discardImage" pickOnBounds="true">
+               <image>
+                  <Image url="@../No_Image.png" />
+               </image></ImageView>
+            <ImageView fx:id="imgFB5" fitHeight="77.0" fitWidth="88.0" layoutX="349.0" layoutY="151.0" onMouseClicked="#discardImage" pickOnBounds="true">
+               <image>
+                  <Image url="@../No_Image.png" />
+               </image></ImageView>
+            <ImageView fx:id="imgFB6" fitHeight="77.0" fitWidth="88.0" layoutX="440.0" layoutY="151.0" onMouseClicked="#discardImage" pickOnBounds="true">
+               <image>
+                  <Image url="@../No_Image.png" />
+               </image></ImageView>
+            <Button fx:id="btnNext2" layoutX="372.0" layoutY="246.0" mnemonicParsing="false" onAction="#nextStep" text="Next" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pnlStep3" layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-background-color: white; -fx-border-color: lightgrey;">
+         <children>
+            <Label alignment="CENTER" layoutX="130.0" layoutY="14.0" text="Fingerprint Recognition Information" textFill="#808080">
+               <font>
+                  <Font name="Lucida Grande" size="18.0" />
+               </font>
+            </Label>
+            <Circle fx:id="shpLeftIndex" layoutX="94.0" layoutY="63.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#00ff3c" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Circle>
+            <Circle fx:id="shpLeftThumb" layoutX="140.0" layoutY="114.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#00ff3c" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Circle>
+            <Circle fx:id="shpRightThumb" layoutX="174.0" layoutY="114.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#00ff3c" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Circle>
+            <Circle fx:id="shpRightIndex" layoutX="219.0" layoutY="65.0" radius="27.0" stroke="TRANSPARENT" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#00ff3c" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Circle>
+            <ImageView fitHeight="186.0" fitWidth="286.0" layoutX="14.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../hands.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnTakeImage" layoutX="112.0" layoutY="252.0" mnemonicParsing="false" onAction="#takeFingerprintImage" text="Take Image" />
+            <ImageView fx:id="imgFP1" fitHeight="80.0" fitWidth="80.0" layoutX="320.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgFP3" fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgFP2" fitHeight="80.0" fitWidth="80.0" layoutX="320.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgFP4" fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="320.0" layoutY="46.0" prefHeight="17.0" prefWidth="172.0" text="Click on image to retake..." textFill="#b5b5b5" />
+            <Button fx:id="btnNext3" layoutX="400.0" layoutY="252.0" mnemonicParsing="false" onAction="#nextStep" text="Next" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pnlStep4" layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-background-color: white; -fx-border-color: lightgrey;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="187.0" layoutY="72.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../success.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="190.0" layoutY="24.0" text="Registration Complete" textFill="#808080">
+               <font>
+                  <Font name="Lucida Grande" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="102.0" layoutY="47.0" prefHeight="17.0" prefWidth="371.0" text="The new user has successfully been registered on COSBAS" textFill="#b5b5b5" />
+            <Button fx:id="btnDone" layoutX="243.0" layoutY="231.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="27.0" prefWidth="88.0" text="Done" />
+         </children>
+      </AnchorPane>
+      <Pane fx:id="pnlStep1" layoutX="14.0" layoutY="65.0" prefHeight="293.0" prefWidth="574.0" style="-fx-border-color: lightgrey; -fx-background-color: white;">
+         <children>
+            <Label alignment="CENTER" layoutX="171.0" layoutY="14.0" text="Choose Authorized Person" textFill="#808080">
+               <font>
+                  <Font name="Lucida Grande" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="163.0" fitWidth="172.0" layoutX="45.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../users.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="edtEmplid" layoutX="287.0" layoutY="89.0" prefHeight="27.0" prefWidth="200.0" promptText="EMPLID" />
+            <Label layoutX="45.0" layoutY="37.0" prefHeight="17.0" prefWidth="484.0" text="To register details, you need to be an authorized Computer Science Employee" textFill="#b5b5b5" />
+            <Button fx:id="btnNext1" layoutX="337.0" layoutY="215.0" mnemonicParsing="false" onAction="#nextStep" prefHeight="27.0" prefWidth="101.0" text="Next" />
+            <Label fx:id="lblEmplidFB" alignment="CENTER" layoutX="312.0" layoutY="116.0" prefHeight="17.0" prefWidth="150.0" text="Emplid Not Found" textAlignment="CENTER" textFill="#c92222" visible="false">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="edtEmail" layoutX="287.0" layoutY="147.0" prefHeight="27.0" prefWidth="200.0" promptText="E-Mail eg emplid@cs.up.ac.za" />
+            <Label fx:id="lblInvalEmail" alignment="CENTER" layoutX="308.0" layoutY="174.0" prefHeight="17.0" prefWidth="150.0" text="Invalid Email" textAlignment="CENTER" textFill="#c92222" visible="false">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="225.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../1_circle.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="47.0" layoutX="225.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../2_circle.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="240.0" layoutY="122.0" orientation="VERTICAL" prefHeight="23.0" prefWidth="3.0" />
+         </children>
+      </Pane>
+      <Button fx:id="btnCancel" layoutX="239.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="27.0" prefWidth="124.0" text="Cancel" />
+   </children>
+</AnchorPane>

@@ -1,5 +1,8 @@
 package client;
 
+import modules.Biometric;
+import modules.BiometricData;
+
 import java.util.ArrayList;
 
 /**
