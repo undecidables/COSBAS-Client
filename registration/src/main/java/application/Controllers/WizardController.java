@@ -191,6 +191,7 @@ public class WizardController {
         } else if (selectedEvent == btnNext2) {
             //Facial Recognition Data
             camera.releaseCamera();
+            removeExtraFacialData();
             pnlStep2.setVisible(false);
             pnlStep3.setVisible(true);
             btnStep3.setDisable(false);
@@ -376,16 +377,22 @@ public class WizardController {
             Object source = event.getSource();
             if (source == imgFB1){
                 FacialRecData.remove(0);
+                registrationDataObject.getBiometricData().remove(0);
             } else if(source == imgFB2){
                 FacialRecData.remove(1);
+                registrationDataObject.getBiometricData().remove(1);
             } else if(source == imgFB3){
                 FacialRecData.remove(2);
+                registrationDataObject.getBiometricData().remove(2);
             } else if(source == imgFB4){
                 FacialRecData.remove(3);
+                registrationDataObject.getBiometricData().remove(3);
             } else if(source == imgFB5){
                 FacialRecData.remove(4);
+                registrationDataObject.getBiometricData().remove(4);
             } else if(source == imgFB6){
                 FacialRecData.remove(5);
+                registrationDataObject.getBiometricData().remove(5);
             }
             ((ImageView)source).setImage(FacialRecData.get(FacialRecData.size()-1));
         }
@@ -396,6 +403,16 @@ public class WizardController {
             alert.setContentText("There are no more images available to replace the current image. If images are still"
                     + "not of good quality for you, please retake images.");
             alert.showAndWait();
+        }
+    }
+
+    private void removeExtraFacialData(){
+        if (FacialRecData.size() > 6){
+            for (int i = 0; i < 6; i++){
+                FacialRecData.remove(FacialRecData.size()-1);
+                //this will cause problems when other biometrics are added...:(
+                registrationDataObject.getBiometricData().remove(FacialRecData.size()-1);
+            }
         }
     }
 }
