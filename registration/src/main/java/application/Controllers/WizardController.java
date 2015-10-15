@@ -44,6 +44,9 @@ public class WizardController {
     public ImageView imgFB5;
     public ImageView imgFB6;
     public Button btnCancel;
+    public ImageView imgComplete;
+    public Label lblRegisterFB;
+    public Label lblRegisterFBH;
 
     //Variables to be used by registration procedures...
     private String emplid;
@@ -76,6 +79,8 @@ public class WizardController {
     private ConvertMatToImage convertMatToImage;
     private OPENCVDetectAndBorderFaces detectAndBorderFaces;
     private Timer timer;
+    @FXML
+    private Label lblImagesDiscarded;
 
     //Panels that will act as the steps we take the user through to be able to register.
     @FXML
@@ -137,6 +142,7 @@ public class WizardController {
         shpLeftThumb.setVisible(false);
         shpLeftIndex.setVisible(false);
         numFaceDiscard = 0;
+        lblImagesDiscarded.setText(numFaceDiscard + " images discarded.");
         btnNext2.setDisable(true);
         btnNext3.setDisable(true);
         if (registrationDataObject.getEmail() != null) {
@@ -204,19 +210,36 @@ public class WizardController {
             btnStep4.setDisable(false);
 
             //Sending data to the server...
+            Boolean response = false;
             HttpPost httpPost = new HttpPostRegistrationBuilder().buildPost(registrationDataObject);
             try {
                 HttpRegisterPostSender postSender = new HttpRegisterPostSender();
                 RegisterResponse registerResponse = (RegisterResponse) postSender.sendPostRequest(httpPost);
-                System.out.println(registerResponse.getMessage());
+                response = registerResponse.getResult();
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            //Checking successful save to server and db...
+            if (response){
+                Image complete = new Image("@../../../../resources/main/success.png");
+                imgComplete.setImage(complete);
+                lblRegisterFBH.setText("Registration Complete");
+                lblRegisterFB.setText("The new user has been successfully registered to COSBAS");
+            }
+            else{
+                Image incomplete = new Image("@../../../../resources/main/error.png");
+                imgComplete.setImage(incomplete);
+                lblRegisterFBH.setText("Registration Incomplete");
+                lblRegisterFB.setText("An error occurred when trying to register the new user.");
+            }
+
             //because registration by this point is complete...we cannot let the user go back and change things...
             btnStep1.setDisable(true);
             btnStep2.setDisable(true);
             btnStep3.setDisable(true);
             btnCancel.setVisible(false);
+            registrationDataObject = new RegistrationDataObject();
         } else if (selectedEvent == btnDone) {
             try {
                 Stage stage = (Stage) btnStep1.getScene().getWindow();
@@ -375,6 +398,7 @@ public class WizardController {
 
     public void discardImage(Event event) {
         numFaceDiscard += 1;
+        lblImagesDiscarded.setText(numFaceDiscard + " images discarded.");
         if (numFaceDiscard <= 6 || FacialRecData.size() > 6){
             Object source = event.getSource();
             if (source == imgFB1){
@@ -403,18 +427,17 @@ public class WizardController {
             alert.setTitle("COSBAS Warning");
             alert.setHeaderText("Facial Recognition Data");
             alert.setContentText("There are no more images available to replace the current image. If images are still"
-                    + "not of good quality for you, please retake images.");
+                    + " not of good quality for you, please retake images.");
             alert.showAndWait();
         }
     }
 
     private void removeExtraFacialData(){
-        if (FacialRecData.size() > 6){
-            for (int i = 0; i < 6; i++){
-                FacialRecData.remove(FacialRecData.size()-1);
-                //this will cause problems when other biometrics are added...:(
-                registrationDataObject.getBiometricData().remove(FacialRecData.size()-1);
-            }
+        while (FacialRecData.size() > 6){
+            FacialRecData.remove(FacialRecData.size()-1);
+        }
+        while (registrationDataObject.getBiometricData().size() > 6){
+            registrationDataObject.getBiometricData().remove(registrationDataObject.getBiometricData().size()-1);
         }
     }
 }
