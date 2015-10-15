@@ -311,6 +311,7 @@ public class WizardController {
                     imageToShow = (Image) convertMatToImage.convert((Object) frame);
                 }
             } catch (Exception e) {
+                System.out.println("Error with camera: " + e.getMessage());
             }
         }
 
@@ -395,7 +396,7 @@ public class WizardController {
     public void discardImage(Event event) {
         numFaceDiscard += 1;
         lblImagesDiscarded.setText(numFaceDiscard + " images discarded.");
-        if (numFaceDiscard <= 6 || FacialRecData.size() > 6){
+        if (numFaceDiscard <= 6 && FacialRecData.size() > 6){
             Object source = event.getSource();
             if (source == imgFB1){
                 FacialRecData.remove(0);
