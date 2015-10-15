@@ -48,7 +48,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
             boolean scannerError = false;
             while(!scannerError)
             {
-                if(count > 0)
+                if(count > 0)//fix this
                 {
                     break;
                 }

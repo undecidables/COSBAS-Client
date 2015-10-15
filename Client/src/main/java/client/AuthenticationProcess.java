@@ -16,6 +16,7 @@ public class AuthenticationProcess extends Thread {
 
     private ApplicationContext context;
     private PropertiesConfiguration config;
+    //@Autowire
     private Object object;
     private GPIOAccess access;
 

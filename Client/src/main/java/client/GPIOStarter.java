@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 public class GPIOStarter {
 
     private ApplicationContext context;
-    private Object object = new Object();
+    private Object object;/*changed it here*/
     final GpioController gpio;
     final GpioPinDigitalInput input;
 
