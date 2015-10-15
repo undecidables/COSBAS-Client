@@ -145,10 +145,6 @@ public class WizardController {
         lblImagesDiscarded.setText(numFaceDiscard + " images discarded.");
         btnNext2.setDisable(true);
         btnNext3.setDisable(true);
-        if (registrationDataObject.getEmail() != null) {
-            edtEmail.setText(registrationDataObject.getEmail());
-            edtEmail.setDisable(true);
-        }
     }
 
     public void logout(Event event) {
