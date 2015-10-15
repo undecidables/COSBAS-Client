@@ -1,0 +1,9 @@
+.button {
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(#3b4252, #6a7789);
+    -fx-effect: dropshadow( three-pass-box , rgba(255, 255, 255, 0.6), 5, 0.0 , 0 , 1 );
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#6a7789, #3b4252);
+}

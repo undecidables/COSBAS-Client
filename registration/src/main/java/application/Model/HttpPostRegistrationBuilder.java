@@ -18,7 +18,7 @@ public class HttpPostRegistrationBuilder implements HttpPostBuilderInterface
 
     public HttpPostRegistrationBuilder()
     {
-        app = RegistrationApplication.app;
+        app = RegistrationApplication.context;
         config = (PropertiesConfiguration) app.getBean("config");
     }
 

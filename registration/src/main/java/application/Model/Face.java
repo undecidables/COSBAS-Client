@@ -21,7 +21,7 @@ public class Face implements Biometric {
     @Autowired
     public Face()
     {
-        ApplicationContext app = RegistrationApplication.app;
+        ApplicationContext app = RegistrationApplication.context;
         cameraObject = (OPENCVCamera) app.getBean("camera");
         detectFaces = (OPENCVFaceDetection) app.getBean("faceDetection");
 

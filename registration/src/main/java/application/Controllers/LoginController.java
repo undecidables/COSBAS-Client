@@ -3,7 +3,9 @@ package application.Controllers;
 import application.RegistrationApplication;
 import application.Model.RegistrationDataObject;
 import authentication.Authenticator;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,51 +19,43 @@ import org.springframework.context.ApplicationContext;
 
 
 /**
- * @author Tienie
+ * {@author Tienie}
+ * {@author Jason Richard Evans}
  */
 public class LoginController{
-
-
+    @FXML
+    private Button btnLogin;
+    @FXML
+    private Text lblErrorFeedback;
+    @FXML
+    private TextField edtUsername;
+    @FXML
+    private PasswordField edtPassword;
     Stage stage;
     Parent root;
 
     @FXML
-    private Text actiontarget;
-
-    @FXML
-    private TextField textfield;
-
-    @FXML
-    private PasswordField passwordField;
-
-    @FXML
-    private Button signInBtn;
-
-    @FXML
-    protected void handleLoginSubmitButtonAction(ActionEvent event) {
-
-
-        String registratorId = textfield.getText();
-        String Password = passwordField.getText();
+    protected void handleLogin(ActionEvent event) {
+        String registratorId = edtUsername.getText();
+        String Password = edtPassword.getText();
 
         if (registratorId.length() < 3 || Password.length() < 3) {
-            actiontarget.setText("Incorrect EMPLID/Password");
+            lblErrorFeedback.setVisible(true);
             return;
         }
-        actiontarget.setId("actiontarget");
-        actiontarget.setText("Sign in button pressed");
+
         try {
             Authenticator authenticator = new Authenticator();
             if (authenticator.doProcess(registratorId, Password)) {
+                lblErrorFeedback.setVisible(false);
                 registrationDataObject.setRegistratorID(registratorId);
-                actiontarget.setText("Login Succeeded " + registratorId + " " + Password);
-                stage = (Stage) signInBtn.getScene().getWindow();
-                root = FXMLLoader.load(getClass().getResource("/FXML/SelectUserScreen.fxml"));
+                stage = (Stage) btnLogin.getScene().getWindow();
+                root = FXMLLoader.load(getClass().getResource("/FXML/Registration_Landing.fxml"));
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
             } else {
-                actiontarget.setText("Login Failed");
+                lblErrorFeedback.setVisible(true);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -72,14 +66,15 @@ public class LoginController{
 
     @FXML
     protected void initialize() {
-
-
-
-
-        ApplicationContext app = RegistrationApplication.app;
+        ApplicationContext app = RegistrationApplication.context;
         registrationDataObject = (RegistrationDataObject) app.getBean("registerUserData");
 
     }
 
     RegistrationDataObject registrationDataObject;
+
+    public void doExit(Event event) {
+        Platform.exit();
+        System.exit(0);
+    }
 } //Controller
