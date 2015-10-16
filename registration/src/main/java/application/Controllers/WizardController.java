@@ -43,6 +43,10 @@ public class WizardController {
     public ImageView imgFB4;
     public ImageView imgFB5;
     public ImageView imgFB6;
+    public ImageView imgFP1;
+    public ImageView imgFP2;
+    public ImageView imgFP3;
+    public ImageView imgFP4;
     public Button btnCancel;
     public ImageView imgComplete;
     public Label lblRegisterFB;
@@ -122,12 +126,20 @@ public class WizardController {
     private Circle shpRightIndex;
 
     RegistrationDataObject registrationDataObject;
+    Finger finger;
     ApplicationContext context;
 
     @FXML
     protected void initialize() {
         context = RegistrationApplication.context;
         registrationDataObject = (RegistrationDataObject) context.getBean("registerUserData");
+
+        face = (Face) context.getBean("face");
+        finger = (Finger) context.getBean("finger");
+        convertMatToImage = (ConvertMatToImage) context.getBean("convertMatToImage");
+        detectAndBorderFaces = (OPENCVDetectAndBorderFaces) context.getBean("detectBorderFaces");
+        config = (PropertiesConfiguration) context.getBean("config");
+
         pnlStep1.setVisible(true);
         pnlStep2.setVisible(false);
         pnlStep3.setVisible(false);
@@ -275,10 +287,7 @@ public class WizardController {
 
     private void startCamera() {
         camera = (OPENCVCamera) context.getBean("camera");
-        face = (Face) context.getBean("face");
-        convertMatToImage = (ConvertMatToImage) context.getBean("convertMatToImage");
-        detectAndBorderFaces = (OPENCVDetectAndBorderFaces) context.getBean("detectBorderFaces");
-        config = (PropertiesConfiguration) context.getBean("config");
+
 
         final ImageView frameView = currentFrame;
         TimerTask frameGrabber = new TimerTask() {
@@ -345,6 +354,7 @@ public class WizardController {
     }
 
     public void takeFingerprintImage(ActionEvent actionEvent) {
+        fingers = new ArrayList<>();
         for(int i = 0; i < 4; i++) {
             switch (i) {
                 case 0: {
@@ -385,11 +395,26 @@ public class WizardController {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK){
                 //then take picture from the fingerprint scanner and place it in an image on the UI.
+                finger.fillData(registrationDataObject.getBiometricData(),1);
             }
         }
+        for (BiometricData d : registrationDataObject.getBiometricData())
+        {
+            if(d.getType().toLowerCase().contains("biometric-finger"))
+            {
+                fingers.add(new Image(new ByteArrayInputStream(d.getData())));
+            }
+        }
+        imgFP1.setImage(fingers.get(0));
+        imgFP2.setImage(fingers.get(1));
+        imgFP3.setImage(fingers.get(2));
+        imgFP4.setImage(fingers.get(3));
         shpRightThumb.setVisible(false);
         btnNext3.setDisable(false);
     }
+
+    ArrayList<Image> fingers;
+
 
     public void discardImage(Event event) {
         numFaceDiscard += 1;

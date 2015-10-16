@@ -16,4 +16,5 @@
 
 
     <bean id="face" lazy-init="true" class="application.Model.Face"></bean>
+    <bean id="finger" lazy-init="true" class="application.Model.Finger"/>
 </beans>
