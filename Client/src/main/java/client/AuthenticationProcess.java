@@ -45,14 +45,15 @@ public class AuthenticationProcess extends Thread {
 
         while(spin)
         {
-            System.out.println("Welcome");
-            System.out.println("Please enter keycode or press enter for biometric auth.");
+
             try
             {
                 synchronized (object)
                 {
                     object.wait();
                 }
+                System.out.println("Welcome");
+                System.out.println("Please enter keycode or press enter for biometric auth.");
 
                 while (scan.hasNextLine())
                 {
