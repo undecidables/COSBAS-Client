@@ -109,7 +109,7 @@ public class FutronicFingerPrintScanner implements FingerPrintScannerInterface {
         }
         if(scannerError)
         {
-            throw new Exception("Error with device");
+            throw new Exception("Error with device: " + error);
         }
 
         return image;
