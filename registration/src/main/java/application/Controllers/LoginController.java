@@ -71,6 +71,7 @@ public class LoginController{
 
     }
 
+
     RegistrationDataObject registrationDataObject;
 
     public void doExit(Event event) {
