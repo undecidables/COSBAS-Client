@@ -29,7 +29,7 @@ bootRun{
 }
 
 run{
-    systemProperty "java.library.path", 'C:/opencv/build/x64/vc12/bin/;C:/opencv/build/java/;C:/opencv/build/java/x64/;'
+    systemProperty "java.library.path", 'C:/opencv/build/x64/vc12/bin/;C:/opencv/build/java/;C:/opencv/build/java/x64/;libs;'
 }
 
 jar {
@@ -63,6 +63,8 @@ dependencies {
     }
 
     compile 'commons-configuration:commons-configuration:1.10'
+
+    compile files ('libs/ftrScanApiEx_Java.jar')
 
     compile project(":common")
     testCompile "junit:junit"

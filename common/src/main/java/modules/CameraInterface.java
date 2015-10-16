@@ -1,7 +1,5 @@
 package modules;
 
-import java.util.ArrayList;
-
 /**
  * {@author Szymon}
  */

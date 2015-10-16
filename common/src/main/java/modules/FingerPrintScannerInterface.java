@@ -1,10 +1,8 @@
-package client;
-
-import java.util.ArrayList;
+package modules;
 
 /**
  * {@author Szymon}
  */
 public interface FingerPrintScannerInterface {
-    public byte[] getImage();
+    public byte[] getImage() throws Exception;
 }
