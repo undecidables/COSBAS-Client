@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="524.0" style="-fx-background-color: white;" styleClass="Button" stylesheets="@../Button.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.LoginController">
+   <children>
+      <ImageView fitHeight="119.0" fitWidth="328.0" layoutX="98.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Logo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="edtUsername" alignment="CENTER" focusTraversable="false" layoutX="147.0" layoutY="196.0" prefHeight="27.0" prefWidth="231.0" promptText="Type your username" />
+      <PasswordField fx:id="edtPassword" alignment="CENTER" focusTraversable="false" layoutX="147.0" layoutY="241.0" prefHeight="27.0" prefWidth="231.0" promptText="Type your password" />
+      <Button fx:id="btnLogin" layoutX="200.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="27.0" prefWidth="125.0" text="Login" />
+      <Hyperlink fx:id="lnkHelp" layoutX="416.0" layoutY="336.0" text="Help" />
+      <Hyperlink fx:id="lnkAbout" layoutX="464.0" layoutY="336.0" text="About" />
+      <Text fx:id="lblErrorFeedback" fill="#c32727" fontSmoothingType="LCD" layoutX="89.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Authorisation Error: Username or Password incorrect" visible="false">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnExit" layoutX="332.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#doExit" text="Exit" />
+   </children>
+</AnchorPane>

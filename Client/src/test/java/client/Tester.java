@@ -31,7 +31,8 @@ public class Tester extends TestCase{
     public void testFingerPrintScanning()
     {
         FutronicFingerprintScanner scanner = new FutronicFingerprintScanner();
-        ArrayList<byte[]> results = scanner.getImages();
+        ArrayList<byte[]> results = new ArrayList<>();
+        results.add(scanner.getImage());
         if(!System.getProperty("os.arch").equals("arm"))
         {
             //not runnong on arm/pi, just grab an image from folder
@@ -50,7 +51,7 @@ public class Tester extends TestCase{
         byte[] image = Files.readAllBytes(imagePath);
         ArrayList<byte[]> images = new ArrayList<byte[]>();
         images.add(image);
-        FaceDetection fd = new OPENCVFaceDetection();
+        modules.FaceDetection fd = new modules.OPENCVFaceDetection();
         ArrayList<byte[]> faces = fd.detectFaces(images);
         System.out.println(faces.size());
         assertTrue(!(faces.isEmpty()));

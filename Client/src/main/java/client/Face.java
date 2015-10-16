@@ -1,20 +1,34 @@
 package client;
 
 import java.util.ArrayList;
+import modules.*;
+import org.springframework.context.ApplicationContext;
 
 /**
  * {@author Szymon}
  */
 public class Face implements Biometric
 {
+    private OPENCVFaceDetection detectFaces;
+    private OPENCVCamera camera;
+    private ApplicationContext context;
 
 
-    public void fillData(ArrayList<BiometricData> datas)
+    public Face()
     {
-        OPENCVFaceDetection detectFaces = new OPENCVFaceDetection();
+        context = Client.context;
+        detectFaces = (OPENCVFaceDetection) context.getBean("detectFaces");
+        camera = (OPENCVCamera) context.getBean("camera");
+    }
 
-        OPENCVCamera c = new OPENCVCamera();
-        ArrayList<byte[]> images = c.getImages();
+    public void fillData(ArrayList<BiometricData> datas, int number)
+    {
+        ArrayList<byte[]> images =  new ArrayList<byte[]>();
+        for(int i = 0; i < number; i++)
+        {
+            images.add(camera.getImage());
+        }
+        camera.releaseCamera();
         images = detectFaces.detectFaces(images);
 
 
@@ -22,12 +36,9 @@ public class Face implements Biometric
         {
             for(byte[] image : images)
             {
-                BiometricData data = new BiometricData("face", image);
+                BiometricData data = new BiometricData("biometric-FACE", image);
                 datas.add(data);
-
             }
         }
     }
-
-
 }

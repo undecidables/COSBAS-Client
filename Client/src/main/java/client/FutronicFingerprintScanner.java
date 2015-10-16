@@ -1,7 +1,6 @@
 package client;
 
-import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
+import modules.FingerPrintScannerInterface;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -10,30 +9,20 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
- * Created by simon on 2015-09-06.
+ * {@author Szymon}
  */
 public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
 
-    private static final String CONFIG_FILE_NAME = "config.properties";
-    private PropertiesConfiguration config = new PropertiesConfiguration();
-
     public FutronicFingerprintScanner()
     {
-        try {
-            config.load(CONFIG_FILE_NAME);
-        } catch (ConfigurationException e) {
-            e.printStackTrace();
-        }
     }
 
-    public ArrayList<byte[]> getImages()
+    public byte[] getImage()
     {
-        //this can only be tested with futronic device when run on pi. wait can look into windows java as well will do.
-        System.out.println("Call to getimages");
         ArrayList<byte[]> images = new ArrayList<byte[]>();
         try
         {
-            images = captureFrames();
+            return captureFrame();
         }
         catch (IOException e)
         {
@@ -41,21 +30,19 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
             System.out.println("An error occured: IOException");
         }
 
-        return images;
+        return null;
     }
 
-    public ArrayList<byte[]> captureFrames() throws IOException {
-        //do a check for system so
+    public byte[] captureFrame() throws IOException {
 
-        ArrayList<byte[]> images = new ArrayList<byte[]>();
-        //int dirName = (int) (Math.random() * 100);
-	String dirName = "fingerprints";
-        File dir = new File(dirName + "");
+        byte[] fingerprint = null;
+
+	    String dirName = "fingerprints";
+        File dir = new File(dirName);
         dir.mkdir();
 
         if(!System.getProperty("os.arch").equals("arm"))
         {
-            //not runnong on arm/pi, just grab an image from folder
         }
         else
         {
@@ -63,7 +50,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
             boolean scannerError = false;
             while(!scannerError)
             {
-                if(count > 2)
+                if(count > 0)//fix this
                 {
                     break;
                 }
@@ -80,47 +67,42 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
 
                     while ((output = reader.readLine()) != null)
                     {
-                        System.out.println("This is the ouput: " + output);
                         if(output.contains("Fingerprint image is written to file:"))
                         {
                             Path path = Paths.get(dirName+"/frame_Ex.bmp");
-			    System.out.println("This is the path: " + path.toString());
                             File image = path.toFile();
                             if(image.exists())
                             {
-                                images.add(Files.readAllBytes(path));
+                                fingerprint = (Files.readAllBytes(path));
                                 image.delete();
                                 count++;
                                 break;
                             }
                             else
                             {
-				//log this as file was supposed to be written but wasnt
+
                             }
 
                         }
                         else if (output.contains("Failed to open device!"))
                         {
-			    System.out.println("its failing here");
                             scannerError = true;
                             break;
                         }
-			else if(output.contains("Failed to get image size"))
-			{
-			    System.out.println("its failing here");
+                        else if(output.contains("Failed to get image size"))
+                        {
+                            System.out.println("its failing here");
+                                        scannerError = true;
+                                        break;
+                        }
+                        else if(output.contains("Failed to write to file"))
+                        {
                             scannerError = true;
                             break;
-			}
-			else if(output.contains("Failed to write to file"))
-			{
-			    scannerError = true;
-                            break;
-			}
+                        }
                     }
-
                 }
             }
-
         }
 
         if(dir.exists())
@@ -128,7 +110,7 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
 
             dir.delete();
         }
-        return images;
+        return fingerprint;
     }
 
 
