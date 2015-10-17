@@ -40,9 +40,6 @@ public class WizardController {
     public ImageView imgFB1;
     public ImageView imgFB2;
     public ImageView imgFB3;
-    public ImageView imgFB4;
-    public ImageView imgFB5;
-    public ImageView imgFB6;
     public ImageView imgFP1;
     public ImageView imgFP2;
     public ImageView imgFP3;
@@ -55,10 +52,9 @@ public class WizardController {
     //Variables to be used by registration procedures...
     private String emplid;
     private int numFaceDiscard = 0;
-    private List<ImageView> imageFeedback = new ArrayList<ImageView>(){{
+    /*private List<ImageView> imageFeedback = new ArrayList<ImageView>(){{
        add(imgFB1); add(imgFB2); add(imgFB3);
-       add(imgFB4); add(imgFB5); add(imgFB6);
-    }};
+    }};*/
     private List<Image> FacialRecData = new ArrayList<Image>();
 
     static {
@@ -134,10 +130,8 @@ public class WizardController {
         context = RegistrationApplication.context;
         registrationDataObject = (RegistrationDataObject) context.getBean("registerUserData");
 
-        face = (Face) context.getBean("face");
         finger = (Finger) context.getBean("finger");
         convertMatToImage = (ConvertMatToImage) context.getBean("convertMatToImage");
-        detectAndBorderFaces = (OPENCVDetectAndBorderFaces) context.getBean("detectBorderFaces");
         config = (PropertiesConfiguration) context.getBean("config");
 
         pnlStep1.setVisible(true);
@@ -238,7 +232,7 @@ public class WizardController {
                 Image incomplete = new Image("@../../../../resources/main/error.png");
                 imgComplete.setImage(incomplete);
                 lblRegisterFBH.setText("Registration Incomplete");
-                lblRegisterFB.setText("An error occurred when trying to register the new user.");
+                lblRegisterFB.setText("The server is currently unavailable for Registration =(");
             }
 
             //because registration by this point is complete...we cannot let the user go back and change things...
@@ -286,6 +280,8 @@ public class WizardController {
     }
 
     private void startCamera() {
+        face = (Face) context.getBean("face");
+        detectAndBorderFaces = (OPENCVDetectAndBorderFaces) context.getBean("detectBorderFaces");
         camera = (OPENCVCamera) context.getBean("camera");
 
 
@@ -328,7 +324,7 @@ public class WizardController {
     public void takeImages(ActionEvent actionEvent) {
         numFaceDiscard = 0;
         registrationDataObject.setBiometricData(new ArrayList<BiometricData>()); //Clean start
-        face.fillData(registrationDataObject.getBiometricData(),12);
+        face.fillData(registrationDataObject.getBiometricData(), 6);
 
         List<BiometricData> faceImages = registrationDataObject.getBiometricData();
         for (BiometricData pic: faceImages){
@@ -343,14 +339,16 @@ public class WizardController {
         /*for(int i = 0; i < FacialRecData.size(); i++){
             (imageFeedback.get(i)).setImage(FacialRecData.get(i));
         }*/
-        imgFB1.setImage(FacialRecData.get(0));
-        imgFB2.setImage(FacialRecData.get(1));
-        imgFB3.setImage(FacialRecData.get(2));
-        imgFB4.setImage(FacialRecData.get(3));
-        imgFB5.setImage(FacialRecData.get(4));
-        imgFB6.setImage(FacialRecData.get(5));
+        if (FacialRecData.size() > 3) {
+            imgFB1.setImage(FacialRecData.get(0));
+            imgFB2.setImage(FacialRecData.get(1));
+            imgFB3.setImage(FacialRecData.get(2));
 
-        btnNext2.setDisable(false);
+            btnNext2.setDisable(false);
+        }
+        else{
+            lblImagesDiscarded.setText("Couldn't capture enough data. Please retry.");
+        }
     }
 
     public void takeFingerprintImage(ActionEvent actionEvent) {
@@ -419,7 +417,7 @@ public class WizardController {
     public void discardImage(Event event) {
         numFaceDiscard += 1;
         lblImagesDiscarded.setText(numFaceDiscard + " images discarded.");
-        if (numFaceDiscard <= 6 && FacialRecData.size() > 6){
+        if (numFaceDiscard <= 3 && FacialRecData.size() > 3){
             Object source = event.getSource();
             if (source == imgFB1){
                 FacialRecData.remove(0);
@@ -430,15 +428,6 @@ public class WizardController {
             } else if(source == imgFB3){
                 FacialRecData.remove(2);
                 registrationDataObject.getBiometricData().remove(2);
-            } else if(source == imgFB4){
-                FacialRecData.remove(3);
-                registrationDataObject.getBiometricData().remove(3);
-            } else if(source == imgFB5){
-                FacialRecData.remove(4);
-                registrationDataObject.getBiometricData().remove(4);
-            } else if(source == imgFB6){
-                FacialRecData.remove(5);
-                registrationDataObject.getBiometricData().remove(5);
             }
             ((ImageView)source).setImage(FacialRecData.get(FacialRecData.size()-1));
         }
@@ -453,10 +442,10 @@ public class WizardController {
     }
 
     private void removeExtraFacialData(){
-        while (FacialRecData.size() > 6){
+        while (FacialRecData.size() > 3){
             FacialRecData.remove(FacialRecData.size()-1);
         }
-        while (registrationDataObject.getBiometricData().size() > 6){
+        while (registrationDataObject.getBiometricData().size() > 3){
             registrationDataObject.getBiometricData().remove(registrationDataObject.getBiometricData().size()-1);
         }
     }
