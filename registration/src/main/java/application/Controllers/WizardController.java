@@ -284,7 +284,6 @@ public class WizardController {
         detectAndBorderFaces = (OPENCVDetectAndBorderFaces) context.getBean("detectBorderFaces");
         camera = (OPENCVCamera) context.getBean("camera");
 
-
         final ImageView frameView = currentFrame;
         TimerTask frameGrabber = new TimerTask() {
             @Override
@@ -415,8 +414,6 @@ public class WizardController {
 
 
     public void discardImage(Event event) {
-        numFaceDiscard += 1;
-        lblImagesDiscarded.setText(numFaceDiscard + " images discarded.");
         if (numFaceDiscard <= 3 && FacialRecData.size() > 3){
             Object source = event.getSource();
             if (source == imgFB1){
@@ -430,6 +427,8 @@ public class WizardController {
                 registrationDataObject.getBiometricData().remove(2);
             }
             ((ImageView)source).setImage(FacialRecData.get(FacialRecData.size()-1));
+            numFaceDiscard += 1;
+            lblImagesDiscarded.setText(numFaceDiscard + " images discarded.");
         }
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="registerUserData" class="application.Model.RegistrationDataObject" scope="singleton" />
     <bean id="faceDetection" class="modules.OPENCVFaceDetection" lazy-init="true" />
-    <bean id="camera" class="modules.OPENCVCamera" lazy-init="true" scope="singleton" />
+    <bean id="camera" class="modules.OPENCVCamera" lazy-init="true" scope="prototype"/>
     <bean id="convertMatToImage" class="modules.ConvertMatToImage" lazy-init="true"/>
     <bean id="detectBorderFaces" class="modules.OPENCVDetectAndBorderFaces" lazy-init="true" />
     <bean id="fingerPrintScan" class="application.Model.FutronicFingerPrintScanner" lazy-init="true" />
