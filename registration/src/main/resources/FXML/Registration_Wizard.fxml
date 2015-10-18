@@ -144,27 +144,15 @@
             <ImageView fx:id="currentFrame" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="72.0" pickOnBounds="true" />
             <Button fx:id="btnTakePhotos" layoutX="80.0" layoutY="246.0" mnemonicParsing="false" onAction="#takeImages" text="Take Photos" />
             <Label layoutX="258.0" layoutY="45.0" prefHeight="17.0" prefWidth="286.0" text="To remove bad images, simply click on them." textFill="#b5b5b5" />
-            <ImageView fx:id="imgFB1" fitHeight="77.0" fitWidth="88.0" layoutX="261.0" layoutY="81.0" onMouseClicked="#discardImage" pickOnBounds="true">
+            <ImageView fx:id="imgFB1" fitHeight="77.0" fitWidth="88.0" layoutX="261.0" layoutY="122.0" onMouseClicked="#discardImage" pickOnBounds="true">
                <image>
                   <Image url="@../No_Image.png" />
                </image></ImageView>
-            <ImageView fx:id="imgFB2" fitHeight="77.0" fitWidth="88.0" layoutX="352.0" layoutY="81.0" onMouseClicked="#discardImage" pickOnBounds="true">
+            <ImageView fx:id="imgFB2" fitHeight="77.0" fitWidth="88.0" layoutX="352.0" layoutY="122.0" onMouseClicked="#discardImage" pickOnBounds="true">
                <image>
                   <Image url="@../No_Image.png" />
                </image></ImageView>
-            <ImageView fx:id="imgFB3" fitHeight="77.0" fitWidth="88.0" layoutX="443.0" layoutY="81.0" onMouseClicked="#discardImage" pickOnBounds="true">
-               <image>
-                  <Image url="@../No_Image.png" />
-               </image></ImageView>
-            <ImageView fx:id="imgFB4" fitHeight="77.0" fitWidth="88.0" layoutX="261.0" layoutY="163.0" onMouseClicked="#discardImage" pickOnBounds="true">
-               <image>
-                  <Image url="@../No_Image.png" />
-               </image></ImageView>
-            <ImageView fx:id="imgFB5" fitHeight="77.0" fitWidth="88.0" layoutX="352.0" layoutY="163.0" onMouseClicked="#discardImage" pickOnBounds="true">
-               <image>
-                  <Image url="@../No_Image.png" />
-               </image></ImageView>
-            <ImageView fx:id="imgFB6" fitHeight="77.0" fitWidth="88.0" layoutX="443.0" layoutY="163.0" onMouseClicked="#discardImage" pickOnBounds="true">
+            <ImageView fx:id="imgFB3" fitHeight="77.0" fitWidth="88.0" layoutX="443.0" layoutY="122.0" onMouseClicked="#discardImage" pickOnBounds="true">
                <image>
                   <Image url="@../No_Image.png" />
                </image></ImageView>
