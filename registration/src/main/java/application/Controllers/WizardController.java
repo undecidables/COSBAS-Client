@@ -52,9 +52,6 @@ public class WizardController {
     //Variables to be used by registration procedures...
     private int numFaceDiscard = 0;
     private boolean glasses = false;
-    /*private List<ImageView> imageFeedback = new ArrayList<ImageView>(){{
-       add(imgFB1); add(imgFB2); add(imgFB3);
-    }};*/
     private List<Image> FacialRecData = new ArrayList<Image>();
 
     static {
@@ -361,9 +358,6 @@ public class WizardController {
 
         }
 
-        /*for(int i = 0; i < FacialRecData.size(); i++){
-            (imageFeedback.get(i)).setImage(FacialRecData.get(i));
-        }*/
         if (FacialRecData.size() >= 3) {
             imgFB1.setImage(FacialRecData.get(0));
             imgFB2.setImage(FacialRecData.get(1));
