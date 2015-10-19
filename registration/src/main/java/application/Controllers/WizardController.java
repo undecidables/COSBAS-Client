@@ -50,7 +50,6 @@ public class WizardController {
     public Label lblRegisterFBH;
 
     //Variables to be used by registration procedures...
-    private String emplid;
     private int numFaceDiscard = 0;
     private boolean glasses = false;
     /*private List<ImageView> imageFeedback = new ArrayList<ImageView>(){{
