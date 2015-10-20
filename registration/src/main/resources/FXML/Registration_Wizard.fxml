@@ -143,7 +143,7 @@
             </Label>
             <ImageView fx:id="currentFrame" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="72.0" pickOnBounds="true" />
             <Button fx:id="btnTakePhotos" layoutX="80.0" layoutY="246.0" mnemonicParsing="false" onAction="#takeImages" text="Take Photos" />
-            <Label layoutX="258.0" layoutY="45.0" prefHeight="17.0" prefWidth="286.0" text="To remove bad images, simply click on them." textFill="#b5b5b5" />
+            <Label layoutX="261.0" layoutY="72.0" prefHeight="17.0" prefWidth="286.0" text="To remove bad images, simply click on them." textFill="#b5b5b5" />
             <ImageView fx:id="imgFB1" fitHeight="77.0" fitWidth="88.0" layoutX="261.0" layoutY="122.0" onMouseClicked="#discardImage" pickOnBounds="true">
                <image>
                   <Image url="@../No_Image.png" />
@@ -157,7 +157,7 @@
                   <Image url="@../No_Image.png" />
                </image></ImageView>
             <Button fx:id="btnNext2" layoutX="372.0" layoutY="246.0" mnemonicParsing="false" onAction="#nextStep" text="Next" />
-            <Label fx:id="lblImagesDiscarded" alignment="CENTER" layoutX="258.0" layoutY="64.0" prefHeight="17.0" prefWidth="286.0" text="0 Images Discarded" textAlignment="CENTER" textFill="#bcb9b9" />
+            <Label fx:id="lblImagesDiscarded" alignment="CENTER" layoutX="261.0" layoutY="91.0" prefHeight="17.0" prefWidth="286.0" text="0 Images Discarded" textAlignment="CENTER" textFill="#bcb9b9" />
          </children>
       </AnchorPane>
       <Button fx:id="btnCancel" layoutX="239.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="27.0" prefWidth="124.0" text="Cancel" />

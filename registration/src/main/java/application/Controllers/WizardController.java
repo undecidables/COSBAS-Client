@@ -50,11 +50,8 @@ public class WizardController {
     public Label lblRegisterFBH;
 
     //Variables to be used by registration procedures...
-    private String emplid;
     private int numFaceDiscard = 0;
-    /*private List<ImageView> imageFeedback = new ArrayList<ImageView>(){{
-       add(imgFB1); add(imgFB2); add(imgFB3);
-    }};*/
+    private boolean glasses = false;
     private List<Image> FacialRecData = new ArrayList<Image>();
 
     static {
@@ -129,7 +126,7 @@ public class WizardController {
     protected void initialize() {
         context = RegistrationApplication.context;
         registrationDataObject = (RegistrationDataObject) context.getBean("registerUserData");
-
+        glasses = false;
         finger = (Finger) context.getBean("finger");
         convertMatToImage = (ConvertMatToImage) context.getBean("convertMatToImage");
         config = (PropertiesConfiguration) context.getBean("config");
@@ -322,8 +319,34 @@ public class WizardController {
 
     public void takeImages(ActionEvent actionEvent) {
         numFaceDiscard = 0;
+        lblImagesDiscarded.setText(numFaceDiscard + " images discarded.");
         registrationDataObject.setBiometricData(new ArrayList<BiometricData>()); //Clean start
-        face.fillData(registrationDataObject.getBiometricData(), 6);
+        //If the registree wears glasses
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("COSBAS Confirmation");
+        alert.setHeaderText("Facial Recognition Data");
+        alert.setContentText("Please indicate if you wear glasses.");
+        ButtonType buttonYes = new ButtonType("Yes");
+        ButtonType buttonNo = new ButtonType("No");
+        alert.getButtonTypes().setAll(buttonYes, buttonNo);
+        Optional<ButtonType> response = alert.showAndWait();
+
+        if (response.get() == buttonNo) {
+            glasses = false;
+            face.fillData(registrationDataObject.getBiometricData(), 6);
+            doAlert("Done getting facial recognition data.");
+        }
+        else if (response.get() == buttonYes){
+            glasses = true;
+            doAlert("Please take off your glasses until instructed otherwise.");
+            face.fillData(registrationDataObject.getBiometricData(), 3);
+            doAlert("Please put your glasses back on for the following images.");
+            face.fillData(registrationDataObject.getBiometricData(), 3);
+            doAlert("Done getting facial recognition data.");
+        }
+        else{
+            return;
+        }
 
         List<BiometricData> faceImages = registrationDataObject.getBiometricData();
         for (BiometricData pic: faceImages){
@@ -335,10 +358,7 @@ public class WizardController {
 
         }
 
-        /*for(int i = 0; i < FacialRecData.size(); i++){
-            (imageFeedback.get(i)).setImage(FacialRecData.get(i));
-        }*/
-        if (FacialRecData.size() > 3) {
+        if (FacialRecData.size() >= 3) {
             imgFB1.setImage(FacialRecData.get(0));
             imgFB2.setImage(FacialRecData.get(1));
             imgFB3.setImage(FacialRecData.get(2));
@@ -346,7 +366,8 @@ public class WizardController {
             btnNext2.setDisable(false);
         }
         else{
-            lblImagesDiscarded.setText("Couldn't capture enough data. Please retry.");
+            if (response.get() == buttonNo) //The user is not wearing glasses then just discard all...
+                lblImagesDiscarded.setText("Couldn't capture enough data. Please retry.");
         }
     }
 
@@ -414,7 +435,7 @@ public class WizardController {
 
 
     public void discardImage(Event event) {
-        if (numFaceDiscard <= 3 && FacialRecData.size() > 3){
+        if (numFaceDiscard <= 3 && FacialRecData.size() > 3 && !glasses){
             Object source = event.getSource();
             if (source == imgFB1){
                 FacialRecData.remove(0);
@@ -447,5 +468,13 @@ public class WizardController {
         while (registrationDataObject.getBiometricData().size() > 3){
             registrationDataObject.getBiometricData().remove(registrationDataObject.getBiometricData().size()-1);
         }
+    }
+
+    private void doAlert(String message){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("COSBAS Information");
+        alert.setHeaderText("Facial Recognition Data");
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

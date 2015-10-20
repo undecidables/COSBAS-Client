@@ -24,8 +24,6 @@ public class Face implements Biometric {
         ApplicationContext app = RegistrationApplication.context;
         cameraObject = (OPENCVCamera) app.getBean("camera");
         detectFaces = (OPENCVFaceDetection) app.getBean("faceDetection");
-
-
     }
 
     @Override
@@ -51,6 +49,7 @@ public class Face implements Biometric {
             }
         }
 
-
+        //when done using the camera, release it...
+        cameraObject.releaseCamera();
     }
 }
