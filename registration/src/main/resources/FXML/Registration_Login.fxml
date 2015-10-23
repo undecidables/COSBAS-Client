@@ -17,8 +17,8 @@
       <TextField fx:id="edtUsername" alignment="CENTER" focusTraversable="false" layoutX="147.0" layoutY="196.0" prefHeight="27.0" prefWidth="231.0" promptText="Type your username" />
       <PasswordField fx:id="edtPassword" alignment="CENTER" focusTraversable="false" layoutX="147.0" layoutY="241.0" prefHeight="27.0" prefWidth="231.0" promptText="Type your password" />
       <Button fx:id="btnLogin" layoutX="200.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="27.0" prefWidth="125.0" text="Login" />
-      <Hyperlink fx:id="lnkHelp" layoutX="416.0" layoutY="336.0" text="Help" />
-      <Hyperlink fx:id="lnkAbout" layoutX="464.0" layoutY="336.0" text="About" />
+      <Hyperlink fx:id="lnkHelp" layoutX="416.0" layoutY="336.0" text="Help" onAction="#goToHelp" />
+      <Hyperlink fx:id="lnkAbout" layoutX="464.0" layoutY="336.0" text="About" onAction="#goToAbout" />
       <Text fx:id="lblErrorFeedback" fill="#c32727" fontSmoothingType="LCD" layoutX="89.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Authorisation Error: Username or Password incorrect" visible="false">
          <font>
             <Font name="System Bold" size="13.0" />

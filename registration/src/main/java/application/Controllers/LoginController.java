@@ -17,6 +17,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
 
+import java.io.IOException;
+
 
 /**
  * {@author Tienie}
@@ -77,5 +79,49 @@ public class LoginController{
     public void doExit(Event event) {
         Platform.exit();
         System.exit(0);
+    }
+
+    public void goToHelp(ActionEvent actionEvent) {
+        String resource = "https://github.com/undecidables/Documentation/wiki";
+        try {
+            Runtime.getRuntime().exec(
+                    new String[]{
+                            "/usr/bin/open", resource
+                    });
+        }
+        catch(IOException error){
+            try{
+                Runtime.getRuntime().exec(
+                        new String[] {
+                                "rundll32", "url.dll,FileProtocolHandler", resource
+                        });
+            }
+            catch(IOException error2){
+                System.out.println("Tried to open in both Unix and Windows, but failed.");
+                System.out.println(error2.getMessage());
+            }
+        }
+    }
+
+    public void goToAbout(ActionEvent actionEvent) {
+        String resource = "https://github.com/undecidables/Documentation/wiki/The-Team";
+        try {
+            Runtime.getRuntime().exec(
+                    new String[]{
+                            "/usr/bin/open", resource
+                    });
+        }
+        catch(IOException error){
+            try{
+                Runtime.getRuntime().exec(
+                        new String[] {
+                                "rundll32", "url.dll,FileProtocolHandler", resource
+                        });
+            }
+            catch(IOException error2){
+                System.out.println("Tried to open in both Unix and Windows, but failed.");
+                System.out.println(error2.getMessage());
+            }
+        }
     }
 } //Controller
