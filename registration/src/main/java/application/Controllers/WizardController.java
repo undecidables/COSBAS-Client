@@ -258,8 +258,7 @@ public class WizardController {
             pnlStep2.setVisible(false);
             pnlStep3.setVisible(false);
             pnlStep4.setVisible(false);
-            if (camera.isOpened())
-                camera.releaseCamera();
+            camera.releaseCamera();
         } else if (selectedElement == btnStep2 && !btnStep2.isDisabled()) {
             pnlStep1.setVisible(false);
             pnlStep2.setVisible(true);
@@ -271,8 +270,7 @@ public class WizardController {
             pnlStep2.setVisible(false);
             pnlStep3.setVisible(true);
             pnlStep4.setVisible(false);
-            if (camera.isOpened())
-                camera.releaseCamera();
+            camera.releaseCamera();
         }
     }
 
