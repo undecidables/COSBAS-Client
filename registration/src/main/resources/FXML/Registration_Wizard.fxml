@@ -130,7 +130,6 @@
             <ImageView fx:id="imgFP3" fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgFP2" fitHeight="80.0" fitWidth="80.0" layoutX="320.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgFP4" fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="320.0" layoutY="46.0" prefHeight="17.0" prefWidth="172.0" text="Click on image to retake..." textFill="#b5b5b5" />
             <Button fx:id="btnNext3" layoutX="400.0" layoutY="252.0" mnemonicParsing="false" onAction="#nextStep" text="Next" />
          </children>
       </AnchorPane>

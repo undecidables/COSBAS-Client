@@ -373,62 +373,63 @@ public class WizardController {
 
     public void takeFingerprintImage(ActionEvent actionEvent) {
         fingers = new ArrayList<>();
-        for(int i = 0; i < 4; i++) {
-            switch (i) {
-                case 0: {
-                    shpRightThumb.setVisible(false);
-                    shpRightIndex.setVisible(false);
-                    shpLeftThumb.setVisible(false);
-                    shpLeftIndex.setVisible(true);
-                    break;
+        doAlert("The fingerprint process needs to be repeated 3 times for accurate recognition.");
+        for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < 4; i++) {
+                switch (i) {
+                    case 0: {
+                        shpRightThumb.setVisible(false);
+                        shpRightIndex.setVisible(false);
+                        shpLeftThumb.setVisible(false);
+                        shpLeftIndex.setVisible(true);
+                        break;
+                    }
+                    case 1: {
+                        shpRightThumb.setVisible(false);
+                        shpRightIndex.setVisible(false);
+                        shpLeftThumb.setVisible(true);
+                        shpLeftIndex.setVisible(false);
+                        break;
+                    }
+                    case 2: {
+                        shpRightThumb.setVisible(false);
+                        shpRightIndex.setVisible(true);
+                        shpLeftThumb.setVisible(false);
+                        shpLeftIndex.setVisible(false);
+                        break;
+                    }
+                    case 3: {
+                        shpRightThumb.setVisible(true);
+                        shpRightIndex.setVisible(false);
+                        shpLeftThumb.setVisible(false);
+                        shpLeftIndex.setVisible(false);
+                        break;
+                    }
                 }
-                case 1: {
-                    shpRightThumb.setVisible(false);
-                    shpRightIndex.setVisible(false);
-                    shpLeftThumb.setVisible(true);
-                    shpLeftIndex.setVisible(false);
-                    break;
-                }
-                case 2: {
-                    shpRightThumb.setVisible(false);
-                    shpRightIndex.setVisible(true);
-                    shpLeftThumb.setVisible(false);
-                    shpLeftIndex.setVisible(false);
-                    break;
-                }
-                case 3: {
-                    shpRightThumb.setVisible(true);
-                    shpRightIndex.setVisible(false);
-                    shpLeftThumb.setVisible(false);
-                    shpLeftIndex.setVisible(false);
-                    break;
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setX(0);
+                alert.setY(0);
+                alert.setTitle("COSBAS Information");
+                alert.setHeaderText("Fingerprint Recognition Data");
+                alert.setContentText("Please place finger on scanner as shown in image...");
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK) {
+                    //then take picture from the fingerprint scanner and place it in an image on the UI.
+                    finger.fillData(registrationDataObject.getBiometricData(), 1);
                 }
             }
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setX(0);
-            alert.setY(0);
-            alert.setTitle("COSBAS Information");
-            alert.setHeaderText("Fingerprint Recognition Data");
-            alert.setContentText("Please place finger on scanner as shown in image...");
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK){
-                //then take picture from the fingerprint scanner and place it in an image on the UI.
-                finger.fillData(registrationDataObject.getBiometricData(),1);
+            for (BiometricData d : registrationDataObject.getBiometricData()) {
+                if (d.getType().toLowerCase().contains("biometric-finger")) {
+                    fingers.add(new Image(new ByteArrayInputStream(d.getData())));
+                }
             }
+            imgFP1.setImage(fingers.get(0));
+            imgFP2.setImage(fingers.get(1));
+            imgFP3.setImage(fingers.get(2));
+            imgFP4.setImage(fingers.get(3));
+            shpRightThumb.setVisible(false);
+            btnNext3.setDisable(false);
         }
-        for (BiometricData d : registrationDataObject.getBiometricData())
-        {
-            if(d.getType().toLowerCase().contains("biometric-finger"))
-            {
-                fingers.add(new Image(new ByteArrayInputStream(d.getData())));
-            }
-        }
-        imgFP1.setImage(fingers.get(0));
-        imgFP2.setImage(fingers.get(1));
-        imgFP3.setImage(fingers.get(2));
-        imgFP4.setImage(fingers.get(3));
-        shpRightThumb.setVisible(false);
-        btnNext3.setDisable(false);
     }
 
     ArrayList<Image> fingers;
@@ -473,7 +474,7 @@ public class WizardController {
     private void doAlert(String message){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("COSBAS Information");
-        alert.setHeaderText("Facial Recognition Data");
+        alert.setHeaderText("Biometric Recognition Data");
         alert.setContentText(message);
         alert.showAndWait();
     }
