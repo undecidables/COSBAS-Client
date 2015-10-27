@@ -5,7 +5,9 @@ apply plugin: 'idea'
 mainClassName = "client.Client"
 version = '1.0'
 
+jar{
 
+}
 
 repositories {
     mavenCentral()
@@ -19,6 +21,14 @@ test {
     systemProperty "java.library.path", 'C:/opencv/build/x64/vc12/bin/;C:/opencv/build/java/;C:/opencv/build/java/x64/;'
 }
 
+task fatJar(type: Jar) {
+    manifest{
+        attributes 'Main-Class' : 'client.Client'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
 
 dependencies {
     compile ('org.apache.httpcomponents:httpmime:4.+'){
