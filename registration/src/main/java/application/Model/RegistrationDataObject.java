@@ -27,6 +27,11 @@ public class RegistrationDataObject {
         this.contactDetails = contactDetails;
     }
 
+    public void addContactDetails(ContactDetail contactDetail)
+    {
+        this.contactDetails.add(contactDetail);
+    }
+
     public ArrayList<ContactDetail> getContactDetails()
     {
         return contactDetails;

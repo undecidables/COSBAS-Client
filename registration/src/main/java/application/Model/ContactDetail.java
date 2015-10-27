@@ -22,6 +22,11 @@ public class ContactDetail {
         this.type = type;
     }
 
+    public ContactDetail(String type, String details) {
+        this.type = type;
+        this.details = details;
+    }
+
     public void setDetails(String details)
     {
         this.details = details;
