@@ -184,6 +184,9 @@ public class WizardController {
                 registrationDataObject.setEmplid(emplid);
                 registrationDataObject.setEmail(email);
 
+                ContactDetail contactDetail = new ContactDetail("contact-EMAIL", email);
+                registrationDataObject.addContactDetails(contactDetail);
+
                 pnlStep1.setVisible(false);
                 pnlStep2.setVisible(true);
                 btnStep2.setDisable(false);
