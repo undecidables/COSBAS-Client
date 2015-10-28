@@ -23,13 +23,14 @@ public class Face implements Biometric
 
     public void fillData(ArrayList<BiometricData> datas, int number)
     {
+        LCDDisplay.write("SMILE FOR THE CAMERA");
         ArrayList<byte[]> images =  new ArrayList<byte[]>();
         for(int i = 0; i < number; i++)
         {
             images.add(camera.getImage());
         }
         camera.releaseCamera();
-        images = detectFaces.detectFaces(images);
+       // images = detectFaces.detectFaces(images);
 
 
         if(images != null)

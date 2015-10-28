@@ -1,4 +1,4 @@
-package client;
+/*package client;
 
 import junit.framework.TestCase;
 import org.apache.http.client.methods.HttpPost;
@@ -22,11 +22,11 @@ import static org.mockito.Mockito.mock;
 
 /**
  * Created by POLSKA on 26/06/2015.
- */
+ *//*
 @RunWith(MockitoJUnitRunner.class)
 public class Tester extends TestCase{
 
-
+/*
     @Test
     public void testFingerPrintScanning()
     {
@@ -55,5 +55,6 @@ public class Tester extends TestCase{
         ArrayList<byte[]> faces = fd.detectFaces(images);
         System.out.println(faces.size());
         assertTrue(!(faces.isEmpty()));
-    }*/
+    }*//*
 }
+*/

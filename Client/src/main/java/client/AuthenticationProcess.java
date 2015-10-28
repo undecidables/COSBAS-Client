@@ -52,56 +52,64 @@ public class AuthenticationProcess extends Thread {
                 {
                     object.wait();
                 }
-                System.out.println("Welcome");
-                System.out.println("Please enter keycode or press enter for biometric auth.");
 
-                while (scan.hasNextLine())
-                {
+               // while (scan.hasNextLine())
+               // {
+                LCDDisplay.write("WELCOME");
+                LCDDisplay.write("ENTER ACCESS CODE OR NEW LINE");
+                AuthenticationDataObject authDO = new AuthenticationDataObject(doorID, action);
+                input = scan.nextLine();
 
-                    AuthenticationDataObject authDO = new AuthenticationDataObject(doorID, action);
-                    input = scan.nextLine();
 
-                    ArrayList<BiometricData> data = null;
-                    if (input.toString().equals("")) {
-                        Factory factory = new Factory();
-                        try {
-                            data = factory.produce();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        if (input.toString().equals("+/-")) {
-                            spin = false;
-                            break;
-                        }
-                        data = new ArrayList<BiometricData>();
-                        BiometricData d = new BiometricData("biometric-CODE", input.getBytes());
-                        data.add(d);
+
+                ArrayList<BiometricData> data = null;
+                if (input.toString().equals("")) {
+                    Factory factory = new Factory();
+                    try {
+                        data = factory.produce();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-
-                    if (data != null) {
-                        authDO.setBiometricData(data);
+                } else {
+                    if (input.toString().equals("+/-")) {
+                        spin = false;
+                        break;
                     }
-
-
-                    HttpPost httpPost = new HttpPostClientBuilder().buildPost(authDO);
-                    try
-                    {
-                        HttpClientPostSender sender = new HttpClientPostSender();
-                        AccessResponse accessResponse = (AccessResponse) sender.sendPostRequest(httpPost);
-                        System.out.println(accessResponse.getMessage() + " : " + accessResponse.getResult());
-
-                        if(accessResponse.getResult() == true)
-                        {
-                            access.allowAccess();
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        System.out.println("Exception: " + e.toString());
-                    }
-
+                    data = new ArrayList<BiometricData>();
+                    BiometricData d = new BiometricData("biometric-CODE", input.getBytes());
+                    data.add(d);
                 }
+
+                if (data != null) {
+                    authDO.setBiometricData(data);
+                }
+
+                LCDDisplay.write("PROCESSING REQUEST");
+
+                HttpPost httpPost = new HttpPostClientBuilder().buildPost(authDO);
+                try
+                {
+                    HttpClientPostSender sender = new HttpClientPostSender();
+                    AccessResponse accessResponse = (AccessResponse) sender.sendPostRequest(httpPost);
+                    System.out.println(accessResponse.getMessage() + " : " + accessResponse.getResult());
+
+                    if(accessResponse.getResult() == true)
+                    {
+                        access.allowAccess();
+                        LCDDisplay.write("ACCESS GRANTED");
+                    }
+                    else
+                    {
+                        LCDDisplay.write("ACCESS DENIED");
+                    }
+                }
+                catch (Exception e)
+                {
+                    System.out.println("Exception: " + e.toString());
+                    LCDDisplay.write("ERROR COULD NOT PROCESS");
+                }
+
+              //  }
             }
             catch (InterruptedException e)
             {
