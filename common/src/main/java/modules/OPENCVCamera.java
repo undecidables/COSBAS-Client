@@ -2,6 +2,7 @@ package modules;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
+import org.opencv.highgui.Highgui;
 import org.opencv.highgui.VideoCapture;
 
 import java.util.ArrayList;
@@ -19,10 +20,9 @@ public class OPENCVCamera implements CameraInterface {
 
     public OPENCVCamera()
     {
-        //camera = new VideoCapture(0);
         camera = new VideoCapture(0);
-
-
+        camera.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 1280);
+        camera.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 800);
     }
 
     public boolean isOpened()
@@ -36,6 +36,8 @@ public class OPENCVCamera implements CameraInterface {
         if(!camera.isOpened())
         {
             camera.open(0);
+            camera.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 1280);
+            camera.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 800);
         }
 
     }

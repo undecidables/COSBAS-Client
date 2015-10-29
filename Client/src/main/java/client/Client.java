@@ -22,14 +22,6 @@ public class Client {
     static{ System.loadLibrary(Core.NATIVE_LIBRARY_NAME); }
     public static void main(String[] args) throws IOException, ConfigurationException
     {
-        /*LCDDisplay d = new LCDDisplay();
-        d.write("Hello");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        d.shutdown();*/
         context = new ClassPathXmlApplicationContext("beans.xml");
 
         GPIOStarter n = new GPIOStarter();

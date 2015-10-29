@@ -41,7 +41,7 @@ dependencies {
     compile ('org.apache.httpcomponents:httpclient:4.+'){
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
-    compile 'com.squareup.dagger:dagger:1.2.2'
+
     compile 'commons-configuration:commons-configuration:1.10'
 
     compile 'com.google.code.gson:gson:2.3.1'
