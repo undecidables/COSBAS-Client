@@ -1,7 +1,7 @@
 package application.Controllers;
 
+import application.Model.*;
 import application.RegistrationApplication;
-import application.Model.RegistrationDataObject;
 import authentication.Authenticator;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -15,6 +15,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import modules.HttpPostSenderInterface;
+import org.apache.http.client.methods.HttpPost;
 import org.springframework.context.ApplicationContext;
 
 import java.io.IOException;
@@ -49,13 +51,32 @@ public class LoginController{
         try {
             Authenticator authenticator = new Authenticator();
             if (authenticator.doProcess(registratorId, Password)) {
-                lblErrorFeedback.setVisible(false);
-                registrationDataObject.setRegistratorID(registratorId);
-                stage = (Stage) btnLogin.getScene().getWindow();
-                root = FXMLLoader.load(getClass().getResource("/FXML/Registration_Landing.fxml"));
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+
+                boolean response = false;
+                HttpPost httpPost = new HttpPostQueryBuilder().buildPost(registratorId);
+                try {
+                    HttpQueryPostSender postSender = new HttpQueryPostSender();
+                    response = Boolean.parseBoolean(postSender.sendPostRequest(httpPost));
+                } catch (Exception e) {
+                    System.out.println("error");
+                }
+
+                if(response)
+                {
+                    lblErrorFeedback.setVisible(false);
+                    registrationDataObject.setRegistratorID(registratorId);
+                    stage = (Stage) btnLogin.getScene().getWindow();
+                    root = FXMLLoader.load(getClass().getResource("/FXML/Registration_Landing.fxml"));
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }
+                else
+                {
+                    lblErrorFeedback.setVisible(true);
+                }
+
+
             } else {
                 lblErrorFeedback.setVisible(true);
             }
