@@ -21,8 +21,8 @@ public class OPENCVCamera implements CameraInterface {
     public OPENCVCamera()
     {
         camera = new VideoCapture(0);
-        camera.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 1280);
-        camera.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 800);
+        camera.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 640);
+        camera.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 480);
     }
 
     public boolean isOpened()
@@ -36,8 +36,8 @@ public class OPENCVCamera implements CameraInterface {
         if(!camera.isOpened())
         {
             camera.open(0);
-            camera.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 1280);
-            camera.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 800);
+            camera.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 640);
+            camera.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 480);
         }
 
     }

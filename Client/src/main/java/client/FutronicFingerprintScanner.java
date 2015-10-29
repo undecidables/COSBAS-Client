@@ -70,11 +70,6 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
 
                     while ((output = reader.readLine()) != null)
                     {
-                        System.out.println(output);
-                        if(output.contains("Image size is"))
-                        {
-
-                        }
                         if(output.contains("Fingerprint image is written to file:"))
                         {
                             Path path = Paths.get(dirName+"/frame_Ex.bmp");
