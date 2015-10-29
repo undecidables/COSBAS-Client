@@ -3,6 +3,8 @@ package client;
 import org.apache.commons.configuration.ConfigurationException;
 import org.opencv.core.Core;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
@@ -11,6 +13,8 @@ import java.io.IOException;
 /**
  * {@author Szymon}
  */
+
+@ComponentScan("client")
 public class Client {
 
     public static ApplicationContext context;

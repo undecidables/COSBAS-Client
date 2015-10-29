@@ -3,6 +3,7 @@ package client;
 import com.pi4j.io.gpio.*;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
 import java.util.concurrent.ConcurrentLinkedDeque;
@@ -11,6 +12,9 @@ import java.util.concurrent.ConcurrentLinkedDeque;
  * {@author Szymon}
  */
 public class GPIOStarter {
+
+
+    private LCDDisplay display;
 
     private ApplicationContext context;
     private Object object;/*changed it here*/
@@ -21,6 +25,7 @@ public class GPIOStarter {
     {
         context = Client.context;
         object = (Object) context.getBean("object");
+        display = (LCDDisplay) context.getBean("display");
 
         gpio = GpioFactory.getInstance();
         input = gpio.provisionDigitalInputPin(RaspiPin.GPIO_28, PinPullResistance.PULL_DOWN);
@@ -53,6 +58,7 @@ public class GPIOStarter {
         }
         finally
         {
+            display.shutdown();
             gpio.shutdown();
         }
     }

@@ -57,11 +57,14 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                 else
                 {
 
+                    LCDDisplay.write("PRESENT FINGER");
+
                     Process process = new ProcessBuilder("programs/FingerprintScanner/ftrScanAPI_Ex-0").start();
                     InputStream processStream = process.getInputStream();
                     InputStreamReader processStreamReader = new InputStreamReader(processStream);
                     BufferedReader reader = new BufferedReader(processStreamReader);
                     String output;
+
 
 
 
@@ -86,17 +89,20 @@ public class FutronicFingerprintScanner implements FingerPrintScannerInterface {
                         }
                         else if (output.contains("Failed to open device!"))
                         {
+                            LCDDisplay.write("");
                             scannerError = true;
                             break;
                         }
                         else if(output.contains("Failed to get image size"))
                         {
+                            LCDDisplay.write("");
                             System.out.println("its failing here");
-                                        scannerError = true;
-                                        break;
+                            scannerError = true;
+                            break;
                         }
                         else if(output.contains("Failed to write to file"))
                         {
+                            LCDDisplay.write("");
                             scannerError = true;
                             break;
                         }
